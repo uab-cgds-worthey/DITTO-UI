@@ -265,6 +265,7 @@ def main():
         st.markdown("Please select a Gene from the dropdown above!")
     else:
         gene_vars = load_gene_data(gene_name)
+        gene_vars["genename"] = gene_name
 
         st.sidebar.download_button(
             label=f"Download {gene_name} variants",
