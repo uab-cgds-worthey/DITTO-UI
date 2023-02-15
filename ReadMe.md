@@ -1,24 +1,8 @@
 # DITTO-UI
 
-*!!! For research purposes only !!!*
-
-## Table of Contents
-
-- [DITTO-UI](#ditto-ui)
-    - [Aim](#aim)
-    - [Description](#description)
-    - [Data](#data)
-    - [Usage](#usage)
-        - [Installation](#installation)
-        - [Requirements](#requirements)
-        - [Activate pip environment](#activate-pip-environment)
-        - [Steps to run ](#steps-to-run)
-            - [Run Streamlit App](#run-streamlit-app)
-    - [Contact Info](#contact-info)
-
-## Aim
-
 Easy to use web interface for biologists to look for likely pathogenic variants and understand their deleteriousness using DITTO scores.
+
+*!!! For research purposes only !!!*
 
 ## Description
 
