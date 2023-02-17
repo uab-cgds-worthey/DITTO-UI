@@ -50,17 +50,15 @@ def get_config():
 # @st.cache(allow_output_mutation=True)
 def load_gene_data(gene_name):
     ditto_gene_preds_df = pd.read_csv(
-        f"./data/dbnsfp_predictions/{gene_name}_ditto_predictions.csv.gz"
+        f"./data/dbnsfp_predictions/slim_dbnsfp_predictions/{gene_name}_ditto_predictions.csv.gz"
     )
-    ditto_gene_preds_df = ditto_gene_preds_df[
-        ditto_gene_preds_df["aapos"] != -1
-    ].reset_index(drop=True)
-    ditto_gene_preds_df.sort_values(
-        by=["aapos", "Ditto_Deleterious"], ascending=[True, False]
+    ditto_gene_preds_df = ditto_gene_preds_df[ditto_gene_preds_df["aapos"] != -1].reset_index(
+        drop=True
     )
-    ditto_gene_preds_df["clinvar_clnsig"] = ditto_gene_preds_df[
-        "clinvar_clnsig"
-    ].replace(".", "not seen in clinvar")
+    ditto_gene_preds_df.sort_values(by=["aapos", "Ditto_Deleterious"], ascending=[True, False])
+    ditto_gene_preds_df["clinvar_clnsig"] = ditto_gene_preds_df["clinvar_clnsig"].replace(
+        ".", "not seen in clinvar"
+    )
     ditto_gene_preds_df = ditto_gene_preds_df.replace(np.nan, "N/A")
     ditto_gene_preds_df = ditto_gene_preds_df.replace(".", "N/A")
     return ditto_gene_preds_df
@@ -68,9 +66,7 @@ def load_gene_data(gene_name):
 
 def query_external_api(api_url):
     headers = {"Content-Type": "application/json;charset=UTF-8"}
-    retry_strategy = Retry(
-        total=3, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504]
-    )
+    retry_strategy = Retry(total=3, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
     adapter = HTTPAdapter(max_retries=retry_strategy)
     http = requests.Session()
     http.mount("https://", adapter)
@@ -112,9 +108,7 @@ def get_domain(gene_name):
         )
         try:
             domain = pd.DataFrame(info_dict["results"][0]["features"])
-            domain = domain[domain["type"] == "Domain"][
-                ["type", "location", "description"]
-            ]
+            domain = domain[domain["type"] == "Domain"][["type", "location", "description"]]
             domain[["start", "end"]] = domain["location"].apply(pd.Series)
             domain[["start", "modifier"]] = domain["start"].apply(pd.Series)
             domain[["end", "modifier"]] = domain["end"].apply(pd.Series)
@@ -149,10 +143,7 @@ def gene_plot(st, data, class_color, domain):
     st.markdown("**Interactive scatter plot with nsSNVs**")
 
     class_list = [
-        tuple
-        for x in class_color.keys()
-        for tuple in data.clinvar_clnsig.unique()
-        if tuple == x
+        tuple for x in class_color.keys() for tuple in data.clinvar_clnsig.unique() if tuple == x
     ]
 
     data.clinvar_clnsig = data.clinvar_clnsig.astype("category")
@@ -166,7 +157,6 @@ def gene_plot(st, data, class_color, domain):
         color="clinvar_clnsig",
         # opacity=0.3,
         hover_data=[
-            "genename",
             "aapos",
             "HGVSc_VEP",
             "Ensembl_transcriptid",
@@ -184,9 +174,7 @@ def gene_plot(st, data, class_color, domain):
         color_discrete_map=class_color,
     )
 
-    gene_scatter_plot.add_hline(
-        y=0.91, line_width=2, line_dash="dash", line_color="red"
-    )
+    gene_scatter_plot.add_hline(y=0.91, line_width=2, line_dash="dash", line_color="red")
 
     for _, row in domain.iterrows():
         gene_scatter_plot.add_vrect(
@@ -249,9 +237,7 @@ def main():
     st.markdown(
         "- Scatterplot is made with [Python Plotly](https://plotly.com/python/) and is interactive, can be viewed in full screen."
     )
-    st.markdown(
-        "- Please select/unselect clinvar classes for better interactive visualization"
-    )
+    st.markdown("- Please select/unselect clinvar classes for better interactive visualization")
     st.markdown("--------")
 
     config_dict = get_config()
@@ -315,12 +301,8 @@ def main():
         """
     )
     st.markdown("---")
-    st.markdown(
-        "Developed and Maintained by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/)"
-    )
-    st.markdown(
-        "[Center for Computational Genomics and Data Science](https://sites.uab.edu/cgds/)"
-    )
+    st.markdown("Developed and Maintained by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/)")
+    st.markdown("[Center for Computational Genomics and Data Science](https://sites.uab.edu/cgds/)")
     # st.markdown(f"Most Recently Deposited Entry 09/28/2022")
     st.markdown("Copyright (c) 2022 CGDS")
 
