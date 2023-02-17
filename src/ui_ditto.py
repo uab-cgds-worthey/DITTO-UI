@@ -34,13 +34,13 @@ st.set_page_config(
 )
 
 
-@st.cache
+@st.cache_data
 def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv().encode("utf-8")
 
 
-@st.cache
+@st.cache_data
 def get_config():
     with open("./configs/col_config.yaml") as fh:
         config_dict = yaml.safe_load(fh)
