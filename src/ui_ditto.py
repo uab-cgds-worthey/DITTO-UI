@@ -47,7 +47,7 @@ def get_config():
     return config_dict
 
 
-# @st.cache(allow_output_mutation=True)
+@st.cache_data(max_entries=50) # limit number of genes loaded in cache to 50 to prevent reaching memory limits
 def load_gene_data(gene_name):
     ditto_gene_preds_df = pd.read_csv(
         f"./data/dbnsfp_predictions/slim_dbnsfp_predictions/{gene_name}_ditto_predictions.csv.gz"
@@ -62,7 +62,6 @@ def load_gene_data(gene_name):
     ditto_gene_preds_df = ditto_gene_preds_df.replace(np.nan, "N/A")
     ditto_gene_preds_df = ditto_gene_preds_df.replace(".", "N/A")
     return ditto_gene_preds_df
-
 
 def query_external_api(api_url):
     headers = {"Content-Type": "application/json;charset=UTF-8"}
@@ -87,6 +86,7 @@ def query_external_api(api_url):
     return resp_dict
 
 
+@st.cache_data(ttl=3600) # expire cached results of the Uniprot query after 1 hour for the requested gene
 def get_domain(gene_name):
     uniprot_url = f"https://rest.uniprot.org/uniprotkb/search?&query=gene_exact:{gene_name} AND (taxonomy_id:9606) AND (reviewed:true)"
     info_dict = query_external_api(uniprot_url)
@@ -276,7 +276,7 @@ def main():
     st.markdown("---")
     left_info_col, right_info_col = st.columns(2)
     left_info_col.markdown(
-        f"""
+        """
         ### Authors
         Please feel free to contact us with any issues, comments, or questions.
         ##### Tarun Mamidi [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg?style=social&label=Follow%20%40TarunMamidi7)](https://twitter.com/TarunMamidi7)
