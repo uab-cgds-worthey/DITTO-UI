@@ -1,4 +1,4 @@
-name: ditto-ui
+name: ditto-env
 
 channels:
     - conda-forge
@@ -6,7 +6,7 @@ channels:
 
 dependencies:
     - conda-forge::streamlit==1.18.1
-    - anaconda::pandas==1.4.2
+    - anaconda::pandas==1.5.3
     - conda-forge::numpy==1.24.2
     - conda-forge::plotly==5.13.0
     - conda-forge::pyyaml==6.0
