@@ -1,85 +1,65 @@
 # DITTO-UI
 
-*!!! For research purposes only !!!*
+Easy to use web interface for biologists to look for likely pathogenic variants and understand their deleteriousness
+using DITTO scores.
 
-## Table of Contents
-
-- [DITTO-UI](#ditto-ui)
-    - [Aim](#aim)
-    - [Description](#description)
-    - [Data](#data)
-    - [Usage](#usage)
-        - [Installation](#installation)
-        - [Requirements](#requirements)
-        - [Activate pip environment](#activate-pip-environment)
-        - [Steps to run ](#steps-to-run)
-            - [Run Streamlit App](#run-streamlit-app)
-    - [Contact Info](#contact-info)
-
-## Aim
-
-Easy to use web interface for biologists to look for likely pathogenic variants and understand their deleteriousness using DITTO scores.
+_!!! For research purposes only !!!_
 
 ## Description
 
-A web app where anyone can lookup variants and understand the mechanism/details of
-these variants such as domain, function, DITTO deleterious score and Clinvar reported significance.
+A web app where anyone can lookup variants and understand the mechanism/details of these variants such as domain,
+function, DITTO deleterious score and Clinvar reported significance.
 
 ## Data
 
-We use dbNSFP data (downloaded on xx/xx/2022) for training DITTO and predictions. Domain information is extracted from Uniprot.
+We use dbNSFP data (downloaded on xx/xx/2022) for training DITTO and predictions. Domain information is extracted from
+Uniprot.
 
 ## Usage
 
-DITTO can be accessed at this streamlit [site](https://cgds-ditto4nf.streamlit.app/).
+DITTO-UI is deployed on the Streamlit Cloud: [DITTO-UI site](https://cgds-ditto4nf.streamlit.app/).
 
-### Installation
+### Local Installation and Setup
 
 Installation simply requires fetching the source code. Following are required:
 
-- Git
+-   Git (version 2+)
+-   Mamba (tested on version 0.25 and 1.1.0,
+    [install instructions](https://mamba.readthedocs.io/en/latest/installation.html))
 
 To fetch source code, change in to directory of your choice and run:
 
 ```sh
-git clone \
-    https://github.com/uab-cgds-worthey/DITTO-UI.git
+git clone https://github.com/uab-cgds-worthey/DITTO-UI.git
 ```
 
-### Requirements
-
-*OS:*
-
-Currently works only in Mac OS. Docker versions may need to be explored later to make it useable in Mac (and
-potentially Windows).
-
-*Tools:*
-
-- Python 3.9
-- Pip3
-
-*Environment:*
-
-We used conda environment to install the libraries and run the streamlit app, but one could use python virtual environment as well.
-
-### Install required packages
+#### Environement Creation
 
 Change in to root directory and run the commands below:
 
 ```sh
-# create environment. Needed only the first time.
-pip3 install -r requirements.txt
+# create environment
+mamba env create -f ditto-ui-env.yml
 ```
 
-### Steps to run
+**NOTE**: Please make sure you have
+[strict channel priority](https://conda-forge.org/docs/user/tipsandtricks.html#how-to-fix-it) turned off to create the
+enviroment as having it enabled will not allow the install of Pandas and cause the build to fail.
 
-#### Run Streamlit App
+### Run DITTO-UI locally
+
+To run DITTO-UI locally make sure the conda environment has been succesfully made and then run the following commands
 
 ```sh
-streamlit run src/Home.py
+# activate the DITTO-UI conda environment to deploy locally using Streamlit
+mamba activate ditto-env
+
+# run the DITTO-UI application using Streamlit
+streamlit run src/ui_ditto.py
 ```
+
+Once the application has started up it will open a new tab in your default browser to DITTO-UI
 
 ## Contact Info
 
 Tarun Mamidi | tmamidi@uab.edu
-
