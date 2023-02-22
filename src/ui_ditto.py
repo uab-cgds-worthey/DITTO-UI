@@ -109,7 +109,7 @@ def get_domain(gene_name):
                     "type": "Domain",
                     "description": feature["description"],
                     "start": int(feature["location"]["start"]["value"]),
-                    "end": int(feature["location"]["start"]["value"]),
+                    "end": int(feature["location"]["end"]["value"]),
                 })
 
     if len(domain) == 0:
