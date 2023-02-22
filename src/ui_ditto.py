@@ -88,17 +88,14 @@ def query_external_api(api_url):
 
 @st.cache_data(ttl=3600) # expire cached results of the Uniprot query after 1 hour for the requested gene
 def get_domain(gene_name):
-    uniprot_url = f"https://rest.uniprot.org/uniprotkb/search?&query=gene_exact:{gene_name} AND (taxonomy_id:9606) AND (reviewed:true)"
+    uniprot_url = f"https://rest.uniprot.org/uniprotkb/search?query=gene_exact:{gene_name}+AND+organism_id:9606+AND+reviewed:true&format=json&fields=ft_domain,cc_domain,protein_name"
     info_dict = query_external_api(uniprot_url)
 
     # set defaults for uniprot return information
     fullname = ""
-    domain_default = pd.DataFrame(
-        {"type": ["Domain"], "description": ["null"], "start": [0], "end": [0]}
-    )
-    domain = domain_default
+    domain = []
 
-    if info_dict:
+    if len(info_dict["results"]) > 0:
         fullname = (
             info_dict["results"][0]
             .get("proteinDescription")
@@ -106,20 +103,20 @@ def get_domain(gene_name):
             .get("fullName")
             .get("value")
         )
-        try:
-            domain = pd.DataFrame(info_dict["results"][0]["features"])
-            domain = domain[domain["type"] == "Domain"][["type", "location", "description"]]
-            domain[["start", "end"]] = domain["location"].apply(pd.Series)
-            domain[["start", "modifier"]] = domain["start"].apply(pd.Series)
-            domain[["end", "modifier"]] = domain["end"].apply(pd.Series)
-            domain = domain.drop(["location", "modifier"], axis=1)
-            domain = domain.reset_index(drop=True)
-        except:
-            # no-op out of laziness for dealing with aberent parsing of uniprot return :D
-            domain = domain_default
+        for feature in info_dict["results"][0]["features"]:
+            if feature["type"] == "Domain":
+                domain.append({
+                    "type": "Domain",
+                    "description": feature["description"],
+                    "start": int(feature["location"]["start"]["value"]),
+                    "end": int(feature["location"]["start"]["value"]),
+                })
+
+    if len(domain) == 0:
+        domain.append({"type": "Domain", "description": "", "start": 0, "end": 0})
 
     del info_dict
-    return fullname, domain
+    return fullname, pd.DataFrame(domain)
 
 
 def domain_count(data, domain):
@@ -253,12 +250,13 @@ def main():
         gene_vars = load_gene_data(gene_name)
         gene_vars["genename"] = gene_name
 
-        st.sidebar.download_button(
-            label=f"Download {gene_name} variants",
-            data=convert_df(gene_vars),
-            file_name=f"{gene_name}_DITTO_predictions.csv",
-            mime="text/csv",
-        )
+        with open(f"./data/dbnsfp_predictions/slim_dbnsfp_predictions/{gene_name}_ditto_predictions.csv.gz", "rb") as dl_gene_file:
+            st.sidebar.download_button(
+                label=f"Download {gene_name} variants",
+                data=dl_gene_file,
+                file_name=f"{gene_name}_DITTO_predictions.csv",
+                mime="application/octet-stream",
+            )
 
         fullname, domain = get_domain(gene_name)
         st.subheader(f"{gene_name} ({fullname}) non-synonymous variants from dbNSFP")
