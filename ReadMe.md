@@ -12,12 +12,12 @@ function, DITTO deleterious score and Clinvar reported significance.
 
 ## Data
 
-DITTO-UI comprises precomputed DITTO scores for missense variants using dbNSFP data (downloaded on xx/xx/2022) for
+DITTO-UI comprises precomputed DITTO scores for missense variants using dbNSFP data (downloaded on 03/19/2022) for
 training DITTO and making predictions. Domain information is extracted from Uniprot via an API query on page render.
 
 ## Usage
 
-DITTO-UI is deployed on the Streamlit Cloud: [DITTO-UI site](https://cgds-ditto4nf.streamlit.app/).
+DITTO-UI is deployed on the Streamlit Cloud: [DITTO-UI site](https://cgds-ditto.streamlit.app).
 
 ### Local Installation and Setup
 
