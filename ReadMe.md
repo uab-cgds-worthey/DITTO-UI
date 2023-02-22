@@ -39,7 +39,7 @@ Change in to root directory and run the commands below:
 
 ```sh
 # create environment
-mamba env create -f ditto-ui-env.yml
+mamba env create -n ditto-env -f environment.yml
 ```
 
 **NOTE**: Please make sure you have
