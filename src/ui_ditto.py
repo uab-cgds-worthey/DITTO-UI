@@ -88,7 +88,7 @@ def query_external_api(api_url):
 
 @st.cache_data(ttl=3600) # expire cached results of the Uniprot query after 1 hour for the requested gene
 def get_domain(gene_name):
-    uniprot_url = f"https://rest.uniprot.org/uniprotkb/search?query=gene_exact:{gene_name}+AND+organism_id:9606+AND+reviewed:true&format=json&fields=ft_domain,cc_domain,protein_name"
+    uniprot_url = f"https://rest.uniprot.org/uniprotkb/search?query=gene_exact:{gene_name}+AND+organism_id:9606&format=json&fields=ft_domain,cc_domain,protein_name"
     info_dict = query_external_api(uniprot_url)
 
     # set defaults for uniprot return information
@@ -96,13 +96,24 @@ def get_domain(gene_name):
     domain = []
 
     if len(info_dict["results"]) > 0:
-        fullname = (
-            info_dict["results"][0]
-            .get("proteinDescription")
-            .get("recommendedName")
-            .get("fullName")
-            .get("value")
-        )
+        first_rec = info_dict["results"][0]
+        if "recommendedName" in first_rec.get("proteinDescription"):
+            fullname = (
+                first_rec
+                .get("proteinDescription")
+                .get("recommendedName")
+                .get("fullName")
+                .get("value")
+            )
+        elif "submissionNames" in first_rec.get("proteinDescription"):
+            fullname = (
+                first_rec
+                .get("proteinDescription")
+                .get("submissionNames")[0]
+                .get("fullName")
+                .get("value")
+            )
+
         for feature in info_dict["results"][0]["features"]:
             if feature["type"] == "Domain":
                 domain.append({
