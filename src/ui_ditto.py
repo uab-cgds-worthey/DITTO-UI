@@ -11,18 +11,18 @@ from urllib3.util.retry import Retry
 
 class ClinSigColors:
     default_colors = {
-        "Pathogenic": "#b2182b",
-        "Pathogenic/Likely_pathogenic": "#b2182b",
-        "Likely_pathogenic": "#d73027",
-        "Uncertain_significance": "#5ab4ac",
-        "Uncertain_significance,_other": "#5ab4ac",
-        "Likely_benign": "#2166ac",
-        "Benign/Likely_benign": "#2166ac",
+        "not seen in clinvar": "#969696",
+        "other": "#969696",
+        "not provided": "#969696",
+        "Conflicting interpretations of pathogenicity": "#d8b365",
         "Benign": "#3182bd",
-        "not seen in clinvar": "#5ab4ac",
-        "other": "#5ab4ac",
-        "not_provided": "#5ab4ac",
-        "Conflicting_interpretations_of_pathogenicity": "#d8b365",
+        "Likely benign": "#2166ac",
+        "Benign/Likely benign": "#2166ac",
+        "Uncertain significance": "#5ab4ac",
+        "Uncertain significance, other": "#5ab4ac",
+        "Pathogenic/Likely pathogenic": "#b2182b",
+        "Likely pathogenic": "#d73027",
+        "Pathogenic": "#b2182b",
     }
 
 
@@ -47,7 +47,9 @@ def get_config():
     return config_dict
 
 
-@st.cache_data(max_entries=50) # limit number of genes loaded in cache to 50 to prevent reaching memory limits
+@st.cache_data(
+    max_entries=50
+)  # limit number of genes loaded in cache to 50 to prevent reaching memory limits
 def load_gene_data(gene_name):
     ditto_gene_preds_df = pd.read_csv(
         f"./data/dbnsfp_predictions/slim_dbnsfp_predictions/{gene_name}_ditto_predictions.csv.gz"
@@ -62,6 +64,7 @@ def load_gene_data(gene_name):
     ditto_gene_preds_df = ditto_gene_preds_df.replace(np.nan, "N/A")
     ditto_gene_preds_df = ditto_gene_preds_df.replace(".", "N/A")
     return ditto_gene_preds_df
+
 
 def query_external_api(api_url):
     headers = {"Content-Type": "application/json;charset=UTF-8"}
@@ -78,7 +81,8 @@ def query_external_api(api_url):
         resp_dict = response.json()
     except requests.exceptions.RequestException as expt:
         print(
-            f"Failed to query {api_url}, code: {response.status_code}, reason: {response.reason}, text: {response.text}, error: {str(expt)}"
+            f"Failed to query {api_url}, code: {response.status_code}, reason: {response.reason},"
+            f" text: {response.text}, error: {str(expt)}"
         )
     finally:
         http.close()  # this will release resources so that the GC can clean up the request and response objects
@@ -86,7 +90,9 @@ def query_external_api(api_url):
     return resp_dict
 
 
-@st.cache_data(ttl=3600) # expire cached results of the Uniprot query after 1 hour for the requested gene
+@st.cache_data(
+    ttl=3600
+)  # expire cached results of the Uniprot query after 1 hour for the requested gene
 def get_domain(gene_name):
     uniprot_url = f"https://rest.uniprot.org/uniprotkb/search?query=gene_exact:{gene_name}+AND+organism_id:9606&format=json&fields=ft_domain,cc_domain,protein_name"
     info_dict = query_external_api(uniprot_url)
@@ -99,16 +105,14 @@ def get_domain(gene_name):
         first_rec = info_dict["results"][0]
         if "recommendedName" in first_rec.get("proteinDescription"):
             fullname = (
-                first_rec
-                .get("proteinDescription")
+                first_rec.get("proteinDescription")
                 .get("recommendedName")
                 .get("fullName")
                 .get("value")
             )
         elif "submissionNames" in first_rec.get("proteinDescription"):
             fullname = (
-                first_rec
-                .get("proteinDescription")
+                first_rec.get("proteinDescription")
                 .get("submissionNames")[0]
                 .get("fullName")
                 .get("value")
@@ -116,12 +120,14 @@ def get_domain(gene_name):
 
         for feature in info_dict["results"][0]["features"]:
             if feature["type"] == "Domain":
-                domain.append({
-                    "type": "Domain",
-                    "description": feature["description"],
-                    "start": int(feature["location"]["start"]["value"]),
-                    "end": int(feature["location"]["end"]["value"]),
-                })
+                domain.append(
+                    {
+                        "type": "Domain",
+                        "description": feature["description"],
+                        "start": int(feature["location"]["start"]["value"]),
+                        "end": int(feature["location"]["end"]["value"]),
+                    }
+                )
 
     if len(domain) == 0:
         domain.append({"type": "Domain", "description": "", "start": 0, "end": 0})
@@ -131,7 +137,6 @@ def get_domain(gene_name):
 
 
 def domain_count(data, domain):
-
     for clinvar_class in list(data["clinvar_clnsig"].unique()):
         # Use .iterrows() to iterate over Pandas rows
         for idx, row in domain.iterrows():
@@ -183,6 +188,7 @@ def gene_plot(st, data, class_color, domain):
     )
 
     gene_scatter_plot.add_hline(y=0.91, line_width=2, line_dash="dash", line_color="red")
+    gene_scatter_plot.update_layout(legend_traceorder="reversed")
 
     for _, row in domain.iterrows():
         gene_scatter_plot.add_vrect(
@@ -227,23 +233,26 @@ def gene_plot(st, data, class_color, domain):
 
 
 def main():
-
     st.subheader("Gene view of non-synonymous variants from dbNSFP")
     st.write("**Methods:**")
     st.markdown(
-        "- Non-Synonymous Single Nucleotide Variants (nsSNVs) are downloaded from [dbNSFP](http://database.liulab.science/dbNSFP) and run through DITTO (unpublished) for deleterious predictions."
+        "- Non-Synonymous Single Nucleotide Variants (nsSNVs) are downloaded from"
+        " [dbNSFP](http://database.liulab.science/dbNSFP) and run through DITTO (unpublished) for"
+        " deleterious predictions."
     )
     st.markdown(
-        "- Each dot in the below interactive scatter plots is a variant-transcript pair i.e. variant positioned on one of the Ensemble transcripts. Colors of each dot represents the [Clinvar](https://www.ncbi.nlm.nih.gov/clinvar/) Classification denoted by the same color in figure legends. "
+        "- Each dot in the below interactive scatter plots is a variant-transcript pair i.e."
+        " variant positioned on one of the Ensemble transcripts. Colors of each dot represents the"
+        " [Clinvar](https://www.ncbi.nlm.nih.gov/clinvar/) Classification denoted by the same color"
+        " in figure legends. "
     )
     st.markdown(
-        "- The red dashed line represents the cutoff of DITTO score (0.91) to be classified as highly deleterious to the protein."
+        "- The red dashed line represents the cutoff of DITTO score (0.91) to be classified as"
+        " highly deleterious to the protein."
     )
-    # st.markdown(
-    #    "- Domains of PKD1/2 are mapped according to their Amino Acid positions and are represented on top of the plot with different colors. The bar plot below shows the number of variants classified in to each clinvar class per each domain."
-    # )
     st.markdown(
-        "- Scatterplot is made with [Python Plotly](https://plotly.com/python/) and is interactive, can be viewed in full screen."
+        "- Scatterplot is made with [Python Plotly](https://plotly.com/python/) and is interactive,"
+        " can be viewed in full screen."
     )
     st.markdown("- Please select/unselect clinvar classes for better interactive visualization")
     st.markdown("--------")
@@ -261,7 +270,10 @@ def main():
         gene_vars = load_gene_data(gene_name)
         gene_vars["genename"] = gene_name
 
-        with open(f"./data/dbnsfp_predictions/slim_dbnsfp_predictions/{gene_name}_ditto_predictions.csv.gz", "rb") as dl_gene_file:
+        with open(
+            f"./data/dbnsfp_predictions/slim_dbnsfp_predictions/{gene_name}_ditto_predictions.csv.gz",
+            "rb",
+        ) as dl_gene_file:
             st.sidebar.download_button(
                 label=f"Download {gene_name} variants",
                 data=dl_gene_file,
@@ -306,7 +318,8 @@ def main():
     right_info_col.markdown(
         """
         ### License
-        TBD
+        GNU General Public License\n
+        Version 3, 29 June 2007
         """
     )
     st.markdown("---")
