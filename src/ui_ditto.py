@@ -48,7 +48,7 @@ def get_config():
 
 
 @st.cache_data(
-    max_entries=50
+    max_entries=5
 )  # limit number of genes loaded in cache to 50 to prevent reaching memory limits
 def load_gene_data(gene_name):
     ditto_gene_preds_df = pd.read_csv(
