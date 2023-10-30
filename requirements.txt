@@ -4,3 +4,4 @@ shap==0.41.0
 pandas==2.0.1
 tensorflow==2.11
 pyaml==23.7.0
+plotly==5.18.0
