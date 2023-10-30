@@ -1,0 +1,687 @@
+[
+  {
+    "col_id": "crx.coding",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "crx.all_mappings",
+    "parse_type": {
+      "all_mappings": {
+        "dict_index": {
+          "0": "uniprot_id",
+          "1": "protein_hgvs",
+          "2": "consequence",
+          "3": "transcript",
+          "4": "cdna_hgvs"
+        }
+      }
+    }
+  },
+  {
+    "col_id": "aloft.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "1": "aloft.affect",
+          "2": "aloft.tolerant",
+          "3": "aloft.recessive",
+          "4": "aloft.dominant",
+          "5": "aloft.pred",
+          "6": "aloft.conf"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "cadd.phred",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "cgd.inheritance",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "chasmplus.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "1": "chasmplus.score",
+          "2": "chasmplus.pval"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "civic.molecular_profile_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "cosmic.transcript",
+    "parse_type": {
+      "list": {
+        "trx_index_col": "cosmic.transcript",
+        "column_list": ["cosmic.variant_count"],
+        "separator": ";"
+      }
+    }
+  },
+  {
+    "col_id": "cosmic_gene.occurrences",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "cscape.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "cgc.class",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "cgc.inheritance",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "cancer_genome_interpreter.resistant",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "cancer_genome_interpreter.responsive",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "cancer_genome_interpreter.other",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "ccre_screen._group",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "ccre_screen.bound",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "clingen.disease",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "clingen.classification",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "clinpred.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "clinvar.sig",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "clinvar.id",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "clinvar.rev_stat",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "clinvar.sig_conf",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "dann.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "dann_coding.dann_coding_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "dgi.interaction",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "dgi.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "ensembl_regulatory_build.region",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "ess_gene.indispensability_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "exac_gene.exac_pli",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "exac_gene.exac_pnull",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "exac_gene.exac_del_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "exac_gene.exac_dup_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "exac_gene.exac_cnv_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "exac_gene.exac_cnv_flag",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "fathmm.ens_tid",
+    "parse_type": {
+      "list": {
+        "trx_index_col": "fathmm.ens_tid",
+        "column_list": ["fathmm.fathmm_score"],
+        "separator": ";"
+      }
+    }
+  },
+  {
+    "col_id": "fathmm_xf_coding.fathmm_xf_coding_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "funseq2.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "gerp.gerp_rs",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "ghis.ghis",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "gtex.gtex_tissue",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "gwas_catalog.pval",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "genehancer.feature_name",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "genehancer.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "linsight.value",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "lrt.lrt_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "lrt.lrt_omega",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "loftool.loftool_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "mavedb.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "metalr.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "metasvm.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "mutpred1.mutpred_top5_mechanisms",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "4": "mutpred1.mutpred_general_score"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "mutpred_indel.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "mutation_assessor.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "2": "mutation_assessor.score"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "mutationtaster.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "1": "mutationtaster.score",
+          "3": "mutationtaster.prediction",
+          "4": "mutationtaster.model"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "ncbigene.entrez",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "ndex_chd.numhit",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "ndex.numhit",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "ndex_signor.numhit",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "omim.omim_id",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "prec.prec",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "prec.stat",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "provean.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "2": "provean.score"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "pangalodb.sensitivity",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "pangalodb.specificity",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "phdsnpg.score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "phastcons.phastcons100_vert",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "phastcons.phastcons30_mamm",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "phastcons.phastcons17way_primate",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "phylop.phylop100_vert",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "phylop.phylop30_mamm",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "phylop.phylop17_primate",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "polyphen2.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "3": "polyphen2.hdiv_rank",
+          "6": "polyphen2.hvar_rank"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "revel.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "1": "revel.score"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "rvis.rvis_evs",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "repeat.repeatclass",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "sift.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "1": "sift.score",
+          "4": "sift.med",
+          "5": "sift.confidence",
+          "6": "sift.seqs"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "segway.mean_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "siphy.logodds_rank",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "spliceai.ds_ag",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "spliceai.ds_al",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "spliceai.ds_dg",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "spliceai.ds_dl",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "spliceai.dp_ag",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "spliceai.dp_al",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "spliceai.dp_dg",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "spliceai.dp_dl",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "uniprot.acc",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "varity_r.varity_r_loo",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "varity_r.varity_er_loo",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "vest.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "1": "vest.score"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "dbsnp.rsid",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "dbscsnv.ada_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "dbscsnv.rf_score",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "gnomad.af",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "gnomad_gene.all",
+    "parse_type": {
+      "list-o-dicts": {
+        "dict_index": {
+          "1": "gnomad_gene.oe_lof",
+          "2": "gnomad_gene.oe_mis",
+          "3": "gnomad_gene.oe_syn",
+          "4": "gnomad_gene.lof_z",
+          "5": "gnomad_gene.mis_z",
+          "6": "gnomad_gene.syn_z",
+          "7": "gnomad_gene.pLI",
+          "8": "gnomad_gene.pRec",
+          "9": "gnomad_gene.pNull"
+        },
+        "trx_mapping_col_index": 0
+      }
+    }
+  },
+  {
+    "col_id": "gnomad3.af",
+    "parse_type": {
+      "none": "none"
+    }
+  },
+  {
+    "col_id": "phi.phi",
+    "parse_type": {
+      "none": "none"
+    }
+  }
+]
