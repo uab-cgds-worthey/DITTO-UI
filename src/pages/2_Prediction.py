@@ -9,6 +9,10 @@ import numpy as np
 import yaml
 import pickle
 
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
 # import matplotlib.pyplot as plt
 import shap
 from tensorflow import keras
@@ -72,216 +76,188 @@ def load_model():
 
     # Generate SHAP explainer object
     explainer = shap.KernelExplainer(clf.predict, background)
-    del clf
-    return explainer
+    return explainer, clf
 
 
-@st.cache_data
-def load_lovd(config_dict):
-    lovd = pd.read_csv(
-        "results/lovd_filtered.csv.gz",
-        low_memory=False,
-    )
+def query_external_api(api_url):
+    headers = {"Content-Type": "application/json;charset=UTF-8"}
+    retry_strategy = Retry(total=3, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
+    adapter = HTTPAdapter(max_retries=retry_strategy)
+    http = requests.Session()
+    http.mount("https://", adapter)
+    response = http.get(api_url, headers=headers)
 
-    # Extract ID columns along with DITTO score for the plot
-    ditto = lovd[config_dict["id_cols"]]
+    # raise exception if 4XX or 5XX status code returned from server after 3 retries
+    resp_dict = None
+    try:
+        response.raise_for_status()
+        resp_dict = response.json()
+    except requests.exceptions.RequestException as expt:
+        print(
+            f"Failed to query {api_url}, code: {response.status_code}, reason: {response.reason},"
+            f" text: {response.text}, error: {str(expt)}"
+        )
+    finally:
+        http.close()  # this will release resources so that the GC can clean up the request and response objects
 
-    # Add variant info to a single column
-    ditto["var_details"] = (
-        ditto["chrom"]
-        + ":"
-        + ditto["pos"].astype(str)
-        + ":"
-        + ditto["ref_base"]
-        + ">"
-        + ditto["alt_base"]
-    )
-
-    # Extract feature names for SHAP plot
-    feature_names = lovd.drop(config_dict["id_cols"], axis=1).columns
-
-    return lovd, ditto, feature_names
+    return resp_dict
 
 
-def plot_data(st, data, class_color):
-    st.subheader("**Interactive scatter plot with DITTO predictions**")
-    st.markdown(
-        "- Each dot in the below interactive scatter plot is a"
-        " variant-transcript pair i.e. variant positioned on one of the"
-        " Ensemble transcripts. Color of each dot represents the"
-        " [Clinvar](https://www.ncbi.nlm.nih.gov/clinvar/) classification"
-        " denoted by the same color in figure legends."
-    )
-    st.markdown(
-        f"- The red dashed line represents the cutoff of DITTO score to be"
-        f" classified as highly deleterious to the protein."
-    )
-    st.markdown(
-        "- Scatterplot is made with [Python Plotly](https://plotly.com/python/)"
-        " and is interactive; can be viewed in full screen."
-    )
-    st.write(f"Total variants = {len(data)}")
+@st.cache_data(
+    ttl=3600
+)  # expire cached results of the Uniprot query after 1 hour for the requested gene
+def get_domain(gene_name):
+    uniprot_url = f"https://rest.uniprot.org/uniprotkb/search?query=gene_exact:{gene_name}+AND+organism_id:9606&format=json&fields=ft_domain,cc_domain,protein_name"
+    info_dict = query_external_api(uniprot_url)
 
-    data["clinvar.sig"] = data["clinvar.sig"].replace(np.nan, "not seen in clinvar")
-    data = data.replace(np.nan, "N/A")
+    # set defaults for uniprot return information
+    fullname = ""
+    domain = []
 
-    # Sort the data by clinvar classification by categorizing them using the class_color dictionary. This is to make
-    # sure only the clinvar class in the data are shown in the plot.
-    class_list = [
-        tuple for x in class_color.keys() for tuple in data["clinvar.sig"].unique() if tuple == x
-    ]
+    if len(info_dict["results"]) > 0:
+        first_rec = info_dict["results"][0]
+        if "recommendedName" in first_rec.get("proteinDescription"):
+            fullname = (
+                first_rec.get("proteinDescription")
+                .get("recommendedName")
+                .get("fullName")
+                .get("value")
+            )
+        elif "submissionNames" in first_rec.get("proteinDescription"):
+            fullname = (
+                first_rec.get("proteinDescription")
+                .get("submissionNames")[0]
+                .get("fullName")
+                .get("value")
+            )
 
-    data["clinvar.sig"] = data["clinvar.sig"].astype("category")
-    data["clinvar.sig"] = data["clinvar.sig"].cat.set_categories(class_list)
-    data = data.sort_values(["clinvar.sig"])
+        for feature in info_dict["results"][0]["features"]:
+            if feature["type"] == "Domain":
+                domain.append(
+                    {
+                        "type": "Domain",
+                        "description": feature["description"],
+                        "start": int(feature["location"]["start"]["value"]),
+                        "end": int(feature["location"]["end"]["value"]),
+                    }
+                )
 
-    # Calculate cutoff
-    cutoff = data[data["clinvar.sig"].dropna(how="all").isin(["Likely pathogenic"])]["DITTO"].mean()
-    cutoff = round(cutoff, 2)
+    if len(domain) == 0:
+        domain.append({"type": "Domain", "description": "", "start": 0, "end": 0})
 
-    st.write(f"Deleterious cutoff value = {cutoff}")
+    del info_dict
+    return fullname, pd.DataFrame(domain)
 
-    # Scatter plot with DITTO score
-    data1 = px.scatter(
-        data,
-        x="pos",
-        y="DITTO",
-        color="clinvar.sig",
-        # opacity=0.3,
-        hover_data=[
-            "consequence",
-            "var_details",
-            "transcript",
-            "clinvar.sig",
-            "clingen.classification",
-            "clinvar.sig_conf",
-            "clinvar.rev_stat",
-        ],
-        hover_name="protein_hgvs",
-        labels={
-            "pos": "Position",
-            "DITTO": "DITTO Deleterious Score",
-            "clinvar.sig": "Clinvar Classification",
-            "clinvar.sig_conf": "Clinvar Confidence",
-            "clinvar.rev_stat": "Clinvar review status",
-        },
-        color_discrete_map=class_color,
-    )
-    data1.update_layout(xaxis_tickformat="f")
 
-    # Add cutoff line
-    data1.add_hline(y=cutoff, line_width=2, line_dash="dash", line_color="red")
-    data1.update_layout(legend_traceorder="reversed")
+@st.cache_data(
+    ttl=3600
+)  # expire cached results of the Uniprot query after 1 hour for the requested gene
+def oc_api(chrom="1", pos=2406483, ref="C", alt="G"):
+    uniprot_url = f"https://run.opencravat.org/submit/annotate?chrom=chr{chrom}&pos={pos}&ref_base={ref}&alt_base={alt}&annotators=aloft,cadd,cadd_exome,cancer_genome_interpreter,ccre_screen,chasmplus,civic,clingen,clinpred,clinvar,cosmic,cosmic_gene,cscape,dann,dann_coding,dbscsnv,dbsnp,dgi,ensembl_regulatory_build,ess_gene,exac_gene,fathmm,fathmm_xf_coding,funseq2,genehancer,gerp,ghis,gnomad,gnomad3,gnomad_gene,gtex,gwas_catalog,linsight,loftool,lrt,mavedb,metalr,metasvm,mutation_assessor,mutationtaster,mutpred1,mutpred_indel,ncbigene,ndex,ndex_chd,ndex_signor,omim,pangalodb,phastcons,phdsnpg,phi,phylop,polyphen2,prec,provean,repeat,revel,rvis,segway,sift,siphy,spliceai,uniprot,vest,cgc,cgd,varity_r"
+    info_dict = query_external_api(uniprot_url)
+    return info_dict
 
-    st.plotly_chart(data1, use_container_width=True)
-    return None
+
+def get_annots(info_dict, config_dict):
+    current_data = {}
+
+    for key in config_dict:
+        if key in info_dict:
+            current_data[key] = info_dict[key]
+        else:
+            # Handle the case where the key is not present in the dictionary
+            current_data[key] = None
+    return current_data
 
 
 def main():
-    st.header(f"DITTO deleterious prediction with explanations for LOVD NF1 variants")
+    st.header(f"DITTO deleterious prediction with explanations")
 
     # Load the config file as dictionary
-    config_f = "./configs/app_cols.yaml"
+    config_f = "./configs/col_config.yaml"
     config_dict = get_col_configs(config_f)
 
     # Load the model and data
-    df2, var, feature_names = load_lovd(config_dict)
-    explainer = load_model()
+    # df2, var, feature_names = load_lovd(config_dict)
+    explainer, clf = load_model()
 
-    # Filter data depending on transcript selected
-    transcript = st.sidebar.selectbox("Choose transcript:", options=df2["transcript"].unique())
-    lovd = df2[df2["transcript"] == transcript].reset_index(drop=True)
-    overall = var[var["transcript"] == transcript].reset_index(drop=True)
+    # # Filter data depending on transcript selected
+    # transcript = st.sidebar.selectbox("Choose transcript:", options=df2["transcript"].unique())
+    # lovd = df2[df2["transcript"] == transcript].reset_index(drop=True)
+    # overall = var[var["transcript"] == transcript].reset_index(drop=True)
 
-    # Choose prediction display option
-    display_data = st.sidebar.selectbox(
-        "Choose prediction display option:", options=["Plot", "Table"]
-    )
-    if display_data == "Table":
-        st.dataframe(overall)
-    else:
-        plot_data(st, overall, ClinSigColors.default_colors)
+    # # Download DITTO predictions
+    # st.sidebar.download_button(
+    #     label=f"Download DITTO predictions",
+    #     data=convert_df(overall),
+    #     file_name=f"DITTO_LOVD_predictions.csv",
+    #     mime="text/csv",
+    # )
 
-    # Download DITTO predictions
-    st.sidebar.download_button(
-        label=f"Download DITTO predictions",
-        data=convert_df(overall),
-        file_name=f"DITTO_LOVD_predictions.csv",
-        mime="text/csv",
-    )
+    col1, col2 = st.columns(2)
+    chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "MT"])
+    pos = col2.text_input("Position:", 2406483)
+    ref = col1.text_input("Reference Nucleotide:", "C")
+    alt = col2.text_input("Alternate Nucleotide:", "G")
 
+    # if chrom & pos & ref & alt:
+    info_dict = oc_api(chrom, int(pos), ref, alt)
+    annot_col1, annot_col2, annot_col3, annot_col4 = st.columns(4)
+    annot_col1.subheader("Allele Frequencies")
+    AF_data = get_annots(info_dict, config_dict["display_cols"]["AF"])
+    annot_col1.write(AF_data)
+
+    annot_col2.subheader("Conservation scores")
+    cons_data = get_annots(info_dict, config_dict["display_cols"]["cons"])
+    annot_col2.write(cons_data)
+
+    annot_col3.subheader("Damage predictors")
+    pred_data = get_annots(info_dict, config_dict["display_cols"]["pred"])
+    annot_col3.write(pred_data)
+
+    annot_col4.subheader("Clinical reportings")
+    clinical_data = get_annots(info_dict, config_dict["display_cols"]["clinical"])
+    annot_col4.write(clinical_data)
+
+    st.write(info_dict)
+
+    # # initialise data of lists to print on the webpage.
+    # var_scores = {
+    #     "Source": [
+    #         "DITTO score",
+    #         "Clinvar Classification",
+    #         "Clingen Classification",
+    #         "gnomAD AF",
+    #     ],
+    #     "Values": [
+    #         # str(round(1 - (ditto["DITTO"].values[0]), 2)),
+    #         str(ditto["DITTO"].values[0]),
+    #         ditto["clinvar.sig"].values[0],
+    #         ditto["clingen.classification"].values[0],
+    #         annots["gnomad3.af"].values[0],
+    #     ],
+    # }
+    # # Create DataFrame
+    # col1.dataframe(pd.DataFrame(var_scores))
     # Filter variant from data and display variant information for SHAP plot
     st.subheader("**DITTO Explanations using SHAP**")
     st.markdown(
         "Please choose table view option in sidebar to display necessary"
         " variant information that can be used to generate SHAP plot."
     )
-    col1, col2 = st.columns([1, 2])
-    chrom = col1.selectbox("Chromosome:", options=overall["chrom"].unique())
-    pos = col1.selectbox(
-        "Position:",
-        options=overall[(overall.chrom == chrom)]["pos"].unique(),
-    )
-    ref = col1.selectbox(
-        "Reference Nucleotide:",
-        options=overall[(overall.chrom == chrom) & (overall.pos == pos)]["ref_base"].unique(),
-    )
-    alt = col1.selectbox(
-        "Alternate Nucleotide:",
-        options=overall[
-            (overall.chrom == chrom) & (overall.pos == pos) & (overall.ref_base == ref)
-        ]["alt_base"].unique(),
-    )
-    ditto = overall[
-        (overall.chrom == chrom)
-        & (overall.pos == pos)
-        & (overall.ref_base == ref)
-        & (overall.alt_base == alt)
-    ]
+    # # SHAP explanation
+    # shap_value = explainer.shap_values(annots.values)[0]
 
-    annots = (
-        lovd[
-            (lovd.chrom == chrom)
-            & (lovd.pos == pos)
-            & (lovd.ref_base == ref)
-            & (lovd.alt_base == alt)
-        ]
-        .drop(config_dict["id_cols"], axis=1)
-        .reset_index(drop=True)
-    )
-
-    # initialise data of lists to print on the webpage.
-    var_scores = {
-        "Source": [
-            "DITTO score",
-            "Clinvar Classification",
-            "Clingen Classification",
-            "gnomAD AF",
-        ],
-        "Values": [
-            # str(round(1 - (ditto["DITTO"].values[0]), 2)),
-            str(ditto["DITTO"].values[0]),
-            ditto["clinvar.sig"].values[0],
-            ditto["clingen.classification"].values[0],
-            annots["gnomad3.af"].values[0],
-        ],
-    }
-    # Create DataFrame
-    col1.dataframe(pd.DataFrame(var_scores))
-
-    # SHAP explanation
-    shap_value = explainer.shap_values(annots.values)[0]
-
-    # SHAP explanation plot for a variant
-    col2.pyplot(
-        shap.plots._waterfall.waterfall_legacy(
-            1 - explainer.expected_value[0],  # DITTO prediction for deleterious is (1 - y_pred)
-            np.negative(shap_value[0]),  # SHAP value for deleterious is negative
-            annots.values[0],
-            feature_names,
-            max_display=20,
-        )
-    )
+    # # SHAP explanation plot for a variant
+    # col2.pyplot(
+    #     shap.plots._waterfall.waterfall_legacy(
+    #         1 - explainer.expected_value[0],  # DITTO prediction for deleterious is (1 - y_pred)
+    #         np.negative(shap_value[0]),  # SHAP value for deleterious is negative
+    #         annots.values[0],
+    #         feature_names,
+    #         max_display=20,
+    #     )
+    # )
 
 
 if __name__ == "__main__":
