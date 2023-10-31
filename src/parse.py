@@ -76,7 +76,7 @@ class OCApiParser:
             for index, data_value in enumerate(
                 oc_response_dict[data_src][data_field_name].split(value_sep)
             ):
-                dict_of_dicts[trx_index_keys[index]][data_field_name] = data_value
+                dict_of_dicts[trx_index_keys[index]][data_field] = data_value
 
         return dict_of_dicts
 
@@ -181,63 +181,38 @@ if __name__ == "__main__":
     ]
 
     PARSER = argparse.ArgumentParser(
-        description="Simple parser for creating data model, data parsing config, and data parsing of annotations from OpenCravat",
+        description="Easy testing of data parsing of annotations from OpenCravat API",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
 
     PARSER.add_argument(
         "-i",
-        "--input_csv",
-        help="File path to the CSV file of annotated variants from OpenCravat",
+        "--input",
+        help="File path to the JSON file of annotated variant from OpenCravat API",
         required=True,
-        type=lambda x: is_valid_file(PARSER, x),
-        metavar="\b",
-    )
-
-    PARSER.add_argument(
-        "-e",
-        "--exec",
-        help="Determine what should be done: create a new data config file or parse the annotations from the OpenCravat CSV file",
-        required=True,
-        choices=EXECUTIONS,
-        metavar="\b",
-    )
-
-    OPTIONAL_ARGS = PARSER.add_argument_group("Override Args")
-    PARSER.add_argument(
-        "-o",
-        "--output",
-        help="Output directory for parsing",
-        type=lambda x: is_valid_output_dir(PARSER, x),
-        metavar="\b",
-    )
-
-    PARSER.add_argument(
-        "-v",
-        "--version",
-        help="Verison of OpenCravat used to generate the config file (only required during config parsing)",
-        type=str,
-        metavar="\b",
-    )
-
-    PARSER.add_argument(
-        "-c",
-        "--config",
-        help="File path to the data config JSON file that determines how to parse annotated variants from OpenCravat",
         type=lambda x: is_valid_file(PARSER, x),
         metavar="\b",
     )
 
     ARGS = PARSER.parse_args()
 
-    if ARGS.exec == "config" and not ARGS.version:
-        print(
-            "Version of OpenCravat must be specified when creating a config from their data for tracking purposes"
-        )
-        raise SystemExit(1)
+    repo_root = Path(__file__).parent.parent
 
-    if ARGS.exec == "config":
-        create_data_config(ARGS.input_csv, f"opencravat_{ARGS.version}_config.json")
-    else:
-        outdir = Path(ARGS.output) if ARGS.output else Path(ARGS.input_csv).parent
-        parse_annotations(ARGS.input_csv, ARGS.config, outdir)
+    data_config = repo_root / "configs" / "opencravat_test_config.json"
+    data_config_dict = None
+    with data_config.open("rt") as dc_fp:
+        data_config_dict = json.load(dc_fp)
+
+    col_config = repo_root / "configs" / "col_config.yaml"
+    col_config_dict = None
+    with col_config.open("rt") as cc_fp:
+        col_config_dict = yaml.safe_load(cc_fp)
+
+    parser = OCApiParser(data_config_dict, col_config_dict)
+
+    test_file = Path(ARGS.input)
+    annotation_data = None
+    with test_file.open("rt") as ex_fp:
+        annotation_data = json.load(ex_fp)
+
+    print(parser.parse_oc_api_json(annotation_data))
