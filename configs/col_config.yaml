@@ -145,29 +145,21 @@ train_cols:
 
 display_cols:
   cons:
-   - gerp['gerp_rs']
-   - phastcons['phastcons100_vert']
-   - phylop['phylop100_vert']
-   - polyphen2['hvar_score']
+   - gerp
+   - polyphen2
   AF:
    - gnomad
    - gnomad3
   pred:
-   - aloft
-   - cadd['phred']
-   - revel['score']
-   - chasmplus['score']
-   - varity_r['varity_r']
-   - clinpred['score']
-   - dann['score']
-   - metasvm['score']
+   - cadd
    - spliceai
+   - clinpred
+   - revel
+   - varity_r
   clinical:
+   - clinvar
+   - clingen
    - cgd
-   - clingen['disease']
-   - clingen['classification']
-   - clinvar['sig']
-   - clinvar['rev_stat']
    - mavedb
 
 id_cols:

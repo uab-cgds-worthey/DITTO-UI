@@ -27,7 +27,7 @@ st.set_page_config(
 
 
 # Function to open and load config file for filtering columns and rows
-@st.cache_data
+# @st.cache_data
 def get_col_configs(config_f):
     with open(config_f) as fh:
         config_dict = yaml.safe_load(fh)
@@ -194,12 +194,18 @@ def main():
     #     mime="text/csv",
     # )
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3, col4 = st.columns(4)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "MT"])
     pos = col2.text_input("Position:", 2406483)
-    ref = col1.text_input("Reference Nucleotide:", "C")
-    alt = col2.text_input("Alternate Nucleotide:", "G")
+    ref = col3.text_input("Reference Nucleotide:", "C")
+    alt = col4.text_input("Alternate Nucleotide:", "G")
 
+    # Filter variant from data and display variant information for SHAP plot
+    st.subheader("**DITTO Explanations using SHAP**")
+    st.markdown(
+        "Please choose table view option in sidebar to display necessary"
+        " variant information that can be used to generate SHAP plot."
+    )
     # if chrom & pos & ref & alt:
     info_dict = oc_api(chrom, int(pos), ref, alt)
     annot_col1, annot_col2, annot_col3, annot_col4 = st.columns(4)
@@ -219,7 +225,7 @@ def main():
     clinical_data = get_annots(info_dict, config_dict["display_cols"]["clinical"])
     annot_col4.write(clinical_data)
 
-    st.write(info_dict)
+    # st.write(info_dict)
 
     # # initialise data of lists to print on the webpage.
     # var_scores = {
@@ -239,12 +245,7 @@ def main():
     # }
     # # Create DataFrame
     # col1.dataframe(pd.DataFrame(var_scores))
-    # Filter variant from data and display variant information for SHAP plot
-    st.subheader("**DITTO Explanations using SHAP**")
-    st.markdown(
-        "Please choose table view option in sidebar to display necessary"
-        " variant information that can be used to generate SHAP plot."
-    )
+
     # # SHAP explanation
     # shap_value = explainer.shap_values(annots.values)[0]
 
