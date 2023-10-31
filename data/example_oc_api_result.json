@@ -1,132 +1,457 @@
 {
   "revel": {
-    "transcript": "ENST00000309234;ENST00000317896;ENST00000336625;ENST00000357618;ENST00000397022;ENST00000461397;ENST00000470149",
-    "score": 0.315,
-    "rankscore": 0.63694,
+    "transcript": "ENST00000288602",
+    "score": 0.931,
+    "rankscore": 0.98378,
     "all": [
       [
-        "ENST00000397022",
-        0.315,
-        0.63694
-      ],
-      [
-        "ENST00000317896",
-        0.315,
-        0.63694
-      ],
-      [
-        "ENST00000357618",
-        0.315,
-        0.63694
-      ],
-      [
-        "ENST00000470149",
-        0.315,
-        0.63694
-      ],
-      [
-        "ENST00000336625",
-        0.315,
-        0.63694
-      ],
-      [
-        "ENST00000461397",
-        0.315,
-        0.63694
-      ],
-      [
-        "ENST00000309234",
-        0.315,
-        0.63694
+        "ENST00000288602",
+        0.931,
+        0.98378
       ]
     ]
   },
-  "cancer_genome_interpreter": null,
-  "ccre_screen": null,
-  "cgc": null,
-  "cgd": null,
-  "chasmplus": {
-    "score": 0.018,
-    "transcript": "ENST00000470149.5",
-    "pval": 0.677,
+  "cancer_genome_interpreter": {
+    "resistant": 3,
+    "responsive": 29,
+    "other": 0,
     "all": [
       [
-        "ENST00000470149.5",
-        0.018,
-        0.677
+        "Resistant",
+        "BRAF (V600E,G469A)",
+        "EGFR TK inhibitors",
+        "Case report",
+        "PMID:22773810",
+        "Lung adenocarcinoma"
       ],
       [
-        "NM_000410.3",
-        0.015,
-        0.721
+        "Responsive",
+        "BRAF (V600E)",
+        "BRAF inhibitor + CDK2/4 inhibitors",
+        "Pre-clinical",
+        "PMID:22997239",
+        "Cutaneous melanoma"
       ],
       [
-        "NM_001300749.1",
-        0.015,
-        0.721
+        "Responsive",
+        "BRAF (V600E)",
+        "BRAF inhibitor + HSP90 inhibitors",
+        "Pre-clinical",
+        "PMID:22351686",
+        "Cutaneous melanoma"
       ],
       [
-        "NM_139003.2",
-        0.017,
-        0.691
+        "Responsive",
+        "BRAF (V600E)",
+        "BRAF inhibitor + MEK inhibitors",
+        "Early trials",
+        "ASCO 2013 (abstr 9029)",
+        "Thyroid"
       ],
       [
-        "NM_139004.2",
-        0.014,
-        0.737
+        "Responsive",
+        "BRAF (V600E)",
+        "BRAF inhibitor + PI3K pathway inhibitors",
+        "Pre-clinical",
+        "PMID:22389471;PMID:21156289",
+        "Cutaneous melanoma"
       ],
       [
-        "NM_139006.2",
-        0.018,
-        0.677
+        "Responsive",
+        "BRAF (V600E)",
+        "BRAF inhibitors",
+        "Pre-clinical",
+        "PMID:22038996;PMID:22586120",
+        "Glioma"
       ],
       [
-        "NM_139009.2",
-        0.017,
-        0.691
+        "Responsive",
+        "BRAF (V600E)",
+        "BRAF inhibitors",
+        "Case report",
+        "PMID:22608338",
+        "Ovary"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "ERK inhibitors",
+        "Pre-clinical",
+        "PMID:23614898;PMID:22997239",
+        "Cutaneous melanoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "ERK inhibitors",
+        "Early trials",
+        "ASCO 2017 (abstr 2508)",
+        "Lung adenocarcinoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "MEK inhibitors",
+        "Early trials",
+        "PMID:22241789",
+        "Thyroid"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "MEK inhibitors",
+        "Pre-clinical",
+        "PMID:19018267",
+        "Ovary"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Pan-RAF inhibitors",
+        "Early trials",
+        "ESMO 2015 (abstract 300);AACR 2016 (abstr CT005);AACR 2017 (abstr  CT002)",
+        "Cutaneous melanoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Dabrafenib (BRAF inhibitor)",
+        "Early trials",
+        "PMID:23524406;PMID:22608338;ASCO 2013 (abstr 8009);ESMO 2014 (abstr LBA38_PR);PMID:20818844;PMID:23489023;PMID:27080216",
+        "Lung adenocarcinoma;Thyroid"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Dabrafenib (BRAF inhibitor)",
+        "NCCN guidelines",
+        "NCCN",
+        "Non-small cell lung"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Dabrafenib (BRAF inhibitor)",
+        "FDA guidelines",
+        "FDA",
+        "Cutaneous melanoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Dabrafenib (BRAF inhibitor)",
+        "Case report",
+        "PMID:23470635;PMID:22608338",
+        "Gastrointestinal stromal"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Dabrafenib + Trametinib (BRAF inhibitor + MEK inhibitor)",
+        "Early trials",
+        "PMID:26392102;ASCO 2015 (abstr 8006)",
+        "Colorectal adenocarcinoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Dabrafenib + Trametinib (BRAF inhibitor + MEK inhibitor)",
+        "Case report",
+        "PMID:27048246",
+        "Neuroendocrine"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Dabrafenib + Trametinib (BRAF inhibitor + MEK inhibitor)",
+        "FDA guidelines",
+        "PMID:27283860",
+        "Lung adenocarcinoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E,V600K)",
+        "Dabrafenib + Trametinib (BRAF inhibitor + MEK inhibitor)",
+        "FDA guidelines",
+        "FDA",
+        "Cutaneous melanoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Panitumumab + Dabrafenib + Trametinib (EGFR mAb inhibitor + BRAF inhibitor + MEK inhibitor)",
+        "Early trials",
+        "ASCO 2014 (abstr 3515);ASCO 2015 (abstr 103)",
+        "Colorectal adenocarcinoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "PLX4720 (BRAF inhibitor)",
+        "Pre-clinical",
+        "PMC3638050",
+        "Malignant astrocytoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Selumetinib (MEK inhibitor)",
+        "Early trials",
+        "NCT01089101",
+        "Pediatric glioma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E,V600K)",
+        "Trametinib (MEK inhibitor)",
+        "FDA guidelines",
+        "FDA",
+        "Cutaneous melanoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Vemurafenib (BRAF inhibitor)",
+        "Case report",
+        "PMID:22743296;PMID:22621641;PMID:23612012",
+        "Lung adenocarcinoma;Hairy-Cell leukemia;Myeloma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Vemurafenib (BRAF inhibitor)",
+        "Early trials",
+        "PMID:22586120",
+        "Malignant astrocytoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Vemurafenib (BRAF inhibitor)",
+        "FDA guidelines",
+        "FDA",
+        "Cutaneous melanoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E)",
+        "Vemurafenib (BRAF inhibitor)",
+        "Early trials",
+        "PMID:22608338;PMID:20818844;PMID:23489023",
+        "Thyroid carcinoma"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E,V600D,V600K,V600M,V600G,V600R)",
+        "Vemurafenib (BRAF inhibitor)",
+        "NCCN guidelines",
+        "PMID:26287849",
+        "Non-small cell lung;Lagerhans cell histiocytosis;Erdheim-Chester histiocytosis"
+      ],
+      [
+        "Responsive",
+        "BRAF (V600E,V600K)",
+        "Vemurafenib + Cobimetinib (BRAF inhibitor + MEK inhibitor)",
+        "FDA guidelines",
+        "FDA",
+        "Cutaneous melanoma"
+      ],
+      [
+        "Resistant",
+        "BRAF (V600E)",
+        "Cetuximab (EGFR mAb inhibitor)",
+        "Late trials",
+        "PMID:20619739;PMID:21163703;PMID:23325582",
+        "Colorectal adenocarcinoma"
+      ],
+      [
+        "Resistant",
+        "BRAF (V600E)",
+        "Panitumumab (EGFR mAb inhibitor)",
+        "Late trials",
+        "PMID:20619739;PMID:21163703;PMID:23325582",
+        "Colorectal adenocarcinoma"
+      ]
+    ]
+  },
+  "ccre_screen": null,
+  "cgc": {
+    "class": "Oncogene, fusion",
+    "inheritance": "somatic",
+    "tts": "melanoma, colorectal, papillary thyroid, borderline ovarian, NSCLC, cholangiocarcinoma, pilocytic astrocytoma, Spitzoid tumour, pancreas acinar carcinoma, melanocytic nevus, prostate, gastric",
+    "ttg": null,
+    "link": "BRAF"
+  },
+  "cgd": null,
+  "chasmplus": {
+    "score": 0.966,
+    "transcript": "NM_004333.4",
+    "pval": 0.0,
+    "all": [
+      [
+        "NM_004333.4",
+        0.966,
+        0.0
       ]
     ]
   },
   "varity_r": {
-    "p_vid": "Q30201",
-    "varity_r": 0.44828805,
-    "varity_er": 0.3678599,
-    "varity_r_loo": 0.5796515,
-    "varity_er_loo": 0.30211145
+    "p_vid": "P15056",
+    "varity_r": 0.9623421999999998,
+    "varity_er": 0.94685084,
+    "varity_r_loo": 0.9577461,
+    "varity_er_loo": 0.9587261
   },
-  "clingen": null,
+  "clingen": {
+    "disease": "Noonan syndrome;cardiofaciocutaneous syndrome;Costello syndrome;Noonan syndrome with multiple lentigines;Noonan syndrome-like disorder with loose anagen hair",
+    "mondo": "MONDO_0018997;MONDO_0015280;MONDO_0009026;MONDO_0007893;MONDO_0011899",
+    "classification": "Moderate;Definitive;Disputed;Limited;No Reported Evidence",
+    "link": "https://search.clinicalgenome.org/kb/gene-validity/47cf08d5-efc6-4d42-b031-a06619873161--2018-07-24T13:46:04;https://search.clinicalgenome.org/kb/gene-validity/a53e5a92-126f-4b00-a89b-af55d4f342ca--2018-07-24T15:48:18;https://search.clinicalgenome.org/kb/gene-validity/f229eceb-8f5e-4ecb-a484-7863b8dc7d19--2018-07-24T18:33:55;https://search.clinicalgenome.org/kb/gene-validity/888875a8-5654-486b-8e64-e1382ccc6650--2018-07-24T18:53:06;https://search.clinicalgenome.org/kb/gene-validity/b7c20d32-5bc0-43c4-9cb9-64094894a086--2018-07-25T13:46:40"
+  },
   "clinpred": {
-    "score": 0.012,
-    "rankscore": 0.012987012987012988
+    "score": 0.993,
+    "rankscore": 0.993006993006993
   },
   "clinvar": {
-    "sig": "Conflicting interpretations of pathogenicity|other",
-    "disease_refs": ".|Human Phenotype Ontology:HP:0001638,MONDO:MONDO:0004994,MedGen:C0878544,Orphanet:ORPHA167848,SNOMED CT:85898001|Human Phenotype Ontology:HP:0002511,Human Phenotype Ontology:HP:0006878,Human Phenotype Ontology:HP:0007213,MONDO:MONDO:0004975,MedGen:C0002395,Orphanet:ORPHA238616,SNOMED CT:26929004|Human Phenotype Ontology:HP:0011031,MedGen:C4023583|MONDO:MONDO:0006507,MedGen:C0392514,OMIM:PS235200,SNOMED CT:35400008|MONDO:MONDO:0008296,MedGen:C0268323,OMIM:176100,Orphanet:ORPHA443062,SNOMED CT:59229005|MONDO:MONDO:0008297,MedGen:C0162532,OMIM:176200,Orphanet:ORPHA79473,SNOMED CT:58275005|MONDO:MONDO:0009061,MedGen:C0010674,OMIM:219700,Orphanet:ORPHA586,SNOMED CT:190905008|MONDO:MONDO:0012971,MedGen:C2673520,OMIM:612635|MONDO:MONDO:0021001,MedGen:C3469186,OMIM:235200,Orphanet:ORPHA139498,Orphanet:ORPHA465508|MedGen:C0018995|MedGen:C3280096,OMIM:614193|MedGen:CN169374|MedGen:CN517202",
-    "disease_names": "See cases|Cardiomyopathy|Alzheimer disease|Abnormality of iron homeostasis|Hereditary hemochromatosis|Familial porphyria cutanea tarda|Variegate porphyria|Cystic fibrosis|Microvascular complications of diabetes, susceptibility to, 7|Hemochromatosis type 1|Bronze diabetes|Transferrin serum level quantitative trait locus 2|not specified|not provided",
-    "rev_stat": "criteria provided, conflicting interpretations",
-    "id": 10,
-    "sig_conf": "Pathogenic(25)|Uncertain significance(2)|Benign(2)"
+    "sig": "Pathogenic|drug response|other",
+    "disease_refs": ".|.|.|.|Human Phenotype Ontology:HP:0000115,Human Phenotype Ontology:HP:0002667,MONDO:MONDO:0006058,MeSH:D009396,MedGen:C0027708,Orphanet:ORPHA654,SNOMED CT:25081006|Human Phenotype Ontology:HP:0002408,MONDO:MONDO:0007154,MedGen:C0917804,OMIM:108010,Orphanet:ORPHA46724,SNOMED CT:234142008|Human Phenotype Ontology:HP:0002664,Human Phenotype Ontology:HP:0003008,Human Phenotype Ontology:HP:0006741,MONDO:MONDO:0005070,MeSH:D009369,MedGen:C0027651,SNOMED CT:108369006|Human Phenotype Ontology:HP:0002861,Human Phenotype Ontology:HP:0002887,Human Phenotype Ontology:HP:0006777,Human Phenotype Ontology:HP:0007474,MONDO:MONDO:0005105,MeSH:D008545,MedGen:C0025202,Orphanet:ORPHA411533|Human Phenotype Ontology:HP:0002895,MONDO:MONDO:0005075,MeSH:D000077273,MedGen:C0238463,SNOMED CT:255029007|Human Phenotype Ontology:HP:0006775,MONDO:MONDO:0009693,MeSH:D009101,MedGen:C0026764,OMIM:254500,Orphanet:ORPHA29073,SNOMED CT:109989006,SNOMED CT:55921005|Human Phenotype Ontology:HP:0010796,MONDO:MONDO:0002911,MedGen:C0677865|Human Phenotype Ontology:HP:0012056,MONDO:MONDO:0005012,MeSH:C562393,MedGen:C0151779,SNOMED CT:93655004|Human Phenotype Ontology:HP:0030078,MONDO:MONDO:0005061,MeSH:D000077192,MedGen:C0152013,Orphanet:ORPHA415268|Human Phenotype Ontology:HP:0030358,MONDO:MONDO:0005233,MeSH:D002289,MedGen:C0007131,Orphanet:ORPHA488201,SNOMED CT:254637007|Human Phenotype Ontology:HP:0030692,MONDO:MONDO:0021211,MeSH:D001932,MedGen:C0006118,SNOMED CT:126952004|Human Phenotype Ontology:HP:0100273,MONDO:MONDO:0005401,MeSH:D003110,MedGen:C0009375|Human Phenotype Ontology:HP:0100615,MONDO:MONDO:0021068,MeSH:D010051,MedGen:C0919267,OMIM:167000,SNOMED CT:123843001|Human Phenotype Ontology:HP:0100723,MONDO:MONDO:0011719,MeSH:D046152,MedGen:C0238198,OMIM:606764,Orphanet:ORPHA44890|Human Phenotype Ontology:HP:0100764,MONDO:MONDO:0002013,MedGen:C0024221,Orphanet:ORPHA2415|Human Phenotype Ontology:HP:0100834,MeSH:D015179,MedGen:C0009404,SNOMED CT:126837005|MONDO:MONDO:0002032,MedGen:C0699790,SNOMED CT:269533000|MONDO:MONDO:0004992,MedGen:C0006826,SNOMED CT:363346000|MONDO:MONDO:0005138,MedGen:C0684249|MONDO:MONDO:0005575,MedGen:C0346629,OMIM:114500,Orphanet:ORPHA466667|MONDO:MONDO:0010150,MeSH:D000077195,MedGen:C1168401,OMIM:275355,SNOMED CT:716659002|MONDO:MONDO:0015280,MedGen:C1275081,OMIM:PS115150,Orphanet:ORPHA1340,SNOMED CT:403770008|MONDO:MONDO:0018177,MeSH:D005909,MedGen:C0017636,Orphanet:ORPHA360,SNOMED CT:63634009|MONDO:MONDO:0021656,MedGen:C1266158|MeSH:C538614,MedGen:C1336078|MedGen:C2674727|MedGen:CN517202",
+    "disease_names": "Cystic epithelial invagination containing papillae lined by columnar epithelium|See cases|Trametinib-Dabrafenib Response|Vemurafenib-Cobimetinib Response|Nephroblastoma|Cerebral arteriovenous malformation|Neoplasm|Melanoma|Papillary thyroid carcinoma|Multiple myeloma|Brainstem glioma|Malignant melanoma of skin|Lung adenocarcinoma|Non-small cell lung carcinoma|Neoplasm of brain|Colonic neoplasm|Neoplasm of ovary|Gastrointestinal stromal tumor|Lymphangioma|Neoplasm of the large intestine|Carcinoma of colon|Malignant neoplastic disease|Lung carcinoma|Colorectal cancer|Squamous cell carcinoma of the head and neck|Cardio-facio-cutaneous syndrome|Glioblastoma|Nongerminomatous germ cell tumor|Papillary renal cell carcinoma, sporadic|Astrocytoma, low-grade, somatic|not provided",
+    "rev_stat": "criteria provided, multiple submitters, no conflicts",
+    "id": 13961,
+    "sig_conf": null
   },
   "cosmic": {
-    "cosmic_id": "COSV58513169",
-    "transcript": "ENST00000461397.5",
-    "protein_change": "H63D",
-    "variant_count": 7,
+    "cosmic_id": "COSV56056643",
+    "transcript": "ENST00000646891.1",
+    "protein_change": "V600E",
+    "variant_count": 29627,
     "variant_count_tissue": [
       [
-        "soft tissue",
-        3
+        "thyroid",
+        14761
       ],
       [
-        "lung",
-        2
+        "skin",
+        6083
       ],
       [
         "large intestine",
-        1
+        5442
+      ],
+      [
+        "NS",
+        1048
+      ],
+      [
+        "haematopoietic and lymphoid tissue",
+        931
+      ],
+      [
+        "central nervous system",
+        432
+      ],
+      [
+        "ovary",
+        266
+      ],
+      [
+        "lung",
+        164
+      ],
+      [
+        "eye",
+        98
+      ],
+      [
+        "pituitary",
+        91
+      ],
+      [
+        "soft tissue",
+        59
+      ],
+      [
+        "bone",
+        37
+      ],
+      [
+        "kidney",
+        31
+      ],
+      [
+        "biliary tract",
+        28
       ],
       [
         "pancreas",
+        24
+      ],
+      [
+        "breast",
+        21
+      ],
+      [
+        "liver",
+        19
+      ],
+      [
+        "testis",
+        18
+      ],
+      [
+        "upper aerodigestive tract",
+        13
+      ],
+      [
+        "urinary tract",
+        11
+      ],
+      [
+        "small intestine",
+        10
+      ],
+      [
+        "salivary gland",
+        9
+      ],
+      [
+        "adrenal gland",
+        6
+      ],
+      [
+        "genital tract",
+        4
+      ],
+      [
+        "stomach",
+        4
+      ],
+      [
+        "prostate",
+        4
+      ],
+      [
+        "meninges",
+        3
+      ],
+      [
+        "endometrium",
+        3
+      ],
+      [
+        "autonomic ganglia",
+        3
+      ],
+      [
+        "oesophagus",
+        2
+      ],
+      [
+        "pleura",
+        1
+      ],
+      [
+        "female genital tract (site indeterminate)",
         1
       ]
     ],
@@ -135,179 +460,2093 @@
   "cosmic_gene": {
     "gene_count": [
       [
+        "thyroid",
+        "14951"
+      ],
+      [
         "skin",
-        "42"
+        "7452"
       ],
       [
         "large intestine",
-        "41"
+        "6120"
       ],
       [
-        "lung",
-        "29"
-      ],
-      [
-        "liver",
-        "28"
-      ],
-      [
-        "endometrium",
-        "25"
-      ],
-      [
-        "breast",
-        "15"
-      ],
-      [
-        "stomach",
-        "15"
-      ],
-      [
-        "oesophagus",
-        "11"
-      ],
-      [
-        "central nervous system",
-        "9"
-      ],
-      [
-        "upper aerodigestive tract",
-        "8"
-      ],
-      [
-        "ovary",
-        "8"
-      ],
-      [
-        "urinary tract",
-        "7"
+        "NS",
+        "1376"
       ],
       [
         "haematopoietic and lymphoid tissue",
-        "7"
+        "1136"
       ],
       [
-        "biliary tract",
-        "7"
+        "central nervous system",
+        "481"
+      ],
+      [
+        "lung",
+        "459"
       ],
       [
         "prostate",
-        "6"
+        "376"
       ],
       [
-        "pancreas",
-        "6"
+        "ovary",
+        "339"
       ],
       [
-        "kidney",
-        "4"
-      ],
-      [
-        "thyroid",
-        "3"
+        "liver",
+        "242"
       ],
       [
         "soft tissue",
-        "3"
+        "242"
       ],
       [
-        "cervix",
-        "2"
+        "breast",
+        "224"
       ],
       [
-        "bone",
-        "2"
+        "biliary tract",
+        "154"
       ],
       [
-        "genital tract",
-        "1"
+        "pancreas",
+        "152"
       ],
       [
-        "pleura",
-        "1"
+        "stomach",
+        "121"
       ],
       [
-        "small intestine",
-        "1"
+        "eye",
+        "104"
       ],
       [
         "meninges",
-        "1"
+        "103"
+      ],
+      [
+        "oesophagus",
+        "101"
+      ],
+      [
+        "endometrium",
+        "93"
+      ],
+      [
+        "pituitary",
+        "91"
+      ],
+      [
+        "urinary tract",
+        "82"
+      ],
+      [
+        "kidney",
+        "73"
+      ],
+      [
+        "upper aerodigestive tract",
+        "60"
+      ],
+      [
+        "bone",
+        "41"
+      ],
+      [
+        "testis",
+        "31"
+      ],
+      [
+        "small intestine",
+        "30"
+      ],
+      [
+        "salivary gland",
+        "13"
+      ],
+      [
+        "cervix",
+        "10"
+      ],
+      [
+        "adrenal gland",
+        "7"
       ],
       [
         "autonomic ganglia",
+        "5"
+      ],
+      [
+        "genital tract",
+        "5"
+      ],
+      [
+        "penis",
+        "4"
+      ],
+      [
+        "pleura",
+        "2"
+      ],
+      [
+        "female genital tract (site indeterminate)",
+        "1"
+      ],
+      [
+        "thymus",
         "1"
       ]
     ],
-    "occurrences": 283
+    "occurrences": 34682
   },
   "cscape": {
-    "score": "0.510806"
+    "score": "0.923370"
   },
-  "dann": {
-    "score": "0.47361057118180983\r"
-  },
+  "dann": null,
   "dann_coding": {
-    "dann_coding_score": 0.9850584684762111,
-    "dann_rankscore": 0.42276
+    "dann_coding_score": 0.9848685552251786,
+    "dann_rankscore": 0.42049
   },
   "dbscsnv": null,
   "dbsnp": {
-    "rsid": "rs1799945"
+    "rsid": "rs113488022"
   },
   "dgi": {
-    "category": "DRUGGABLE GENOME",
+    "category": "DRUG RESISTANCE",
     "interaction": null,
-    "name": "ADALIMUMAB",
-    "score": 6.68,
-    "chembl": "CHEMBL1201580",
-    "pmid": 27115882,
+    "name": "DABRAFENIB",
+    "score": 3.55,
+    "chembl": "CHEMBL2028663",
+    "pmid": "23020132,22608338,24265155,29072975,25399551,23463675,25673644,25452114,25265494,31811016,27283860,27048246,24583796,23031422,25265492,25435907,28947956,28480077,28891408,29431699,28078132",
     "all": [
       [
-        "DRUGGABLE GENOME",
+        "DRUG RESISTANCE",
         "",
-        "ADALIMUMAB",
-        6.68,
-        "CHEMBL1201580",
-        27115882
+        "PLX3397",
+        0.09,
+        "CHEMBL3813873",
+        25939769
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PLX-4720",
+        1.29,
+        "CHEMBL1230020",
+        10592235
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PLX8394",
+        1.69,
+        "",
+        "27834212,24422853"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PIMASERTIB",
+        0.19,
+        "CHEMBL2107832",
+        23629727
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GSK2126458",
+        0.06,
+        "CHEMBL1236962",
+        22389471
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "RAF265",
+        1.27,
+        "CHEMBL558752",
+        "20538618,22351689"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PANITUMUMAB",
+        2.65,
+        "CHEMBL1201827",
+        "21163703,23325582,20619739"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "RO-5212054",
+        1.12,
+        "CHEMBL3545080",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "DASATINIB",
+        0.15,
+        "CHEMBL1421",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "LGX-806",
+        0.28,
+        "CHEMBL3545263",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SELUMETINIB",
+        0.34,
+        "CHEMBL1614701",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PIMASERTIB",
+        0.19,
+        "CHEMBL2107832",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "MK2206",
+        0.07,
+        "CHEMBL1079175",
+        24265152
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BINIMETINIB",
+        0.31,
+        "CHEMBL3187723",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TRAMETINIB",
+        1.88,
+        "CHEMBL2103875",
+        "26343583,28783719,28344857,25370473,27797976,25309914,22798288,28268064,24265153,28512244,25665005,25706985,27760111,27770002,24265152,26732095,26469692,22805292,27297867,22663011,27488531,27338794,27500726,26811525,27048246,27222538,25265492,27697975,22389471,26392102,28784858,28891408,27312529,26916115,23248257,26369631,24265154"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GDC-0941",
+        0.07,
+        "CHEMBL521851",
+        "24265153,26577700,19276360"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "REGORAFENIB",
+        0.18,
+        "CHEMBL1946170",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "LY3009120",
+        0.56,
+        "CHEMBL3545195",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "BGB-283",
+        0.47,
+        "CHEMBL4209157",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CGM097",
+        0.19,
+        "CHEMBL3601398",
+        27659046
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        "23020132,22608338,24265155,29072975,25399551,23463675,25673644,25452114,25265494,31811016,27283860,27048246,24583796,23031422,25265492,25435907,28947956,28480077,28891408,29431699,28078132"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        "23020132,22608338,26619011,21483012,22351686,19001320,21156289,20368568,19255327,22048237,19561230,19010912,23549875,25024077,23489023,18541894,24586605,24508103,22773810,23833300,23812671,24576830,19238210,20818844,23612012,23251002,22356324,20857202,22536370,22997239,21163703,15035987,23470635,21663470,24594804,22586120,20413299,22805292,19537845,14679157,22663011,21975775,22038996,22448344,12068308,24163374,19773371,24354346,23325582,24583796,23031422,22735384,21683865,25370471,21639808,22281684,22649091,22241789,24570209,23918947,25989278,22389471,23934108,22180495,23524406,26678033,19018267,24388723,23845441,23614898,25157968,20619739,12460919,24107445,12460918,21594703,20350999,20630094,21426297,19404918,22743296,24396464,22972589,21129611,23406027,25656898"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "MEK162",
+        0.31,
+        "CHEMBL3187723",
+        26577700
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PLX8394",
+        1.69,
+        "",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PAC-1",
+        0.37,
+        "CHEMBL591429",
+        27297867
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CEDIRANIB",
+        0.02,
+        "CHEMBL491473",
+        26461489
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GDC-0973",
+        0.52,
+        "CHEMBL2146883",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CI-1040",
+        0.1,
+        "CHEMBL105442",
+        "20538618,19915144,19018267"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "REGORAFENIB",
+        0.18,
+        "CHEMBL1946170",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "RAF265",
+        1.27,
+        "CHEMBL558752",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "REGORAFENIB",
+        0.18,
+        "CHEMBL1946170",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "ZELBORAF",
+        0.56,
+        "",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "MEK162",
+        0.31,
+        "CHEMBL3187723",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VENETOCLAX",
+        0.07,
+        "CHEMBL3137309",
+        27974663
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "RIPRETINIB",
+        0.09,
+        "CHEMBL4216467",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GEFITINIB",
+        0.05,
+        "CHEMBL939",
+        "23242808,22448344,27312529"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "RAF-265",
+        1.27,
+        "CHEMBL558752",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "EVEROLIMUS",
+        0.11,
+        "CHEMBL1908360",
+        "23629727,27797976,20664174,20664172,27217440"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PEMBROLIZUMAB",
+        0.1,
+        "CHEMBL3137343",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PERTUZUMAB",
+        0.14,
+        "CHEMBL2007641",
+        29320312
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BEVACIZUMAB",
+        0.08,
+        "CHEMBL1201583",
+        21216929
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "EVEROLIMUS",
+        0.11,
+        "CHEMBL1908360",
+        29156677
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GSK2636771",
+        0.11,
+        "CHEMBL3188551",
+        "26577700,26645196"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GEFITINIB",
+        0.05,
+        "CHEMBL939",
+        22281684
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "OBATOCLAX",
+        0.22,
+        "CHEMBL408194",
+        22460902
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PANITUMUMAB",
+        2.65,
+        "CHEMBL1201827",
+        "28783719,19001320,25673644,26687137,23325582,31515458,29431699"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GSK2141795",
+        0.19,
+        "CHEMBL3137336",
+        24265152
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CETUXIMAB",
+        1.25,
+        "CHEMBL1201577",
+        "19001320,19603018,31566309,28363909,26989027,19571295,22281684,28972961,19603024,22180495,27729313,20619739,31515458"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CAPECITABINE",
+        0.05,
+        "CHEMBL1773",
+        "19571295,22180495"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BGB-283",
+        0.47,
+        "CHEMBL4209157",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "IRINOTECAN",
+        0.11,
+        "CHEMBL481",
+        "28783719,19603018,26687137,26989027,19603024,22180495,27729313"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BINIMETINIB",
+        0.31,
+        "CHEMBL3187723",
+        "31566309,29573941"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CETUXIMAB",
+        1.25,
+        "CHEMBL1201577",
+        "28783719,25714871,28363909,26208524,26287849,22270724,22281684,25838391,27312529,26916115,27002107,24523613"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "REGORAFENIB",
+        0.18,
+        "CHEMBL1946170",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TW-37",
+        0.56,
+        "CHEMBL217354",
+        25665005
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "CHIR-265",
+        1.27,
+        "CHEMBL558752",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TRAMETINIB",
+        1.88,
+        "CHEMBL2103875",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BINIMETINIB",
+        0.31,
+        "CHEMBL3187723",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        "16609060,20812347,16901402,16880785,11752352,17575107"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "TEMSIROLIMUS",
+        0.11,
+        "CHEMBL1201182",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "NIVOLUMAB",
+        0.07,
+        "CHEMBL2108738",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "AFATINIB",
+        0.11,
+        "CHEMBL1173655",
+        26916115
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        "22608338,27659046,25370473,27797976,27255157,28268064,24265153,28512244,27770002,26732095,27500726,27523909,26811525,27048246,25265492,22735384,27697975,22389471,26392102,28784858,24885690,28891408,27312529,27080216,24265154"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GSK2118436",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "COBIMETINIB",
+        0.52,
+        "CHEMBL2146883",
+        "22084396,25265494,28649441"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PF-477736",
+        0.16,
+        "CHEMBL3545137",
+        26140595
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SARACATINIB",
+        0.09,
+        "CHEMBL217092",
+        23242808
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ALPELISIB",
+        0.14,
+        "CHEMBL2396661",
+        28363909
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "ENCORAFENIB",
+        1.31,
+        "CHEMBL3301612",
+        "26586345,25769717,29356698"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "FLUOROURACIL",
+        0.02,
+        "CHEMBL185",
+        "27626067,26637369"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "DABRAFENIB MESYLATE",
+        0.56,
+        "CHEMBL2105729",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PANITUMUMAB",
+        2.65,
+        "CHEMBL1201827",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        "24727320,20526349"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BKM120",
+        0.07,
+        "CHEMBL2017974",
+        "27307593,24265152"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ENCORAFENIB",
+        1.31,
+        "CHEMBL3301612",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "E6201",
+        0.24,
+        "CHEMBL1097999",
+        "24448821,23039341"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "LENVATINIB",
+        0.08,
+        "CHEMBL1289601",
+        26169970
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "PLX8394",
+        1.69,
+        "",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DOXIL",
+        0.28,
+        "",
+        21216929
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PEMBROLIZUMAB",
+        0.1,
+        "CHEMBL3137343",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VORUCICLIB",
+        0.04,
+        "CHEMBL3545218",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CHIR-265",
+        1.27,
+        "CHEMBL558752",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PLX4720",
+        1.29,
+        "CHEMBL1230020",
+        "20538618,26351322,24265153,21383288,23242808,27924459,19915144,24983357,18287029,27523909,26461489,22281684,27217440,26573800"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "MLN0128",
+        0.07,
+        "CHEMBL3545097",
+        26272063
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "CHIR-265",
+        1.27,
+        "CHEMBL558752",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CRIZOTINIB",
+        0.03,
+        "CHEMBL601719",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "INC280",
+        0.28,
+        "CHEMBL3188267",
+        28783719
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PF-05212384",
+        0.08,
+        "CHEMBL592445",
+        "24042735,17314276,21325073"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PANITUMUMAB",
+        2.65,
+        "CHEMBL1201827",
+        "23020132,22608338,26619011,21483012,22351686,19001320,21156289,20368568,19255327,22048237,19561230,19010912,23549875,25024077,23489023,18541894,24586605,24508103,22773810,23833300,23812671,24576830,19238210,20818844,23612012,23251002,22356324,20857202,22536370,22997239,21163703,15035987,23470635,21663470,24594804,22586120,20413299,22805292,19537845,14679157,22663011,21975775,22038996,22448344,12068308,24163374,19773371,24354346,23325582,24583796,23031422,22735384,21683865,25370471,21639808,22281684,22649091,22241789,24570209,23918947,25989278,22389471,23934108,22180495,23524406,26678033,19018267,24388723,23845441,23614898,25157968,20619739,12460919,24107445,12460918,21594703,20350999,20630094,21426297,19404918,22743296,24396464,22972589,21129611,23406027"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "CHIR-265",
+        1.27,
+        "CHEMBL558752",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ERLOTINIB",
+        0.06,
+        "CHEMBL553",
+        "27659046,27924459,22448344"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        "22608338,23489023,23288408,20818844,23612012,231718,22621641,22743296"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DASATINIB",
+        0.15,
+        "CHEMBL1421",
+        "26619011,21483012,19010912,23833300,19238210,22310681,19537845,18186519,12068308,22649091,25157968,12460919,12460918,20350999,21129611"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DACTOLISIB",
+        0.05,
+        "CHEMBL1879463",
+        23549875
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CETUXIMAB",
+        1.25,
+        "CHEMBL1201577",
+        "21163703,23325582,20619739"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        "19001320,18794803,28002790"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TRAMETINIB",
+        1.88,
+        "CHEMBL2103875",
+        "23020132,22608338,26619011,21483012,2493360,22351686,19001320,21156289,20368568,19255327,22048237,19561230,19010912,23549875,25024077,22798288,23489023,18541894,24586605,24508103,22773810,23833300,23812671,24576830,19238210,20818844,23612012,23251002,22356324,20857202,22536370,22997239,21163703,15035987,23470635,21663470,24594804,22586120,20413299,23715574,22805292,19537845,14679157,22663011,21975775,22038996,22448344,12068308,24163374,19773371,24354346,23325582,24583796,23031422,22735384,21683865,25370471,21639808,22281684,22649091,22241789,24570209,23918947,25989278,22389471,23934108,22180495,23524406,26678033,19018267,24388723,23845441,23614898,25157968,20619739,12460919,24107445,12460918,21594703,20350999,20630094,21426297,19404918,22743296,24396464,22972589,21129611,23406027,25656898"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TAK-733",
+        0.28,
+        "CHEMBL1615025",
+        "22798288,24398428,26439693"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TEMSIROLIMUS",
+        0.11,
+        "CHEMBL1201182",
+        21216929
+      ],
+      [
+        "DRUG RESISTANCE",
+        "antagonist,inhibitor",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        23621583
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PF-04217903",
+        0.37,
+        "CHEMBL2001019",
+        27659046
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "COBIMETINIB",
+        0.52,
+        "CHEMBL2146883",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "RG-7256",
+        1.12,
+        "CHEMBL3545080",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SELUMETINIB",
+        0.34,
+        "CHEMBL1614701",
+        "26343583,22197931,22048237,23942066,26351322,27655129,24265152,19915144,27222538,26461489,27196754,27217440,24448821,27312529,26137449,23406027"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CEP-32496",
+        0.7,
+        "CHEMBL2029988",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ENCORAFENIB",
+        1.31,
+        "CHEMBL3301612",
+        "27307593,28363909,28351928,27312529"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "COBIMETINIB",
+        0.52,
+        "CHEMBL2146883",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        "26619011,22310681,19537845,14679157,18186519,12068308,18794803,25157968,20619739,20350999,21129611"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "PLX-4720",
+        1.29,
+        "CHEMBL1230020",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "LAPATINIB",
+        0.06,
+        "CHEMBL554",
+        "21464044,23365119"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "REGORAFENIB",
+        0.18,
+        "CHEMBL1946170",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "GDC-0879",
+        1.69,
+        "CHEMBL525191",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VORINOSTAT",
+        0.02,
+        "CHEMBL98",
+        27924459
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "ARQ-736",
+        0.28,
+        "CHEMBL3545296",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "OXALIPLATIN",
+        0.08,
+        "CHEMBL414804",
+        26637369
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PLX4720",
+        1.29,
+        "CHEMBL1230020",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GDC-0879",
+        1.69,
+        "CHEMBL525191",
+        23549875
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "LY3009120",
+        0.56,
+        "CHEMBL3545195",
+        "26343583,22798288,26732095"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ENCORAFENIB",
+        1.31,
+        "CHEMBL3301612",
+        "31566309,28363909,29573941"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "LEUCOVORIN",
+        0.04,
+        "CHEMBL1679",
+        27626067
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ATEZOLIZUMAB",
+        0.04,
+        "CHEMBL3707227",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SELUMETINIB",
+        0.34,
+        "CHEMBL1614701",
+        31151904
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "COBIMETINIB",
+        0.52,
+        "CHEMBL2146883",
+        "25037139,27480103,25265494,23934108"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        28362716
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PONATINIB",
+        0.04,
+        "CHEMBL1171837",
+        31937621
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BINIMETINIB",
+        0.31,
+        "CHEMBL3187723",
+        "27307593,23414587,28152546,26577700"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "CEP-32496",
+        0.7,
+        "CHEMBL2029988",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "REGORAFENIB",
+        0.18,
+        "CHEMBL1946170",
+        "21170960,23629727,25838391"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "LGX818",
+        1.31,
+        "CHEMBL3301612",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "NERATINIB",
+        0.1,
+        "CHEMBL180022",
+        26243863
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "AZ628",
+        0.56,
+        "CHEMBL2144069",
+        23398453
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TRASTUZUMAB",
+        0.05,
+        "CHEMBL1201585",
+        27626067
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "NVP-AEW541",
+        0.19,
+        "CHEMBL551064",
+        26577700
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ABT-263",
+        0.17,
+        "CHEMBL443684",
+        27659046
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PD-0325901",
+        0.31,
+        "CHEMBL507361",
+        "26272063,26267534,27488531,16273091,26573800"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DASATINIB",
+        0.15,
+        "CHEMBL1421",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CH5132799",
+        0.09,
+        "CHEMBL1684984",
+        21558396
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "(1E)-5-(1-PIPERIDIN-4-YL-3-PYRIDIN-4-YL-1H-PYRAZOL-4-YL)-2,3-DIHYDRO-1H-INDEN-1-ONE OXIME",
+        1.12,
+        "CHEMBL526479",
+        10592235
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "RO4987655",
+        0.16,
+        "CHEMBL1614766",
+        26438159
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ALPELISIB",
+        0.14,
+        "CHEMBL2396661",
+        "27659046,27924459"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        "24265155,25037139,24987354,31513482,24345920,22798288,23533272,24508103,24576830,20818844,26989536,26687137,27480103,22356324,27460442,25265494,23715574,25515853,18287029,26287849,27048246,25524477,21639808,22281684,22180495,28002790,29320312,27729313,24112705,24997557"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PALBOCICLIB",
+        0.04,
+        "CHEMBL189963",
+        "27488531,26369631"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "LGX818",
+        1.31,
+        "CHEMBL3301612",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DEL-22379",
+        0.28,
+        "",
+        26267534
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DOXORUBICIN",
+        0.01,
+        "CHEMBL53463",
+        27924459
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "IMATINIB",
+        0.02,
+        "CHEMBL941",
+        27924459
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "LGX818",
+        1.31,
+        "CHEMBL3301612",
+        "28363909,27312529,26577700"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CETUXIMAB",
+        1.25,
+        "CHEMBL1201577",
+        "23020132,22608338,26619011,21483012,22351686,19001320,21156289,20368568,19255327,22048237,19561230,19010912,23549875,25024077,23489023,18541894,24586605,24508103,22773810,23833300,23812671,24576830,19238210,20818844,23612012,23251002,22356324,20857202,22536370,22997239,21163703,15035987,23470635,21663470,24594804,22586120,20413299,22805292,19537845,14679157,22663011,21975775,22038996,22448344,12068308,24163374,19773371,24354346,23325582,24583796,23031422,22735384,21683865,25370471,21639808,22281684,22649091,22241789,24570209,23918947,25989278,22389471,23934108,22180495,23524406,26678033,19018267,24388723,23845441,23614898,25157968,20619739,12460919,24107445,12460918,21594703,20350999,20630094,21426297,19404918,22743296,24396464,22972589,21129611,23406027"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BMS-908662",
+        0.56,
+        "CHEMBL3545027",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PANITUMUMAB",
+        2.65,
+        "CHEMBL1201827",
+        "28783719,27770002,28514312,27312529,25589621"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "LGX818",
+        1.31,
+        "CHEMBL3301612",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CEP-32496",
+        0.7,
+        "CHEMBL2029988",
+        22319199
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ERLOTINIB",
+        0.06,
+        "CHEMBL553",
+        22180495
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "AZD6482",
+        0.09,
+        "CHEMBL2165191",
+        26577700
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "REFAMETINIB",
+        0.16,
+        "CHEMBL1236682",
+        19706763
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PEMBROLIZUMAB",
+        0.1,
+        "CHEMBL3137343",
+        26645196
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BEVACIZUMAB",
+        0.08,
+        "CHEMBL1201583",
+        "19571295,19603024,22180495"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "LGX818",
+        1.31,
+        "CHEMBL3301612",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ENCORAFENIB",
+        1.31,
+        "CHEMBL3301612",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "SORAFENIB TOSYLATE",
+        0.04,
+        "CHEMBL1200485",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "XL-281",
+        0.56,
+        "CHEMBL3545027",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "NAVITOCLAX",
+        0.17,
+        "CHEMBL443684",
+        "25665005,24983357"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BEZ235",
+        0.05,
+        "CHEMBL1879463",
+        26137449
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PANOBINOSTAT",
+        0.07,
+        "CHEMBL483254",
+        21464044
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "GSK2118436",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "NIVOLUMAB",
+        0.07,
+        "CHEMBL2108738",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TIVOZANIB",
+        0.19,
+        "CHEMBL1289494",
+        26461489
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SELUMETINIB",
+        0.34,
+        "CHEMBL1614701",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TRAMETINIB",
+        1.88,
+        "CHEMBL2103875",
+        "23020132,29072975,24345920,22798288,25399551,30792255,25452114,29903880,24933606,25265494,22805292,22663011,27283860,22169769,29156677,27048246,24583796,25265492,26314551,28947956,31010895,28891408,29431699"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BYL719",
+        0.14,
+        "CHEMBL2396661",
+        "28363909,27312529,26577700"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TRAMETINIB",
+        1.88,
+        "CHEMBL2103875",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TRAMETINIB",
+        1.88,
+        "CHEMBL2103875",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "COBIMETINIB",
+        0.52,
+        "CHEMBL2146883",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "IDELALISIB",
+        0.19,
+        "CHEMBL2216870",
+        26137449
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "RIBOCICLIB",
+        0.07,
+        "CHEMBL3545110",
+        28351928
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DASATINIB",
+        0.15,
+        "CHEMBL1421",
+        "23242808,27222538,22649091"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BINIMETINIB",
+        0.31,
+        "CHEMBL3187723",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "ENCORAFENIB",
+        1.31,
+        "CHEMBL3301612",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "MLN-2480",
+        0.19,
+        "CHEMBL3348923",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SAR260301",
+        0.16,
+        "CHEMBL3545008",
+        27196754
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        "23020132,22608338,26619011,21483012,22351686,19001320,21156289,20368568,19255327,22048237,19561230,19010912,23549875,25024077,23489023,18541894,24586605,24508103,22773810,23833300,23812671,24576830,19238210,20818844,23612012,23251002,22356324,20857202,22536370,22997239,21163703,15035987,23470635,21663470,24594804,22586120,20413299,22805292,19537845,14679157,22663011,21975775,22038996,22448344,12068308,24163374,19773371,24354346,23325582,24583796,23031422,22735384,21683865,25370471,21639808,22281684,22649091,22241789,24570209,23918947,25989278,22389471,23934108,22180495,23524406,26678033,19018267,24388723,23845441,23614898,25157968,20619739,12460919,24107445,12460918,21594703,20350999,20630094,21426297,19404918,22743296,24396464,22972589,21129611,23406027,25656898"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SAPANISERTIB",
+        0.07,
+        "CHEMBL3545097",
+        25261369
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "LIFIRAFENIB",
+        0.47,
+        "CHEMBL4209157",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "CETUXIMAB",
+        1.25,
+        "CHEMBL1201577",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BGB-283",
+        0.47,
+        "CHEMBL4209157",
+        26208524
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        "22608338,23489023,2013,20818844,23470635,8009,38,23524406,26392102,2014,8006,27080216,2015"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "BYL719",
+        0.14,
+        "CHEMBL2396661",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "IRINOTECAN",
+        0.11,
+        "CHEMBL481",
+        "28783719,25714871"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        "20538618,23629727,16880785,23792568,22394203,24885690,27388325"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PLX4720",
+        1.29,
+        "CHEMBL1230020",
+        "23533272,31937621,23845441"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TRAMETINIB",
+        1.88,
+        "CHEMBL2103875",
+        "26392102,8006,2015"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "XL281",
+        0.56,
+        "CHEMBL3545027",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "XL888",
+        0.28,
+        "CHEMBL4297451",
+        22351686
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        23094782
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "OXALIPLATIN",
+        0.08,
+        "CHEMBL414804",
+        "19571295,19603024"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "PLX-8394",
+        0.56,
+        "CHEMBL3545005",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        "26343583,28783719,22798288,23489023,21107323,24035431,24265153,23733758,26352686,25665005,25706985,27760111,25939769,26343582,21383288,26267534,24265152,25265494,26732095,25515853,27297867,27500726,22448344,26287849,27523909,27048246,28514312,28649441,27196754,21639808,22281684,22389471,24283590,26582644,26918217,24448821,27312529,26137449,27048951,26603897,23365119,25589621,26460303,24523613,26984758"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "VEMURAFENIB",
+        3.15,
+        "CHEMBL1229517",
+        25462267
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "XL147",
+        0.06,
+        "CHEMBL3360203",
+        25637314
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "DABRAFENIB",
+        3.55,
+        "CHEMBL2028663",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "PLX8394",
+        1.69,
+        "",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "COBIMETINIB",
+        0.52,
+        "CHEMBL2146883",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "TRAMETINIB",
+        1.88,
+        "CHEMBL2103875",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SB590885",
+        1.12,
+        "CHEMBL477989",
+        "20538618,27523909"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "ENCORAFENIB",
+        1.31,
+        "CHEMBL3301612",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "SB590885",
+        1.12,
+        "CHEMBL477989",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "LY-3009120",
+        0.56,
+        "CHEMBL3545195",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "",
+        "GANETESPIB",
+        0.19,
+        "CHEMBL2103879",
+        "24398428,25077897"
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "AGERAFENIB",
+        0.7,
+        "CHEMBL2029988",
+        ""
+      ],
+      [
+        "DRUG RESISTANCE",
+        "inhibitor",
+        "SORAFENIB",
+        0.26,
+        "CHEMBL1336",
+        ""
       ]
     ]
   },
   "ensembl_regulatory_build": null,
   "ess_gene": {
-    "ess_gene": "N",
+    "ess_gene": "E",
     "ess_gene_crispr": "N",
-    "ess_gene_crispr2": "N",
-    "ess_gene_gene_trap": "N",
-    "indispensability_score": "0.826496134923438",
+    "ess_gene_crispr2": "S",
+    "ess_gene_gene_trap": "K",
+    "indispensability_score": "0.853134941017535",
     "indispensability_pred": "E"
   },
   "exac_gene": {
-    "exac_pli": 8.4969700310781E-7,
-    "exac_prec": 0.505802901039445,
-    "exac_pnull": 0.494196249263552,
-    "exac_nontcga_pli": 0.0000225586230540966,
-    "exac_nontcga_prec": 0.73230010147413,
-    "exac_nontcga_pnull": 0.267677339902816,
-    "exac_nonpsych_pli": 0.00000288429366637025,
-    "exac_nonpsych_prec": 0.499763425791389,
-    "exac_nonpsych_pnull": 0.500233689914944,
-    "exac_del_score": 0.647856723754074,
-    "exac_dup_score": -0.711583441632016,
-    "exac_cnv_score": -0.307543785884328,
+    "exac_pli": 0.999978196041997,
+    "exac_prec": 0.0000218039579639691,
+    "exac_pnull": 3.88216441101404E-14,
+    "exac_nontcga_pli": 0.999932334264256,
+    "exac_nontcga_prec": 0.0000676657351324938,
+    "exac_nontcga_pnull": 6.11297736772402E-13,
+    "exac_nonpsych_pli": 0.999983482649624,
+    "exac_nonpsych_prec": 0.0000165173502566583,
+    "exac_nonpsych_pnull": 1.18961221524589E-13,
+    "exac_del_score": 0.688066950627339,
+    "exac_dup_score": 0.390309959550704,
+    "exac_cnv_score": 0.592048309567109,
     "exac_cnv_flag": "N"
   },
   "fathmm": {
-    "ens_tid": "ENST00000397022;ENST00000317896;ENST00000357618;ENST00000470149;ENST00000336625;ENST00000461397;ENST00000309234",
-    "ens_pid": "ENSP00000380217;ENSP00000313776;ENSP00000417404;ENSP00000419725;ENSP00000337819;ENSP00000420802;ENSP00000311698",
-    "fathmm_score": "-2.42;5.87;-2.42;-2.42;5.87;-2.42;-2.42",
-    "fathmm_rscore": 0.88626,
-    "fathmm_pred": "D;T;D;D;T;D;D"
+    "ens_tid": "ENST00000288602",
+    "ens_pid": "ENSP00000288602",
+    "fathmm_score": "-1.53",
+    "fathmm_rscore": 0.81573,
+    "fathmm_pred": "D"
   },
   "fathmm_xf_coding": {
-    "fathmm_xf_coding_score": 0.078262,
-    "fathmm_xf_coding_rankscore": 0.15787,
-    "fathmm_xf_coding_pred": "Neutral"
+    "fathmm_xf_coding_score": 0.914006,
+    "fathmm_xf_coding_rankscore": 0.8767799999999999,
+    "fathmm_xf_coding_pred": "Damaging"
   },
   "funseq2": {
     "all": [
@@ -318,769 +2557,524 @@
         "",
         "",
         "",
-        "2"
+        "4"
       ]
     ],
     "hot": null,
     "motif": null,
-    "score": "2"
+    "score": "4"
   },
   "genehancer": null,
   "gerp": {
-    "gerp_nr": 5.3,
-    "gerp_rs": 3.51,
-    "gerp_rs_rank": 0.39136
+    "gerp_nr": 5.65,
+    "gerp_rs": 5.65,
+    "gerp_rs_rank": 0.8683
   },
   "ghis": {
-    "ghis": 0.55636161
+    "ghis": 0.558767686
   },
   "gnomad": {
-    "af": 0.108158560903,
-    "af_afr": 0.0272836538462,
-    "af_amr": 0.10034426322,
-    "af_asj": 0.107328833173,
-    "af_eas": 0.0340817963111,
-    "af_fin": 0.103431801895,
-    "af_nfe": 0.144269478509,
-    "af_oth": 0.120742176682,
-    "af_sas": 0.0802521557356
+    "af": 0.00000397994109687,
+    "af_afr": null,
+    "af_amr": null,
+    "af_asj": null,
+    "af_eas": null,
+    "af_fin": null,
+    "af_nfe": null,
+    "af_oth": null,
+    "af_sas": 0.0000326669280021
   },
-  "gnomad3": {
-    "af": 0.101267,
-    "af_afr": 0.0303911,
-    "af_asj": 0.121613,
-    "af_eas": 0.0265176,
-    "af_fin": 0.096128,
-    "af_nfe": 0.149795,
-    "af_oth": 0.11792,
-    "af_sas": 0.0814183,
-    "af_lat": 0.109629
-  },
+  "gnomad3": null,
   "gnomad_gene": {
-    "transcript": "ENST00000488199",
-    "oe_lof": 0.784,
-    "oe_mis": 0.87974,
-    "oe_syn": 0.87364,
-    "lof_z": 0.75404,
-    "mis_z": 0.50956,
-    "syn_z": 0.74846,
-    "pLI": 6.9178E-7,
-    "pRec": 0.47707,
-    "pNull": 0.52293,
+    "transcript": "ENST00000496384",
+    "oe_lof": 0.084962,
+    "oe_mis": 0.42,
+    "oe_syn": 0.91194,
+    "lof_z": 4.1376,
+    "mis_z": 3.0109,
+    "syn_z": 0.58656,
+    "pLI": 0.993,
+    "pRec": 0.0070031,
+    "pNull": 4.5462E-8,
     "all": [
       [
-        "ENST00000309234",
-        0.75066,
-        0.86126,
-        0.87997,
-        1.0036,
-        0.68173,
-        0.81384,
-        3.0127E-8,
-        0.51973,
-        0.48027
+        "ENST00000288602",
+        0.10267,
+        0.48079,
+        1.0117,
+        5.8361,
+        3.8608,
+        -0.11393,
+        0.99992,
+        0.000081314,
+        7.2105E-15
       ],
       [
-        "ENST00000317896",
-        0.78276,
-        0.89909,
-        0.96423,
-        0.72365,
-        0.43848,
-        0.21153,
-        0.0000023635,
-        0.50104,
-        0.49895
-      ],
-      [
-        "ENST00000336625",
-        0.78856,
-        0.91101,
-        0.99319,
-        0.70172,
-        0.37666,
-        0.039294,
-        0.0000022244,
-        0.48842,
-        0.51158
-      ],
-      [
-        "ENST00000349999",
-        0.77878,
-        0.8674,
-        0.85127,
-        0.77484,
-        0.57745,
-        0.90131,
-        7.3548E-7,
-        0.48968,
-        0.51032
-      ],
-      [
-        "ENST00000352392",
-        0.54953,
-        1.0918,
-        0.84422,
-        0.80091,
-        -0.22086,
-        0.53097,
-        0.060743,
-        0.73145,
-        0.2078
-      ],
-      [
-        "ENST00000353147",
-        0.88371,
-        0.95615,
-        0.97088,
-        0.30503,
-        0.15517,
-        0.14448,
-        0.0000462,
-        0.42739,
-        0.57256
-      ],
-      [
-        "ENST00000357618",
-        0.75079,
-        0.8488,
-        0.87274,
-        1.0029,
-        0.76012,
-        0.87298,
-        3.0065E-8,
-        0.51929,
-        0.48071
-      ],
-      [
-        "ENST00000397022",
-        0.77089,
-        0.86188,
-        0.84381,
-        0.90996,
-        0.67414,
-        1.0397,
-        2.1923E-8,
-        0.45416,
-        0.54584
-      ],
-      [
-        "ENST00000461397",
-        0.75459,
-        0.85713,
-        0.8907,
-        0.98514,
-        0.7037,
-        0.73663,
-        2.832E-8,
-        0.50667,
-        0.49333
-      ],
-      [
-        "ENST00000470149",
-        0.71617,
-        0.8666,
-        0.90152,
-        1.1696,
-        0.66575,
-        0.66964,
-        5.1645E-8,
-        0.63674,
-        0.36326
-      ],
-      [
-        "ENST00000485729",
-        0.63333,
-        0.9409,
-        0.544,
-        0.74374,
-        0.11904,
-        1.1857,
-        0.017637,
-        0.7329,
-        0.24946
-      ],
-      [
-        "ENST00000488199",
-        0.784,
-        0.87974,
-        0.87364,
-        0.75404,
-        0.50956,
-        0.74846,
-        6.9178E-7,
-        0.47707,
-        0.52293
+        "ENST00000496384",
+        0.084962,
+        0.42,
+        0.91194,
+        4.1376,
+        3.0109,
+        0.58656,
+        0.993,
+        0.0070031,
+        4.5462E-8
       ]
     ]
   },
-  "gtex": {
-    "gtex_gene": "ENSG00000010704.14|ENSG00000124568.6|ENSG00000124564.13|ENSG00000010704.14|ENSG00000196966.3|ENSG00000010704.14|ENSG00000010704.14|ENSG00000010704.14|ENSG00000198366.5|ENSG00000010704.14|ENSG00000010704.14|ENSG00000010704.14|ENSG00000112343.8|ENSG00000010704.14|ENSG00000196966.3",
-    "gtex_tissue": "Adipose_Subcutaneous|Adrenal_Gland|Adrenal_Gland|Artery_Aorta|Brain_Putamen_basal_ganglia|Colon_Transverse|Esophagus_Gastroesophageal_Junction|Esophagus_Muscularis|Lung|Nerve_Tibial|Skin_Not_Sun_Exposed_Suprapubic|Skin_Sun_Exposed_Lower_leg|Thyroid|Thyroid|Whole_Blood"
-  },
+  "gtex": null,
   "gwas_catalog": null,
   "linsight": null,
   "loftool": {
-    "loftool_score": 0.406
+    "loftool_score": 0.0212
   },
   "lrt": {
-    "lrt_score": 0.34654,
-    "lrt_converted_rankscore": 0.13882,
-    "lrt_pred": "Neutral",
-    "lrt_omega": 0.680049
+    "lrt_score": 0.0,
+    "lrt_converted_rankscore": 0.8433,
+    "lrt_pred": "Damaging",
+    "lrt_omega": 0.0
   },
   "mavedb": null,
   "metalr": {
-    "score": 0.6308,
-    "rankscore": 0.8705,
-    "pred": "Damaging"
+    "score": 0.2357,
+    "rankscore": 0.6027,
+    "pred": "Tolerated"
   },
   "metasvm": {
-    "score": 0.1026,
-    "rankscore": 0.8422200000000001,
-    "pred": "Damaging"
+    "score": -0.7685,
+    "rankscore": 0.5694,
+    "pred": "Tolerated"
   },
   "mutation_assessor": {
-    "transcript": "ENST00000309234.10;ENST00000317896.11;ENST00000336625.12;ENST00000357618.9;ENST00000461397.5;ENST00000470149.5",
-    "score": "1.79",
-    "rankscore": "0.46772",
-    "impact": "low",
+    "transcript": "ENST00000496384.7;ENST00000646891.1",
+    "score": "0.65",
+    "rankscore": "0.16133",
+    "impact": "neutral",
     "all": [
       [
-        "ENST00000309234.10",
-        "low",
-        "1.79",
-        "0.46772"
+        "ENST00000496384.7",
+        "neutral",
+        "0.65",
+        "0.16133"
       ],
       [
-        "ENST00000317896.11",
-        "low",
-        "1.79",
-        "0.46772"
-      ],
-      [
-        "ENST00000336625.12",
-        "low",
-        "1.79",
-        "0.46772"
-      ],
-      [
-        "ENST00000357618.9",
-        "low",
-        "1.79",
-        "0.46772"
-      ],
-      [
-        "ENST00000461397.5",
-        "low",
-        "1.79",
-        "0.46772"
-      ],
-      [
-        "ENST00000470149.5",
-        "low",
-        "1.79",
-        "0.46772"
+        "ENST00000646891.1",
+        "neutral",
+        "0.65",
+        "0.16133"
       ]
     ]
   },
   "mutationtaster": {
-    "transcript": "ENST00000309234;ENST00000317896;ENST00000336625;ENST00000357618;ENST00000397022;ENST00000461397;ENST00000470149",
-    "score": 0.999995,
-    "rankscore": 0.08975,
-    "prediction": "Automatic Polymorphism",
-    "model": "without_aae",
+    "transcript": "ENST00000288602;ENST00000496384;ENST00000644969;ENST00000646891",
+    "score": 1.0,
+    "rankscore": 0.81001,
+    "prediction": "Damaging",
+    "model": "simple_aae",
     "all": [
       [
-        "ENST00000397022",
+        "ENST00000496384",
         1.0,
-        0.08975,
-        "Automatic Polymorphism",
+        0.81001,
+        "Damaging",
         "simple_aae"
       ],
       [
-        "ENST00000317896",
+        "ENST00000644969",
         1.0,
-        0.08975,
-        "Automatic Polymorphism",
+        0.81001,
+        "Damaging",
         "simple_aae"
       ],
       [
-        "ENST00000357618",
+        "ENST00000646891",
         1.0,
-        0.08975,
-        "Automatic Polymorphism",
+        0.81001,
+        "Damaging",
         "simple_aae"
       ],
       [
-        "ENST00000470149",
+        "ENST00000288602",
         1.0,
-        0.08975,
-        "Automatic Polymorphism",
+        0.81001,
+        "Damaging",
         "simple_aae"
-      ],
-      [
-        "ENST00000336625",
-        1.0,
-        0.08975,
-        "Automatic Polymorphism",
-        "simple_aae"
-      ],
-      [
-        "ENST00000461397",
-        1.0,
-        0.08975,
-        "Automatic Polymorphism",
-        "simple_aae"
-      ],
-      [
-        "ENST00000309234",
-        1.0,
-        0.08975,
-        "Automatic Polymorphism",
-        "simple_aae"
-      ],
-      [
-        "ENST00000397022",
-        0.999995,
-        0.08975,
-        "Automatic Polymorphism",
-        "without_aae"
-      ],
-      [
-        "ENST00000317896",
-        0.999995,
-        0.08975,
-        "Automatic Polymorphism",
-        "without_aae"
-      ],
-      [
-        "ENST00000357618",
-        0.999995,
-        0.08975,
-        "Automatic Polymorphism",
-        "without_aae"
-      ],
-      [
-        "ENST00000470149",
-        0.999995,
-        0.08975,
-        "Automatic Polymorphism",
-        "without_aae"
-      ],
-      [
-        "ENST00000336625",
-        0.999995,
-        0.08975,
-        "Automatic Polymorphism",
-        "without_aae"
-      ],
-      [
-        "ENST00000461397",
-        0.999995,
-        0.08975,
-        "Automatic Polymorphism",
-        "without_aae"
-      ],
-      [
-        "ENST00000309234",
-        0.999995,
-        0.08975,
-        "Automatic Polymorphism",
-        "without_aae"
       ]
     ]
   },
-  "mutpred1": null,
+  "mutpred1": {
+    "transcript": "ENST00000288602;ENST00000496384;ENST00000644969;ENST00000646891",
+    "external_protein_id": "P15056",
+    "amino_acid_substitution": "V600E",
+    "mutpred_general_score": 0.713,
+    "mutpred_top5_mechanisms": [
+      [
+        "ENST00000496384",
+        "P15056",
+        "Gain of disorder",
+        0.0057,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000496384",
+        "P15056",
+        "Gain of ubiquitination at K601",
+        0.0467,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000496384",
+        "P15056",
+        "Loss of MoRF binding",
+        0.1014,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000496384",
+        "P15056",
+        "Gain of phosphorylation at S605",
+        0.1213,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000496384",
+        "P15056",
+        "Loss of catalytic residue at K601",
+        0.1736,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000644969",
+        "P15056",
+        "Gain of disorder",
+        0.0057,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000644969",
+        "P15056",
+        "Gain of ubiquitination at K601",
+        0.0467,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000644969",
+        "P15056",
+        "Loss of MoRF binding",
+        0.1014,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000644969",
+        "P15056",
+        "Gain of phosphorylation at S605",
+        0.1213,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000644969",
+        "P15056",
+        "Loss of catalytic residue at K601",
+        0.1736,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000646891",
+        "P15056",
+        "Gain of disorder",
+        0.0057,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000646891",
+        "P15056",
+        "Gain of ubiquitination at K601",
+        0.0467,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000646891",
+        "P15056",
+        "Loss of MoRF binding",
+        0.1014,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000646891",
+        "P15056",
+        "Gain of phosphorylation at S605",
+        0.1213,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000646891",
+        "P15056",
+        "Loss of catalytic residue at K601",
+        0.1736,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000288602",
+        "P15056",
+        "Gain of disorder",
+        0.0057,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000288602",
+        "P15056",
+        "Gain of ubiquitination at K601",
+        0.0467,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000288602",
+        "P15056",
+        "Loss of MoRF binding",
+        0.1014,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000288602",
+        "P15056",
+        "Gain of phosphorylation at S605",
+        0.1213,
+        0.713,
+        0.84865
+      ],
+      [
+        "ENST00000288602",
+        "P15056",
+        "Loss of catalytic residue at K601",
+        0.1736,
+        0.713,
+        0.84865
+      ]
+    ],
+    "mutpred_rankscore": 0.84865
+  },
   "mutpred_indel": null,
   "ncbigene": {
-    "ncbi_desc": "The protein encoded by this gene is a membrane protein that is similar to MHC class I-type proteins and associates with beta2-microglobulin (beta2M). It is thought that this protein functions to regulate iron absorption by regulating the interaction of the transferrin receptor with transferrin. The iron storage disorder, hereditary haemochromatosis, is a recessive genetic disorder that results from defects in this gene. [provided by RefSeq, May 2022]",
-    "entrez": "3077"
+    "ncbi_desc": "This gene encodes a protein belonging to the RAF family of serine/threonine protein kinases. This protein plays a role in regulating the MAP kinase/ERK signaling pathway, which affects cell division, differentiation, and secretion. Mutations in this gene, most commonly the V600E mutation, are the most frequently identified cancer-causing mutations in melanoma, and have been identified in various other cancers as well, including non-Hodgkin lymphoma, colorectal cancer, thyroid carcinoma, non-small cell lung carcinoma, hairy cell leukemia and adenocarcinoma of lung. Mutations in this gene are also associated with cardiofaciocutaneous, Noonan, and Costello syndromes, which exhibit overlapping phenotypes. A pseudogene of this gene has been identified on the X chromosome. [provided by RefSeq, Aug 2017]",
+    "entrez": "673"
   },
-  "ndex": null,
+  "ndex": {
+    "numhit": 9,
+    "networkid": "3be95afa-5521-11e7-8f50-0ac135e8bacf,4c90f780-5521-11e7-8f50-0ac135e8bacf,55522d94-5521-11e7-8f50-0ac135e8bacf,720b3c92-5521-11e7-8f50-0ac135e8bacf,7ac7dec6-5521-11e7-8f50-0ac135e8bacf,8f640d10-5521-11e7-8f50-0ac135e8bacf,c92b28e0-5521-11e7-8f50-0ac135e8bacf,da3d4700-5521-11e7-8f50-0ac135e8bacf,e92d968a-5521-11e7-8f50-0ac135e8bacf",
+    "networkname": "Trk receptor signaling mediated by the MAPK pathway,Signaling events mediated by VEGFR1 and VEGFR2,Signaling events mediated by focal adhesion kinase,Ras signaling in the CD4 TCR pathway,PDGFR-beta signaling pathway,mTOR signaling pathway,ErbB1 downstream signaling,Downstream signaling in naive CD8 T cells,CDC42 signaling events"
+  },
   "ndex_chd": null,
-  "ndex_signor": null,
+  "ndex_signor": {
+    "numhit": 17,
+    "networkid": "568d095e-1e5f-11e8-b939-0ac135e8bacf,54a9a35b-1e5f-11e8-b939-0ac135e8bacf,4da845bf-1e5f-11e8-b939-0ac135e8bacf,4bb7e76c-1e5f-11e8-b939-0ac135e8bacf,248748ca-afe8-11e9-8bb4-0ac135e8bacf,2322889c-afe8-11e9-8bb4-0ac135e8bacf,42988bcd-1e5f-11e8-b939-0ac135e8bacf,321c9332-1e5f-11e8-b939-0ac135e8bacf,2cda23a9-1e5f-11e8-b939-0ac135e8bacf,2ae30e96-1e5f-11e8-b939-0ac135e8bacf,276ad7c0-1e5f-11e8-b939-0ac135e8bacf,1af025eb-afe8-11e9-8bb4-0ac135e8bacf,1ebf4d91-1e5f-11e8-b939-0ac135e8bacf,10ddfd0c-1e5f-11e8-b939-0ac135e8bacf,0ced3ad6-1e5f-11e8-b939-0ac135e8bacf,aa3d4364-5a70-11ea-bfdc-0ac135e8bacf,077e15fd-1e5f-11e8-b939-0ac135e8bacf",
+    "networkname": "T cell activation,Thyroid cancer,Rhabdomyosarcoma,PI3K/AKT,Pancreatic ductal adenocarcinoma (PDA),Non-small-cell lung cancer (NSCLC),Noonan syndrome,Malignant Melanoma,Luminal Breast Cancer,Inhibition of Apoptosis,IL6 ,Hepatocellular Tumor,Glioblastoma Multiforme,EGFR,Colorectal Carcinoma,AML-MiniPathway,Acute Myeloid Leukemia"
+  },
   "omim": {
-    "omim_id": "104300; 176100; 176200; 219700; 612635; 235200; 614193"
+    "omim_id": "108010; 254500; 606764; 114500; 114500; 275355; 211980"
   },
   "pangalodb": {
-    "cell_type": "Dendritic cells",
-    "ui": 0.017,
-    "desc": "homeostatic iron regulator",
+    "cell_type": "B cells naive",
+    "ui": 0.025,
+    "desc": "B-Raf proto-oncogene, serine/threonine kinase",
     "germlayer": "Mesoderm",
     "organ": "Immune system",
     "sensitivity": 0.0,
-    "specificity": 0.000328407,
+    "specificity": 0.0160529,
     "hits": [
       [
-        "Dendritic cells",
-        0.017,
-        "homeostatic iron regulator",
+        "B cells naive",
+        0.025,
+        "B-Raf proto-oncogene, serine/threonine kinase",
         "Mesoderm",
         "Immune system",
         0.0,
-        0.000328407
+        0.0160529
       ],
       [
-        "Endothelial cells (aorta)",
-        0.017,
-        "homeostatic iron regulator",
+        "Myoblasts",
+        0.025,
+        "B-Raf proto-oncogene, serine/threonine kinase",
         "Mesoderm",
-        "Vasculature",
+        "Skeletal muscle",
         0.0,
-        0.000313283
+        0.0159774
       ],
       [
-        "Kupffer cells",
-        0.017,
-        "homeostatic iron regulator",
-        "Mesoderm",
-        "Liver",
-        0.0,
-        0.000313283
-      ],
-      [
-        "Macrophages",
-        0.017,
-        "homeostatic iron regulator",
+        "T cells",
+        0.025,
+        "B-Raf proto-oncogene, serine/threonine kinase",
         "Mesoderm",
         "Immune system",
         0.0,
-        0.000314465
-      ],
-      [
-        "Platelets",
-        0.017,
-        "homeostatic iron regulator",
-        "Mesoderm",
-        "Blood",
-        0.0,
-        0.000313676
+        0.0173528
       ]
     ]
   },
   "phastcons": {
-    "phastcons100_vert": 0.744,
-    "phastcons100_vert_r": 0.29069,
-    "phastcons30_mamm": 0.995,
-    "phastcons30_mamm_r": 0.57719,
-    "phastcons17way_primate": 0.993,
-    "phastcons17way_primate_r": 0.69303
+    "phastcons100_vert": 1.0,
+    "phastcons100_vert_r": 0.71638,
+    "phastcons30_mamm": 1.0,
+    "phastcons30_mamm_r": 0.86279,
+    "phastcons17way_primate": 0.999,
+    "phastcons17way_primate_r": 0.91618
   },
   "phdsnpg": {
     "prediction": "Pathogenic",
-    "score": 0.932,
-    "fdr": 0.047
+    "score": 0.989,
+    "fdr": 0.022
   },
   "phi": {
-    "phi": 0.10665
+    "phi": 0.95401
   },
   "phylop": {
-    "phylop100_vert": 1.868,
-    "phylop100_vert_r": 0.39146,
-    "phylop30_mamm": 1.026,
-    "phylop30_mamm_r": 0.45946,
-    "phylop17_primate": 0.599,
-    "phylop17_primate_r": 0.4025
+    "phylop100_vert": 9.236,
+    "phylop100_vert_r": 0.94474,
+    "phylop30_mamm": 1.284,
+    "phylop30_mamm_r": 0.86211,
+    "phylop17_primate": 0.75,
+    "phylop17_primate_r": 0.87069
   },
   "polyphen2": {
-    "transcript": "ENST00000461397",
+    "transcript": "ENST00000646891",
     "uniprots": [
-      "Q30201-5",
-      "Q30201-7",
-      "Q30201",
-      "Q6B0J5",
-      "Q30201-10",
-      "Q30201-3"
+      "P15056"
     ],
-    "hdiv_score": 0.147,
-    "hdiv_rank": 0.6407,
+    "hdiv_score": 0.971,
+    "hdiv_rank": 0.57185,
     "hdiv_pred": "D",
-    "hvar_score": 0.083,
-    "hvar_rank": 0.62698,
-    "hvar_pred": "P",
+    "hvar_score": 0.943,
+    "hvar_rank": 0.67921,
+    "hvar_pred": "D",
     "all": [
       [
-        "ENST00000397022",
-        "Q30201-5",
-        0.147,
-        0.6407,
+        "ENST00000646891",
+        "P15056",
+        0.971,
+        0.57185,
         "D",
-        0.083,
-        0.62698,
-        "P"
-      ],
-      [
-        "ENST00000317896",
-        "Q30201-7",
-        0.991,
-        0.6407,
-        "D",
-        0.883,
-        0.62698,
-        "P"
-      ],
-      [
-        "ENST00000357618",
-        "Q30201",
-        0.142,
-        0.6407,
-        "D",
-        0.161,
-        0.62698,
-        "P"
-      ],
-      [
-        "ENST00000470149",
-        "Q6B0J5",
-        0.142,
-        0.6407,
-        "D",
-        0.161,
-        0.62698,
-        "P"
-      ],
-      [
-        "ENST00000336625",
-        "Q30201-10",
-        0.991,
-        0.6407,
-        "D",
-        0.883,
-        0.62698,
-        "P"
-      ],
-      [
-        "ENST00000461397",
-        "Q30201-3",
-        0.117,
-        0.6407,
-        "D",
-        0.1,
-        0.62698,
-        "P"
+        0.943,
+        0.67921,
+        "D"
       ]
     ]
   },
-  "prec": {
-    "prec": 0.73042,
-    "stat": "recessive"
-  },
-  "provean": {
-    "transcript": "ENST00000317896",
-    "uniprot": "Q30201-7",
-    "score": -1.98,
-    "rankscore": 0.45769,
-    "prediction": "Neutral",
-    "all": [
-      [
-        "ENST00000397022",
-        "Q30201-5",
-        -1.23,
-        0.45769,
-        "Neutral"
-      ],
-      [
-        "ENST00000317896",
-        "Q30201-7",
-        -1.98,
-        0.45769,
-        "Neutral"
-      ],
-      [
-        "ENST00000357618",
-        "Q30201",
-        -1.87,
-        0.45769,
-        "Neutral"
-      ],
-      [
-        "ENST00000470149",
-        "Q6B0J5",
-        -1.84,
-        0.45769,
-        "Neutral"
-      ],
-      [
-        "ENST00000336625",
-        "Q30201-10",
-        -1.92,
-        0.45769,
-        "Neutral"
-      ],
-      [
-        "ENST00000461397",
-        "Q30201-3",
-        -1.86,
-        0.45769,
-        "Neutral"
-      ],
-      [
-        "ENST00000309234",
-        "F8W7W8",
-        -1.82,
-        0.45769,
-        "Neutral"
-      ]
-    ]
-  },
+  "prec": null,
+  "provean": null,
   "repeat": null,
-  "civic": null,
+  "civic": {
+    "id": 12,
+    "description": "BRAF V600E has been shown to be recurrent in many cancer types. It is one of the most widely studied variants in cancer. This variant is correlated with poor prognosis in certain cancer types, including colorectal cancer and papillary thyroid cancer. The targeted therapeutic dabrafenib has been shown to be effective in clinical trials with an array of BRAF mutations and cancer types. Dabrafenib has also shown to be effective when combined with the MEK inhibitor trametinib in colorectal cancer and melanoma. However, in patients with TP53, CDKN2A and KRAS mutations, dabrafenib resistance has been reported. Ipilimumab, regorafenib, vemurafenib, and a number of combination therapies have been successful in treating V600E mutations. However, cetuximab and panitumumab have been largely shown to be ineffective without supplementary treatment.",
+    "molecular_profile_score": 1353.5,
+    "diseases": "Colorectal Cancer, Gastrointestinal Neuroendocrine Tumor, Hairy Cell Leukemia, High Grade Glioma, Melanoma, Multiple Myeloma, Ovarian Cancer, Skin Melanoma, Thyroid Gland Cancer, Thyroid Gland Papillary Carcinoma"
+  },
   "rvis": {
-    "rvis_evs": 0.08,
-    "rvis_perc_evs": 60.31,
-    "rvis_fdr_exac": 0.7647598,
-    "rvis_exac": 0.656453753,
-    "rvis_perc_exac": 83.59134992
+    "rvis_evs": -0.6,
+    "rvis_perc_evs": 17.75,
+    "rvis_fdr_exac": 0.0000945651,
+    "rvis_exac": -0.965257977,
+    "rvis_perc_exac": 9.547617613
   },
   "segway": null,
   "sift": {
-    "transcript": "ENST00000309234",
-    "score": 0.089,
-    "prediction": "Tolerated",
-    "rankscore": 0.9110889110889111,
-    "med": 2.57,
+    "transcript": "ENST00000288602",
+    "score": 0.002,
+    "prediction": "Damaging",
+    "rankscore": 0.998001998001998,
+    "med": 2.48,
     "confidence": "High",
-    "seqs": 119,
+    "seqs": 90,
     "all": [
       [
-        "ENST00000309234",
-        0.089,
-        "Tolerated",
-        0.9110889110889111,
-        2.57,
+        "ENST00000288602",
+        0.002,
+        "Damaging",
+        0.998001998001998,
+        2.48,
         "High",
-        119
+        90
       ],
       [
-        "ENST00000317896",
-        0.093,
-        "Tolerated",
-        0.9070929070929071,
-        2.57,
+        "ENST00000496384",
+        0.006,
+        "Damaging",
+        0.994005994005994,
+        2.34,
         "High",
-        47
+        107
       ],
       [
-        "ENST00000461397",
-        0.093,
+        "ENST00000479537",
+        0.157,
         "Tolerated",
-        0.9070929070929071,
-        2.58,
+        0.8431568431568431,
+        2.47,
         "High",
-        118
-      ],
-      [
-        "ENST00000357618",
-        0.098,
-        "Tolerated",
-        0.9020979020979021,
-        2.58,
-        "High",
-        116
-      ],
-      [
-        "ENST00000470149",
-        0.11,
-        "Tolerated",
-        0.8901098901098901,
-        2.57,
-        "High",
-        114
-      ],
-      [
-        "ENST00000397022",
-        0.146,
-        "Tolerated",
-        0.8541458541458542,
-        2.57,
-        "High",
-        115
-      ],
-      [
-        "ENST00000336625",
-        0.451,
-        "Tolerated",
-        0.5494505494505495,
-        2.73,
-        "High",
-        44
+        177
       ]
     ],
     "multsite": "True"
   },
   "siphy": {
-    "pi": "0.175;0.7358;0.0;0.0892",
-    "logodds": 6.6848,
-    "logodds_rank": 0.22183
+    "pi": "1.0;0.0;0.0;0.0",
+    "logodds": 15.9326,
+    "logodds_rank": 0.7937
   },
   "spliceai": null,
   "uniprot": {
-    "acc": "Q30201"
+    "acc": "P15056"
   },
   "vest": {
-    "transcript": "ENST00000309234.10",
-    "score": 0.332,
+    "transcript": "ENST00000288602.10",
+    "score": 0.946,
     "pval": 0.0,
     "all": [
       [
-        "ENST00000309234.10",
-        0.332,
-        0.0
-      ],
-      [
-        "ENST00000317896.11",
-        0.325,
-        0.0
-      ],
-      [
-        "ENST00000336625.12",
-        0.287,
-        0.0
-      ],
-      [
-        "ENST00000357618.9",
-        0.287,
-        0.0
-      ],
-      [
-        "ENST00000397022.7",
-        0.299,
-        0.0
-      ],
-      [
-        "ENST00000461397.5",
-        0.299,
-        0.0
-      ],
-      [
-        "ENST00000470149.5",
-        0.185,
+        "ENST00000288602.10",
+        0.946,
         0.0
       ]
     ],
-    "hugo": "HFE"
+    "hugo": "BRAF"
   },
   "aloft": null,
   "cadd": {
-    "score": "1.480531",
-    "phred": "15.61"
+    "score": "4.196921",
+    "phred": "28.6"
   },
   "crx": {
     "uid": "",
-    "chrom": "chr6",
-    "pos": 26090951,
-    "ref_base": "C",
-    "alt_base": "G",
+    "chrom": "chr7",
+    "pos": 140753336,
+    "ref_base": "A",
+    "alt_base": "T",
     "note_variant": "",
     "coding": "Yes",
-    "hugo": "HFE",
-    "transcript": "ENST00000357618.9",
+    "hugo": "BRAF",
+    "transcript": "ENST00000644969.1",
     "so": "missense_variant",
-    "exonno": 2,
-    "cchange": "c.187C>G",
-    "achange": "p.His63Asp",
-    "all_mappings": "{\"HFE\": [[\"\", \"p.His63Asp\", \"missense_variant\", \"ENST00000309234.10\", \"c.187C>G\"], [\"Q30201\", \"p.His63Asp\", \"missense_variant\", \"ENST00000317896.11\", \"c.187C>G\"], [\"Q30201\", \"p.His63Asp\", \"missense_variant\", \"ENST00000336625.12\", \"c.187C>G\"], [\"Q30201\", \"\", \"intron_variant\", \"ENST00000349999.8\", \"c.77-363C>G\"], [\"Q30201\", \"\", \"intron_variant\", \"ENST00000352392.8\", \"c.77-2168C>G\"], [\"Q30201\", \"\", \"intron_variant\", \"ENST00000353147.9\", \"c.77-1734C>G\"], [\"Q30201\", \"p.His63Asp\", \"missense_variant\", \"ENST00000357618.9\", \"c.187C>G\"], [\"Q30201\", \"p.His40Asp\", \"missense_variant\", \"ENST00000397022.7\", \"c.118C>G\"], [\"Q30201\", \"p.His63Asp\", \"missense_variant\", \"ENST00000461397.5\", \"c.187C>G\"], [\"\", \"p.His63Asp\", \"missense_variant\", \"ENST00000470149.5\", \"c.187C>G\"], [\"Q30201\", \"\", \"intron_variant\", \"ENST00000488199.5\", \"c.77-363C>G\"]]}",
-    "gposend": 26090951
+    "exonno": 16,
+    "cchange": "c.1919T>A",
+    "achange": "p.Val640Glu",
+    "all_mappings": "{\"BRAF\": [[\"\", \"p.Val640Glu\", \"missense_variant\", \"ENST00000288602.11\", \"c.1919T>A\"], [\"\", \"p.Val600Glu\", \"missense_variant\", \"ENST00000496384.7\", \"c.1799T>A\"], [\"\", \"\", \"NMD_transcript_variant,3_prime_UTR_variant\", \"ENST00000497784.2\", \"c.*1249T>A\"], [\"\", \"\", \"NMD_transcript_variant,3_prime_UTR_variant\", \"ENST00000642228.1\", \"c.*877T>A\"], [\"\", \"\", \"processed_transcript\", \"ENST00000644120.1\", \"\"], [\"\", \"p.Val640Glu\", \"missense_variant\", \"ENST00000644969.1\", \"c.1919T>A\"], [\"\", \"\", \"NMD_transcript_variant,3_prime_UTR_variant\", \"ENST00000646730.1\", \"c.*375T>A\"], [\"P15056\", \"p.Val600Glu\", \"missense_variant\", \"ENST00000646891.1\", \"c.1799T>A\"]]}",
+    "gposend": 140753336
   }
 }

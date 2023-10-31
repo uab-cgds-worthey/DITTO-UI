@@ -1,25 +1,5 @@
 [
   {
-    "col_id": "crx.coding",
-    "parse_type": {
-      "none": "none"
-    }
-  },
-  {
-    "col_id": "crx.all_mappings",
-    "parse_type": {
-      "all_mappings": {
-        "dict_index": {
-          "0": "uniprot_id",
-          "1": "protein_hgvs",
-          "2": "consequence",
-          "3": "transcript",
-          "4": "cdna_hgvs"
-        }
-      }
-    }
-  },
-  {
     "col_id": "aloft.all",
     "parse_type": {
       "list-o-dicts": {
@@ -66,13 +46,9 @@
     }
   },
   {
-    "col_id": "cosmic.transcript",
+    "col_id": "cosmic.variant_count",
     "parse_type": {
-      "list": {
-        "trx_index_col": "cosmic.transcript",
-        "column_list": ["cosmic.variant_count"],
-        "separator": ";"
-      }
+      "none": "none"
     }
   },
   {
