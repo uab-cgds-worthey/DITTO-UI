@@ -4,12 +4,12 @@ import os
 import json
 import yaml
 import pandas as pd
+import requests
 
 
 class OCApiParser:
-    def __init__(self, parsing_config, column_config) -> None:
+    def __init__(self, parsing_config) -> None:
         self.parsing_config = parsing_config
-        self.column_config = column_config
 
     def _parse_all_mappings(self, oc_response_dict):
         if (not oc_response_dict["crx"]["all_mappings"]) or oc_response_dict["crx"][
@@ -157,7 +157,30 @@ class OCApiParser:
         return ret_list
 
     def query_variant(self, chrom: str, pos: int, ref: str, alt: str) -> pd.DataFrame:
-        pass
+        if not chrom.startswith("chr"):
+            chrom = "chr" + chrom
+        url = (
+            f"https://run.opencravat.org/submit/annotate?chrom={chrom}&pos={str(pos)}&ref_base={ref}&alt_base={alt}"
+            "&annotators=aloft,alt_base,cadd,cancer_genome_interpreter,ccre_screen,cgc,cgd,chasmplus,chrom,civic,"
+            "clingen,clinpred,clinvar,coding,cosmic,cosmic_gene,cscape,dann,dann_coding,dbscsnv,dbsnp,dgi,"
+            "ensembl_regulatory_build,ess_gene,exac_gene,fathmm,fathmm_xf_coding,funseq2,genehancer,gerp,ghis,"
+            "gnomad,gnomad3,gnomad_gene,gtex,gwas_catalog,linsight,loftool,lrt,mavedb,metalr,metasvm,"
+            "mutation_assessor,mutationtaster,mutpred1,mutpred_indel,ncbigene,ndex,ndex_chd,ndex_signor,"
+            "omim,pangalodb,phastcons,phdsnpg,phi,phylop,polyphen2,pos,prec,provean,ref_base,repeat,revel,"
+            "rvis,segway,sift,siphy,spliceai,uniprot,varity_r,vest,transcript,gene,consequence,protein_hgvs,"
+            "cdna_hgvs"
+        )
+
+        get_fields = requests.get(url, timeout=20)
+        try:
+            get_fields.raise_for_status()
+        except requests.exceptions.RequestException as expt:
+            print(
+                f"Could not get OpenCravat Annotations for chrom={chrom} pos={str(pos)} ref_base={ref} alt_base={alt}"
+            )
+            raise expt
+
+        return pd.DataFrame(self.parse_oc_api_json(get_fields.json()))
 
 
 def is_valid_output_dir(p, arg):
@@ -189,8 +212,17 @@ if __name__ == "__main__":
         "-i",
         "--input",
         help="File path to the JSON file of annotated variant from OpenCravat API",
-        required=True,
+        required=False,
         type=lambda x: is_valid_file(PARSER, x),
+        metavar="\b",
+    )
+
+    PARSER.add_argument(
+        "-v",
+        "--variant",
+        help="Variant in 'chr_pos_ref_alt' format to be annotated from OpenCravat API",
+        required=False,
+        type=str,
         metavar="\b",
     )
 
@@ -203,16 +235,18 @@ if __name__ == "__main__":
     with data_config.open("rt") as dc_fp:
         data_config_dict = json.load(dc_fp)
 
-    col_config = repo_root / "configs" / "col_config.yaml"
-    col_config_dict = None
-    with col_config.open("rt") as cc_fp:
-        col_config_dict = yaml.safe_load(cc_fp)
+    parser = OCApiParser(data_config_dict)
 
-    parser = OCApiParser(data_config_dict, col_config_dict)
+    if ARGS.input:
+        test_file = Path(ARGS.input)
+        annotation_data = None
+        with test_file.open("rt") as ex_fp:
+            annotation_data = json.load(ex_fp)
 
-    test_file = Path(ARGS.input)
-    annotation_data = None
-    with test_file.open("rt") as ex_fp:
-        annotation_data = json.load(ex_fp)
-
-    print(parser.parse_oc_api_json(annotation_data))
+        print(parser.parse_oc_api_json(annotation_data))
+    else:
+        varinfo = ARGS.variant.split("_")
+        dataframe = parser.query_variant(
+            chrom=varinfo[0], pos=int(varinfo[1]), ref=varinfo[2], alt=varinfo[3]
+        )
+        print(dataframe)
