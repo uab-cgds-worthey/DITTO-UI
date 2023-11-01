@@ -152,6 +152,27 @@ class OCApiParser:
                 if trx_key in listy_dict:
                     var_trx.update(listy_dict[trx_key])
 
+            # add None values for any fields not annotated
+            for list_field_config in filter(
+                lambda feild_config: "list-o-dicts" in feild_config["parse_type"],
+                self.parsing_config,
+            ):
+                for data_field in list_field_config["parse_type"]["list-o-dicts"][
+                    "dict_index"
+                ].values():
+                    if data_field not in var_trx:
+                        var_trx[data_field] = None
+
+            for list_field_config in filter(
+                lambda feild_config: "list" in feild_config["parse_type"],
+                self.parsing_config,
+            ):
+                for data_field in list_field_config["parse_type"]["list"][
+                    "column_list"
+                ]:
+                    if data_field not in var_trx:
+                        var_trx[data_field] = None
+
             ret_list.append(var_trx)
 
         return ret_list
