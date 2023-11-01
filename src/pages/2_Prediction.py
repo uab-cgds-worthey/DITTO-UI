@@ -221,7 +221,7 @@ def main():
     pred_data = get_annots(info_dict, config_dict["display_cols"]["pred"])
     annot_col3.write(pred_data)
 
-    annot_col4.subheader("Clinical reportings")
+    annot_col4.subheader("Function")
     clinical_data = get_annots(info_dict, config_dict["display_cols"]["clinical"])
     annot_col4.write(clinical_data)
 
