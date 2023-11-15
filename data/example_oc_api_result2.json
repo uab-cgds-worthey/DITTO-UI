@@ -1,0 +1,1086 @@
+{
+  "revel": {
+    "transcript": "ENST00000309234;ENST00000317896;ENST00000336625;ENST00000357618;ENST00000397022;ENST00000461397;ENST00000470149",
+    "score": 0.315,
+    "rankscore": 0.63694,
+    "all": [
+      [
+        "ENST00000397022",
+        0.315,
+        0.63694
+      ],
+      [
+        "ENST00000317896",
+        0.315,
+        0.63694
+      ],
+      [
+        "ENST00000357618",
+        0.315,
+        0.63694
+      ],
+      [
+        "ENST00000470149",
+        0.315,
+        0.63694
+      ],
+      [
+        "ENST00000336625",
+        0.315,
+        0.63694
+      ],
+      [
+        "ENST00000461397",
+        0.315,
+        0.63694
+      ],
+      [
+        "ENST00000309234",
+        0.315,
+        0.63694
+      ]
+    ]
+  },
+  "cancer_genome_interpreter": null,
+  "ccre_screen": null,
+  "cgc": null,
+  "cgd": null,
+  "chasmplus": {
+    "score": 0.018,
+    "transcript": "ENST00000470149.5",
+    "pval": 0.677,
+    "all": [
+      [
+        "ENST00000470149.5",
+        0.018,
+        0.677
+      ],
+      [
+        "NM_000410.3",
+        0.015,
+        0.721
+      ],
+      [
+        "NM_001300749.1",
+        0.015,
+        0.721
+      ],
+      [
+        "NM_139003.2",
+        0.017,
+        0.691
+      ],
+      [
+        "NM_139004.2",
+        0.014,
+        0.737
+      ],
+      [
+        "NM_139006.2",
+        0.018,
+        0.677
+      ],
+      [
+        "NM_139009.2",
+        0.017,
+        0.691
+      ]
+    ]
+  },
+  "varity_r": {
+    "p_vid": "Q30201",
+    "varity_r": 0.44828805,
+    "varity_er": 0.3678599,
+    "varity_r_loo": 0.5796515,
+    "varity_er_loo": 0.30211145
+  },
+  "clingen": null,
+  "clinpred": {
+    "score": 0.012,
+    "rankscore": 0.012987012987012988
+  },
+  "clinvar": {
+    "sig": "Conflicting interpretations of pathogenicity|other",
+    "disease_refs": ".|Human Phenotype Ontology:HP:0001638,MONDO:MONDO:0004994,MedGen:C0878544,Orphanet:ORPHA167848,SNOMED CT:85898001|Human Phenotype Ontology:HP:0002511,Human Phenotype Ontology:HP:0006878,Human Phenotype Ontology:HP:0007213,MONDO:MONDO:0004975,MedGen:C0002395,Orphanet:ORPHA238616,SNOMED CT:26929004|Human Phenotype Ontology:HP:0011031,MedGen:C4023583|MONDO:MONDO:0006507,MedGen:C0392514,OMIM:PS235200,SNOMED CT:35400008|MONDO:MONDO:0008296,MedGen:C0268323,OMIM:176100,Orphanet:ORPHA443062,SNOMED CT:59229005|MONDO:MONDO:0008297,MedGen:C0162532,OMIM:176200,Orphanet:ORPHA79473,SNOMED CT:58275005|MONDO:MONDO:0009061,MedGen:C0010674,OMIM:219700,Orphanet:ORPHA586,SNOMED CT:190905008|MONDO:MONDO:0012971,MedGen:C2673520,OMIM:612635|MONDO:MONDO:0021001,MedGen:C3469186,OMIM:235200,Orphanet:ORPHA139498,Orphanet:ORPHA465508|MedGen:C0018995|MedGen:C3280096,OMIM:614193|MedGen:CN169374|MedGen:CN517202",
+    "disease_names": "See cases|Cardiomyopathy|Alzheimer disease|Abnormality of iron homeostasis|Hereditary hemochromatosis|Familial porphyria cutanea tarda|Variegate porphyria|Cystic fibrosis|Microvascular complications of diabetes, susceptibility to, 7|Hemochromatosis type 1|Bronze diabetes|Transferrin serum level quantitative trait locus 2|not specified|not provided",
+    "rev_stat": "criteria provided, conflicting interpretations",
+    "id": 10,
+    "sig_conf": "Pathogenic(25)|Uncertain significance(2)|Benign(2)"
+  },
+  "cosmic": {
+    "cosmic_id": "COSV58513169",
+    "transcript": "ENST00000461397.5",
+    "protein_change": "H63D",
+    "variant_count": 7,
+    "variant_count_tissue": [
+      [
+        "soft tissue",
+        3
+      ],
+      [
+        "lung",
+        2
+      ],
+      [
+        "large intestine",
+        1
+      ],
+      [
+        "pancreas",
+        1
+      ]
+    ],
+    "match": "Exact Match"
+  },
+  "cosmic_gene": {
+    "gene_count": [
+      [
+        "skin",
+        "42"
+      ],
+      [
+        "large intestine",
+        "41"
+      ],
+      [
+        "lung",
+        "29"
+      ],
+      [
+        "liver",
+        "28"
+      ],
+      [
+        "endometrium",
+        "25"
+      ],
+      [
+        "breast",
+        "15"
+      ],
+      [
+        "stomach",
+        "15"
+      ],
+      [
+        "oesophagus",
+        "11"
+      ],
+      [
+        "central nervous system",
+        "9"
+      ],
+      [
+        "upper aerodigestive tract",
+        "8"
+      ],
+      [
+        "ovary",
+        "8"
+      ],
+      [
+        "urinary tract",
+        "7"
+      ],
+      [
+        "haematopoietic and lymphoid tissue",
+        "7"
+      ],
+      [
+        "biliary tract",
+        "7"
+      ],
+      [
+        "prostate",
+        "6"
+      ],
+      [
+        "pancreas",
+        "6"
+      ],
+      [
+        "kidney",
+        "4"
+      ],
+      [
+        "thyroid",
+        "3"
+      ],
+      [
+        "soft tissue",
+        "3"
+      ],
+      [
+        "cervix",
+        "2"
+      ],
+      [
+        "bone",
+        "2"
+      ],
+      [
+        "genital tract",
+        "1"
+      ],
+      [
+        "pleura",
+        "1"
+      ],
+      [
+        "small intestine",
+        "1"
+      ],
+      [
+        "meninges",
+        "1"
+      ],
+      [
+        "autonomic ganglia",
+        "1"
+      ]
+    ],
+    "occurrences": 283
+  },
+  "cscape": {
+    "score": "0.510806"
+  },
+  "dann": {
+    "score": "0.47361057118180983\r"
+  },
+  "dann_coding": {
+    "dann_coding_score": 0.9850584684762111,
+    "dann_rankscore": 0.42276
+  },
+  "dbscsnv": null,
+  "dbsnp": {
+    "rsid": "rs1799945"
+  },
+  "dgi": {
+    "category": "DRUGGABLE GENOME",
+    "interaction": null,
+    "name": "ADALIMUMAB",
+    "score": 6.68,
+    "chembl": "CHEMBL1201580",
+    "pmid": 27115882,
+    "all": [
+      [
+        "DRUGGABLE GENOME",
+        "",
+        "ADALIMUMAB",
+        6.68,
+        "CHEMBL1201580",
+        27115882
+      ]
+    ]
+  },
+  "ensembl_regulatory_build": null,
+  "ess_gene": {
+    "ess_gene": "N",
+    "ess_gene_crispr": "N",
+    "ess_gene_crispr2": "N",
+    "ess_gene_gene_trap": "N",
+    "indispensability_score": "0.826496134923438",
+    "indispensability_pred": "E"
+  },
+  "exac_gene": {
+    "exac_pli": 8.4969700310781E-7,
+    "exac_prec": 0.505802901039445,
+    "exac_pnull": 0.494196249263552,
+    "exac_nontcga_pli": 0.0000225586230540966,
+    "exac_nontcga_prec": 0.73230010147413,
+    "exac_nontcga_pnull": 0.267677339902816,
+    "exac_nonpsych_pli": 0.00000288429366637025,
+    "exac_nonpsych_prec": 0.499763425791389,
+    "exac_nonpsych_pnull": 0.500233689914944,
+    "exac_del_score": 0.647856723754074,
+    "exac_dup_score": -0.711583441632016,
+    "exac_cnv_score": -0.307543785884328,
+    "exac_cnv_flag": "N"
+  },
+  "fathmm": {
+    "ens_tid": "ENST00000397022;ENST00000317896;ENST00000357618;ENST00000470149;ENST00000336625;ENST00000461397;ENST00000309234",
+    "ens_pid": "ENSP00000380217;ENSP00000313776;ENSP00000417404;ENSP00000419725;ENSP00000337819;ENSP00000420802;ENSP00000311698",
+    "fathmm_score": "-2.42;5.87;-2.42;-2.42;5.87;-2.42;-2.42",
+    "fathmm_rscore": 0.88626,
+    "fathmm_pred": "D;T;D;D;T;D;D"
+  },
+  "fathmm_xf_coding": {
+    "fathmm_xf_coding_score": 0.078262,
+    "fathmm_xf_coding_rankscore": 0.15787,
+    "fathmm_xf_coding_pred": "Neutral"
+  },
+  "funseq2": {
+    "all": [
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "2"
+      ]
+    ],
+    "hot": null,
+    "motif": null,
+    "score": "2"
+  },
+  "genehancer": null,
+  "gerp": {
+    "gerp_nr": 5.3,
+    "gerp_rs": 3.51,
+    "gerp_rs_rank": 0.39136
+  },
+  "ghis": {
+    "ghis": 0.55636161
+  },
+  "gnomad": {
+    "af": 0.108158560903,
+    "af_afr": 0.0272836538462,
+    "af_amr": 0.10034426322,
+    "af_asj": 0.107328833173,
+    "af_eas": 0.0340817963111,
+    "af_fin": 0.103431801895,
+    "af_nfe": 0.144269478509,
+    "af_oth": 0.120742176682,
+    "af_sas": 0.0802521557356
+  },
+  "gnomad3": {
+    "af": 0.101267,
+    "af_afr": 0.0303911,
+    "af_asj": 0.121613,
+    "af_eas": 0.0265176,
+    "af_fin": 0.096128,
+    "af_nfe": 0.149795,
+    "af_oth": 0.11792,
+    "af_sas": 0.0814183,
+    "af_lat": 0.109629
+  },
+  "gnomad_gene": {
+    "transcript": "ENST00000488199",
+    "oe_lof": 0.784,
+    "oe_mis": 0.87974,
+    "oe_syn": 0.87364,
+    "lof_z": 0.75404,
+    "mis_z": 0.50956,
+    "syn_z": 0.74846,
+    "pLI": 6.9178E-7,
+    "pRec": 0.47707,
+    "pNull": 0.52293,
+    "all": [
+      [
+        "ENST00000309234",
+        0.75066,
+        0.86126,
+        0.87997,
+        1.0036,
+        0.68173,
+        0.81384,
+        3.0127E-8,
+        0.51973,
+        0.48027
+      ],
+      [
+        "ENST00000317896",
+        0.78276,
+        0.89909,
+        0.96423,
+        0.72365,
+        0.43848,
+        0.21153,
+        0.0000023635,
+        0.50104,
+        0.49895
+      ],
+      [
+        "ENST00000336625",
+        0.78856,
+        0.91101,
+        0.99319,
+        0.70172,
+        0.37666,
+        0.039294,
+        0.0000022244,
+        0.48842,
+        0.51158
+      ],
+      [
+        "ENST00000349999",
+        0.77878,
+        0.8674,
+        0.85127,
+        0.77484,
+        0.57745,
+        0.90131,
+        7.3548E-7,
+        0.48968,
+        0.51032
+      ],
+      [
+        "ENST00000352392",
+        0.54953,
+        1.0918,
+        0.84422,
+        0.80091,
+        -0.22086,
+        0.53097,
+        0.060743,
+        0.73145,
+        0.2078
+      ],
+      [
+        "ENST00000353147",
+        0.88371,
+        0.95615,
+        0.97088,
+        0.30503,
+        0.15517,
+        0.14448,
+        0.0000462,
+        0.42739,
+        0.57256
+      ],
+      [
+        "ENST00000357618",
+        0.75079,
+        0.8488,
+        0.87274,
+        1.0029,
+        0.76012,
+        0.87298,
+        3.0065E-8,
+        0.51929,
+        0.48071
+      ],
+      [
+        "ENST00000397022",
+        0.77089,
+        0.86188,
+        0.84381,
+        0.90996,
+        0.67414,
+        1.0397,
+        2.1923E-8,
+        0.45416,
+        0.54584
+      ],
+      [
+        "ENST00000461397",
+        0.75459,
+        0.85713,
+        0.8907,
+        0.98514,
+        0.7037,
+        0.73663,
+        2.832E-8,
+        0.50667,
+        0.49333
+      ],
+      [
+        "ENST00000470149",
+        0.71617,
+        0.8666,
+        0.90152,
+        1.1696,
+        0.66575,
+        0.66964,
+        5.1645E-8,
+        0.63674,
+        0.36326
+      ],
+      [
+        "ENST00000485729",
+        0.63333,
+        0.9409,
+        0.544,
+        0.74374,
+        0.11904,
+        1.1857,
+        0.017637,
+        0.7329,
+        0.24946
+      ],
+      [
+        "ENST00000488199",
+        0.784,
+        0.87974,
+        0.87364,
+        0.75404,
+        0.50956,
+        0.74846,
+        6.9178E-7,
+        0.47707,
+        0.52293
+      ]
+    ]
+  },
+  "gtex": {
+    "gtex_gene": "ENSG00000010704.14|ENSG00000124568.6|ENSG00000124564.13|ENSG00000010704.14|ENSG00000196966.3|ENSG00000010704.14|ENSG00000010704.14|ENSG00000010704.14|ENSG00000198366.5|ENSG00000010704.14|ENSG00000010704.14|ENSG00000010704.14|ENSG00000112343.8|ENSG00000010704.14|ENSG00000196966.3",
+    "gtex_tissue": "Adipose_Subcutaneous|Adrenal_Gland|Adrenal_Gland|Artery_Aorta|Brain_Putamen_basal_ganglia|Colon_Transverse|Esophagus_Gastroesophageal_Junction|Esophagus_Muscularis|Lung|Nerve_Tibial|Skin_Not_Sun_Exposed_Suprapubic|Skin_Sun_Exposed_Lower_leg|Thyroid|Thyroid|Whole_Blood"
+  },
+  "gwas_catalog": null,
+  "linsight": null,
+  "loftool": {
+    "loftool_score": 0.406
+  },
+  "lrt": {
+    "lrt_score": 0.34654,
+    "lrt_converted_rankscore": 0.13882,
+    "lrt_pred": "Neutral",
+    "lrt_omega": 0.680049
+  },
+  "mavedb": null,
+  "metalr": {
+    "score": 0.6308,
+    "rankscore": 0.8705,
+    "pred": "Damaging"
+  },
+  "metasvm": {
+    "score": 0.1026,
+    "rankscore": 0.8422200000000001,
+    "pred": "Damaging"
+  },
+  "mutation_assessor": {
+    "transcript": "ENST00000309234.10;ENST00000317896.11;ENST00000336625.12;ENST00000357618.9;ENST00000461397.5;ENST00000470149.5",
+    "score": "1.79",
+    "rankscore": "0.46772",
+    "impact": "low",
+    "all": [
+      [
+        "ENST00000309234.10",
+        "low",
+        "1.79",
+        "0.46772"
+      ],
+      [
+        "ENST00000317896.11",
+        "low",
+        "1.79",
+        "0.46772"
+      ],
+      [
+        "ENST00000336625.12",
+        "low",
+        "1.79",
+        "0.46772"
+      ],
+      [
+        "ENST00000357618.9",
+        "low",
+        "1.79",
+        "0.46772"
+      ],
+      [
+        "ENST00000461397.5",
+        "low",
+        "1.79",
+        "0.46772"
+      ],
+      [
+        "ENST00000470149.5",
+        "low",
+        "1.79",
+        "0.46772"
+      ]
+    ]
+  },
+  "mutationtaster": {
+    "transcript": "ENST00000309234;ENST00000317896;ENST00000336625;ENST00000357618;ENST00000397022;ENST00000461397;ENST00000470149",
+    "score": 0.999995,
+    "rankscore": 0.08975,
+    "prediction": "Automatic Polymorphism",
+    "model": "without_aae",
+    "all": [
+      [
+        "ENST00000397022",
+        1.0,
+        0.08975,
+        "Automatic Polymorphism",
+        "simple_aae"
+      ],
+      [
+        "ENST00000317896",
+        1.0,
+        0.08975,
+        "Automatic Polymorphism",
+        "simple_aae"
+      ],
+      [
+        "ENST00000357618",
+        1.0,
+        0.08975,
+        "Automatic Polymorphism",
+        "simple_aae"
+      ],
+      [
+        "ENST00000470149",
+        1.0,
+        0.08975,
+        "Automatic Polymorphism",
+        "simple_aae"
+      ],
+      [
+        "ENST00000336625",
+        1.0,
+        0.08975,
+        "Automatic Polymorphism",
+        "simple_aae"
+      ],
+      [
+        "ENST00000461397",
+        1.0,
+        0.08975,
+        "Automatic Polymorphism",
+        "simple_aae"
+      ],
+      [
+        "ENST00000309234",
+        1.0,
+        0.08975,
+        "Automatic Polymorphism",
+        "simple_aae"
+      ],
+      [
+        "ENST00000397022",
+        0.999995,
+        0.08975,
+        "Automatic Polymorphism",
+        "without_aae"
+      ],
+      [
+        "ENST00000317896",
+        0.999995,
+        0.08975,
+        "Automatic Polymorphism",
+        "without_aae"
+      ],
+      [
+        "ENST00000357618",
+        0.999995,
+        0.08975,
+        "Automatic Polymorphism",
+        "without_aae"
+      ],
+      [
+        "ENST00000470149",
+        0.999995,
+        0.08975,
+        "Automatic Polymorphism",
+        "without_aae"
+      ],
+      [
+        "ENST00000336625",
+        0.999995,
+        0.08975,
+        "Automatic Polymorphism",
+        "without_aae"
+      ],
+      [
+        "ENST00000461397",
+        0.999995,
+        0.08975,
+        "Automatic Polymorphism",
+        "without_aae"
+      ],
+      [
+        "ENST00000309234",
+        0.999995,
+        0.08975,
+        "Automatic Polymorphism",
+        "without_aae"
+      ]
+    ]
+  },
+  "mutpred1": null,
+  "mutpred_indel": null,
+  "ncbigene": {
+    "ncbi_desc": "The protein encoded by this gene is a membrane protein that is similar to MHC class I-type proteins and associates with beta2-microglobulin (beta2M). It is thought that this protein functions to regulate iron absorption by regulating the interaction of the transferrin receptor with transferrin. The iron storage disorder, hereditary haemochromatosis, is a recessive genetic disorder that results from defects in this gene. [provided by RefSeq, May 2022]",
+    "entrez": "3077"
+  },
+  "ndex": null,
+  "ndex_chd": null,
+  "ndex_signor": null,
+  "omim": {
+    "omim_id": "104300; 176100; 176200; 219700; 612635; 235200; 614193"
+  },
+  "pangalodb": {
+    "cell_type": "Dendritic cells",
+    "ui": 0.017,
+    "desc": "homeostatic iron regulator",
+    "germlayer": "Mesoderm",
+    "organ": "Immune system",
+    "sensitivity": 0.0,
+    "specificity": 0.000328407,
+    "hits": [
+      [
+        "Dendritic cells",
+        0.017,
+        "homeostatic iron regulator",
+        "Mesoderm",
+        "Immune system",
+        0.0,
+        0.000328407
+      ],
+      [
+        "Endothelial cells (aorta)",
+        0.017,
+        "homeostatic iron regulator",
+        "Mesoderm",
+        "Vasculature",
+        0.0,
+        0.000313283
+      ],
+      [
+        "Kupffer cells",
+        0.017,
+        "homeostatic iron regulator",
+        "Mesoderm",
+        "Liver",
+        0.0,
+        0.000313283
+      ],
+      [
+        "Macrophages",
+        0.017,
+        "homeostatic iron regulator",
+        "Mesoderm",
+        "Immune system",
+        0.0,
+        0.000314465
+      ],
+      [
+        "Platelets",
+        0.017,
+        "homeostatic iron regulator",
+        "Mesoderm",
+        "Blood",
+        0.0,
+        0.000313676
+      ]
+    ]
+  },
+  "phastcons": {
+    "phastcons100_vert": 0.744,
+    "phastcons100_vert_r": 0.29069,
+    "phastcons30_mamm": 0.995,
+    "phastcons30_mamm_r": 0.57719,
+    "phastcons17way_primate": 0.993,
+    "phastcons17way_primate_r": 0.69303
+  },
+  "phdsnpg": {
+    "prediction": "Pathogenic",
+    "score": 0.932,
+    "fdr": 0.047
+  },
+  "phi": {
+    "phi": 0.10665
+  },
+  "phylop": {
+    "phylop100_vert": 1.868,
+    "phylop100_vert_r": 0.39146,
+    "phylop30_mamm": 1.026,
+    "phylop30_mamm_r": 0.45946,
+    "phylop17_primate": 0.599,
+    "phylop17_primate_r": 0.4025
+  },
+  "polyphen2": {
+    "transcript": "ENST00000461397",
+    "uniprots": [
+      "Q30201-5",
+      "Q30201-7",
+      "Q30201",
+      "Q6B0J5",
+      "Q30201-10",
+      "Q30201-3"
+    ],
+    "hdiv_score": 0.147,
+    "hdiv_rank": 0.6407,
+    "hdiv_pred": "D",
+    "hvar_score": 0.083,
+    "hvar_rank": 0.62698,
+    "hvar_pred": "P",
+    "all": [
+      [
+        "ENST00000397022",
+        "Q30201-5",
+        0.147,
+        0.6407,
+        "D",
+        0.083,
+        0.62698,
+        "P"
+      ],
+      [
+        "ENST00000317896",
+        "Q30201-7",
+        0.991,
+        0.6407,
+        "D",
+        0.883,
+        0.62698,
+        "P"
+      ],
+      [
+        "ENST00000357618",
+        "Q30201",
+        0.142,
+        0.6407,
+        "D",
+        0.161,
+        0.62698,
+        "P"
+      ],
+      [
+        "ENST00000470149",
+        "Q6B0J5",
+        0.142,
+        0.6407,
+        "D",
+        0.161,
+        0.62698,
+        "P"
+      ],
+      [
+        "ENST00000336625",
+        "Q30201-10",
+        0.991,
+        0.6407,
+        "D",
+        0.883,
+        0.62698,
+        "P"
+      ],
+      [
+        "ENST00000461397",
+        "Q30201-3",
+        0.117,
+        0.6407,
+        "D",
+        0.1,
+        0.62698,
+        "P"
+      ]
+    ]
+  },
+  "prec": {
+    "prec": 0.73042,
+    "stat": "recessive"
+  },
+  "provean": {
+    "transcript": "ENST00000317896",
+    "uniprot": "Q30201-7",
+    "score": -1.98,
+    "rankscore": 0.45769,
+    "prediction": "Neutral",
+    "all": [
+      [
+        "ENST00000397022",
+        "Q30201-5",
+        -1.23,
+        0.45769,
+        "Neutral"
+      ],
+      [
+        "ENST00000317896",
+        "Q30201-7",
+        -1.98,
+        0.45769,
+        "Neutral"
+      ],
+      [
+        "ENST00000357618",
+        "Q30201",
+        -1.87,
+        0.45769,
+        "Neutral"
+      ],
+      [
+        "ENST00000470149",
+        "Q6B0J5",
+        -1.84,
+        0.45769,
+        "Neutral"
+      ],
+      [
+        "ENST00000336625",
+        "Q30201-10",
+        -1.92,
+        0.45769,
+        "Neutral"
+      ],
+      [
+        "ENST00000461397",
+        "Q30201-3",
+        -1.86,
+        0.45769,
+        "Neutral"
+      ],
+      [
+        "ENST00000309234",
+        "F8W7W8",
+        -1.82,
+        0.45769,
+        "Neutral"
+      ]
+    ]
+  },
+  "repeat": null,
+  "civic": null,
+  "rvis": {
+    "rvis_evs": 0.08,
+    "rvis_perc_evs": 60.31,
+    "rvis_fdr_exac": 0.7647598,
+    "rvis_exac": 0.656453753,
+    "rvis_perc_exac": 83.59134992
+  },
+  "segway": null,
+  "sift": {
+    "transcript": "ENST00000309234",
+    "score": 0.089,
+    "prediction": "Tolerated",
+    "rankscore": 0.9110889110889111,
+    "med": 2.57,
+    "confidence": "High",
+    "seqs": 119,
+    "all": [
+      [
+        "ENST00000309234",
+        0.089,
+        "Tolerated",
+        0.9110889110889111,
+        2.57,
+        "High",
+        119
+      ],
+      [
+        "ENST00000317896",
+        0.093,
+        "Tolerated",
+        0.9070929070929071,
+        2.57,
+        "High",
+        47
+      ],
+      [
+        "ENST00000461397",
+        0.093,
+        "Tolerated",
+        0.9070929070929071,
+        2.58,
+        "High",
+        118
+      ],
+      [
+        "ENST00000357618",
+        0.098,
+        "Tolerated",
+        0.9020979020979021,
+        2.58,
+        "High",
+        116
+      ],
+      [
+        "ENST00000470149",
+        0.11,
+        "Tolerated",
+        0.8901098901098901,
+        2.57,
+        "High",
+        114
+      ],
+      [
+        "ENST00000397022",
+        0.146,
+        "Tolerated",
+        0.8541458541458542,
+        2.57,
+        "High",
+        115
+      ],
+      [
+        "ENST00000336625",
+        0.451,
+        "Tolerated",
+        0.5494505494505495,
+        2.73,
+        "High",
+        44
+      ]
+    ],
+    "multsite": "True"
+  },
+  "siphy": {
+    "pi": "0.175;0.7358;0.0;0.0892",
+    "logodds": 6.6848,
+    "logodds_rank": 0.22183
+  },
+  "spliceai": null,
+  "uniprot": {
+    "acc": "Q30201"
+  },
+  "vest": {
+    "transcript": "ENST00000309234.10",
+    "score": 0.332,
+    "pval": 0.0,
+    "all": [
+      [
+        "ENST00000309234.10",
+        0.332,
+        0.0
+      ],
+      [
+        "ENST00000317896.11",
+        0.325,
+        0.0
+      ],
+      [
+        "ENST00000336625.12",
+        0.287,
+        0.0
+      ],
+      [
+        "ENST00000357618.9",
+        0.287,
+        0.0
+      ],
+      [
+        "ENST00000397022.7",
+        0.299,
+        0.0
+      ],
+      [
+        "ENST00000461397.5",
+        0.299,
+        0.0
+      ],
+      [
+        "ENST00000470149.5",
+        0.185,
+        0.0
+      ]
+    ],
+    "hugo": "HFE"
+  },
+  "aloft": null,
+  "cadd": {
+    "score": "1.480531",
+    "phred": "15.61"
+  },
+  "crx": {
+    "uid": "",
+    "chrom": "chr6",
+    "pos": 26090951,
+    "ref_base": "C",
+    "alt_base": "G",
+    "note_variant": "",
+    "coding": "Yes",
+    "hugo": "HFE",
+    "transcript": "ENST00000357618.9",
+    "so": "missense_variant",
+    "exonno": 2,
+    "cchange": "c.187C>G",
+    "achange": "p.His63Asp",
+    "all_mappings": "{\"HFE\": [[\"\", \"p.His63Asp\", \"missense_variant\", \"ENST00000309234.10\", \"c.187C>G\"], [\"Q30201\", \"p.His63Asp\", \"missense_variant\", \"ENST00000317896.11\", \"c.187C>G\"], [\"Q30201\", \"p.His63Asp\", \"missense_variant\", \"ENST00000336625.12\", \"c.187C>G\"], [\"Q30201\", \"\", \"intron_variant\", \"ENST00000349999.8\", \"c.77-363C>G\"], [\"Q30201\", \"\", \"intron_variant\", \"ENST00000352392.8\", \"c.77-2168C>G\"], [\"Q30201\", \"\", \"intron_variant\", \"ENST00000353147.9\", \"c.77-1734C>G\"], [\"Q30201\", \"p.His63Asp\", \"missense_variant\", \"ENST00000357618.9\", \"c.187C>G\"], [\"Q30201\", \"p.His40Asp\", \"missense_variant\", \"ENST00000397022.7\", \"c.118C>G\"], [\"Q30201\", \"p.His63Asp\", \"missense_variant\", \"ENST00000461397.5\", \"c.187C>G\"], [\"\", \"p.His63Asp\", \"missense_variant\", \"ENST00000470149.5\", \"c.187C>G\"], [\"Q30201\", \"\", \"intron_variant\", \"ENST00000488199.5\", \"c.77-363C>G\"]]}",
+    "gposend": 26090951
+  }
+}
