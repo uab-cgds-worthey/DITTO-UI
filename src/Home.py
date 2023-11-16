@@ -8,14 +8,6 @@ st.set_page_config(
 )
 
 
-def legend(pdb_code):
-    end_str = (
-        "Structure of the human NEUROFIBROMIN (NF1) in open confirmation (PDB:"
-        f" [{pdb_code.upper()}](https://www.rcsb.org/structure/{pdb_code}))."
-    )
-    return end_str
-
-
 def sidebar_links():
     database_link_dict = {
         "GitHub Page": "https://github.com/uab-cgds-worthey/DITTO4NF",
