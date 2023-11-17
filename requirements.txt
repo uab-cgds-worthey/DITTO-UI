@@ -6,4 +6,4 @@ tensorflow==2.11
 pyaml==23.7.0
 plotly==5.18.0
 matplotlib==3.8.0
-protobuf==3.20.3
+protobuf
