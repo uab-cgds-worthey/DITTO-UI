@@ -101,13 +101,15 @@ def main():
     # df2, var, feature_names = load_lovd(config_dict)
     explainer, clf = load_model()
 
+    st.subheader("Please input a variant of interest in build GRCh38:")
+
     col1, col2, col3, col4 = st.columns(4)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "MT"])
     pos = col2.text_input("Position:", 2406483)
     ref = col3.text_input("Reference Nucleotide:", "C")
     alt = col4.text_input("Alternate Nucleotide:", "G")
 
-    if str(chrom) & str(pos) & ref & alt:
+    if st.button('Submit'):
         overall = parser.query_variant(
                 chrom=str(chrom), pos=int(pos), ref=ref, alt=alt
             )
