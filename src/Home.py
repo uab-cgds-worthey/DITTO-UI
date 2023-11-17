@@ -8,8 +8,8 @@ import pandas as pd
 import yaml
 import pickle
 import json
-from parse import OCApiParser
-from predict import parse_and_predict
+from utils.parse import OCApiParser
+from utils.predict import parse_and_predict
 import shap
 from tensorflow import keras
 import numpy as np
@@ -109,14 +109,6 @@ def main():
         transcript_data = overall[overall['transcript'] == transcript].reset_index(drop=True)
         df2, y_score = parse_and_predict(transcript_data, config_dict, clf)
 
-        # Download DITTO predictions
-        st.download_button(
-            label=f"Download annotations",
-            data=convert_df(overall),
-            file_name=f"OC_annotations.csv",
-            mime="text/csv",
-        )
-
         st.subheader("**DITTO prediction and explanations using SHAP**")
 
         pred_col1, pred_col2 = st.columns(2)
@@ -162,6 +154,15 @@ def main():
 
         st.subheader("**OpenCravat annotations**")
         st.dataframe(overall)
+
+        # Download DITTO predictions
+        st.download_button(
+            label=f"Download annotations",
+            data=convert_df(overall),
+            file_name=f"OC_annotations.csv",
+            mime="text/csv",
+        )
+
 
     st.markdown("---")
 
