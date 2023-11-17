@@ -19,12 +19,12 @@ from pathlib import Path
 st.set_page_config(
     page_title="DITTO4NF",
     page_icon="🧊",
-    layout="wide",  # initial_sidebar_state="expanded",
+    layout="wide", initial_sidebar_state="expanded",
 )
 
 
 # Function to open and load config file for filtering columns and rows
-# @st.cache_data
+@st.cache_data
 def get_col_configs(config_f):
     with open(config_f) as fh:
         config_dict = yaml.safe_load(fh)
@@ -41,28 +41,8 @@ def get_parser(data_config):
     parser = OCApiParser(data_config_dict)
     return parser
 
-
-# Class to define colors for Clinvar classification
-class ClinSigColors:
-    default_colors = {
-        "not seen in clinvar": "#969696",
-        "other": "#969696",
-        "not provided": "#969696",
-        "Conflicting interpretations of pathogenicity": "#d8b365",
-        "Benign": "#3182bd",
-        "Likely benign": "#2166ac",
-        "Benign/Likely benign": "#2166ac",
-        "Uncertain significance": "#5ab4ac",
-        "Uncertain significance, other": "#5ab4ac",
-        "Pathogenic/Likely pathogenic": "#b2182b",
-        "Likely pathogenic": "#d73027",
-        "Pathogenic": "#b2182b",
-    }
-
-
-@st.cache_data
+# Function to convert dataframe to csv
 def convert_df(df):
-    # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv().encode("utf-8")
 
 
@@ -103,6 +83,7 @@ def main():
 
     st.subheader("Please input a variant of interest in build GRCh38:")
 
+    # Variant input
     col1, col2, col3, col4 = st.columns(4)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "MT"])
     pos = col2.text_input("Position:", 2406483)
