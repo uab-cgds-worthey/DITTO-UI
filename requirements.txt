@@ -1,4 +1,4 @@
-python==3.10.11
+#python==3.10.11
 streamlit
 shap==0.41.0
 pandas==2.0.1
