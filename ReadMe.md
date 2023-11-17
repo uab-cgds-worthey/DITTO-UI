@@ -7,13 +7,13 @@ _!!! For research purposes only !!!_
 
 ## Description
 
-A web app where anyone can lookup variants and understand the mechanism/details of these variants such as domain,
+A web app where anyone can lookup variants and understand the mechanism/details of these variants such as
 function, DITTO deleterious score and Clinvar reported significance.
 
 ## Data
 
-DITTO-UI comprises precomputed DITTO scores for missense variants using dbNSFP data (downloaded on 03/19/2022) for
-training DITTO and making predictions. Domain information is extracted from Uniprot via an API query on page render.
+DITTO-UI comprises precomputed DITTO scores for any variant using annotations from openCravat
+for making predictions. Annotations are extracted from openCravat API query on page render.
 
 ## Usage
 
@@ -39,10 +39,10 @@ Change in to root directory and run the commands below:
 
 ```sh
 # create environment with mamba
-mamba env create -n ditto-env -f environment.yml
+mamba env create -n ditto-env -f environment.yaml
 # or
 # create environment with conda
-conda env create -n ditto-env -f environment.yml
+conda env create -n ditto-env -f environment.yaml
 ```
 
 ### Run DITTO-UI locally
@@ -55,7 +55,7 @@ To run DITTO-UI locally make sure the conda environment has been succesfully mad
 mamba activate ditto-env
 
 # run the DITTO-UI application using Streamlit
-streamlit run src/ui_ditto.py
+streamlit run src/Home.py
 ```
 
 Once the application has started up it will open a new tab in your default browser to DITTO-UI
