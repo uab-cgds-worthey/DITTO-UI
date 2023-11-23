@@ -9,3 +9,5 @@ dependencies:
   - gpy=1.10.0
   - pip:
     - tensorflow==2.11
+    - protobuf==3.9.2
+    - streamlit==1.28.2

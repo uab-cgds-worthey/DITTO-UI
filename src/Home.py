@@ -105,7 +105,7 @@ def main():
             )
 
         st.write("\n\n")
-        transcript = st.selectbox("Choose a transcript:", options=list(overall['transcript'].unique()))
+        transcript = st.selectbox("**Choose a transcript:**", options=list(overall['transcript'].unique()))
         transcript_data = overall[overall['transcript'] == transcript].reset_index(drop=True)
         df2, y_score = parse_and_predict(transcript_data, config_dict, clf)
 
