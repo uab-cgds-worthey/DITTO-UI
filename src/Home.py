@@ -100,13 +100,21 @@ def main():
     alt = col4.text_input("Alternate Nucleotide:", "G")
 
     if st.button('Submit'):
+
+        # Query variant annotations via opencravat API and get data as dataframe
         overall = parser.query_variant(
                 chrom=str(chrom), pos=int(pos), ref=ref, alt=alt
             )
 
         st.write("\n\n")
+
+        # Select transcript
         transcript = st.selectbox("**Choose a transcript:**", options=list(overall['transcript'].unique()))
+
+        # Filter data based on selected transcript
         transcript_data = overall[overall['transcript'] == transcript].reset_index(drop=True)
+
+        # Parse and predict
         df2, y_score = parse_and_predict(transcript_data, config_dict, clf)
 
         st.subheader("**DITTO prediction and explanations using SHAP**")

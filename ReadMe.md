@@ -39,10 +39,10 @@ Change in to root directory and run the commands below:
 
 ```sh
 # create environment with mamba
-mamba env create -n ditto-env -f environment.yaml
+mamba env create -n ditto-env -f requirements.txt
 # or
 # create environment with conda
-conda env create -n ditto-env -f environment.yaml
+conda env create -n ditto-env -f requirements.txt
 ```
 
 ### Run DITTO-UI locally
