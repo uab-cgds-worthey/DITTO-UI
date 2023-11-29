@@ -72,7 +72,7 @@ def query_variant(chrom: str, pos: int, allele_len: int) -> json:
         if not chrom.startswith("chr"):
             chrom = "chr" + chrom
         url = (
-            f"https://api.genome.ucsc.edu/getData/sequence?genome=hg38;chrom={chrom};start={pos};end={pos+allele_len}"
+            f"https://api.genome.ucsc.edu/getData/sequence?genome=hg38;chrom={chrom};start={pos-1};end={pos+allele_len-1}"
         )
 
         get_fields = requests.get(url, timeout=20)
@@ -178,7 +178,6 @@ def main():
                     "gnomAD AF",
                 ],
                 "Predictions": [
-                    # str(round(1 - (ditto["DITTO"].values[0]), 2)),
                     str(y_score[0][0]),
                     str(transcript_data["cadd.phred"].values[0]),
                     str(transcript_data[['spliceai.ds_ag','spliceai.ds_al','spliceai.ds_dg','spliceai.ds_dl']].max(axis=1).values[0]),
