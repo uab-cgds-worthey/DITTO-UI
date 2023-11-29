@@ -1,70 +1,80 @@
 # DITTO-UI
 
-Easy to use web interface for biologists to look for likely pathogenic variants and understand their deleteriousness
+Easy to use web interface for biologists to look for genetic variants and understand their deleteriousness
 using DITTO scores.
 
 _!!! For research purposes only !!!_
 
 ## Description
 
-A web app where anyone can lookup variants and understand the mechanism/details of these variants such as domain,
-function, DITTO deleterious score and Clinvar reported significance.
+A web app where one can lookup variants and understand the deleteriousness using DITTO deleterious score and Clinvar
+reported significance. DITTO uses an explainable neural network model to predict the functional impact of variants and
+utilizes SHAP to explain the model's predictions. It is trained on variants from ClinVar and uses OpenCravat for
+annotations from various data sources. The higher the score, the more likely the variant is deleterious.
 
 ## Data
 
-DITTO-UI comprises precomputed DITTO scores for missense variants using dbNSFP data (downloaded on 03/19/2022) for
-training DITTO and making predictions. Domain information is extracted from Uniprot via an API query on page render.
+DITTO-UI comprises DITTO scores for any variant using annotations from openCravat
+for making predictions. Annotations are extracted from openCravat API query on page render.
 
 ## Usage
 
 DITTO-UI is deployed on the Streamlit Cloud: [DITTO-UI site](https://cgds-ditto.streamlit.app).
 
-### Local Installation and Setup
+### Installation
 
 Installation simply requires fetching the source code. Following are required:
 
--   Git (version 2+)
--   Anaconda3 (a.k.a. Conda) or the drop-in replacement Mamba (a reimplementation of Conda, tested on version 0.25 and
-    1.1.0, [install instructions](https://mamba.readthedocs.io/en/latest/installation.html))
+- Git
 
 To fetch source code, change in to directory of your choice and run:
 
 ```sh
-git clone https://github.com/uab-cgds-worthey/DITTO-UI.git
+    git clone https://github.com/uab-cgds-worthey/DITTO-UI.git
 ```
 
-#### Environement Creation
+### Requirements
+
+*OS:*
+
+This app is developed and tested in Mac OS.
+
+*Tools:*
+
+- Python 3.11
+- Pip 23.3
+
+*Environment:*
+
+- [python virtual environment](https://docs.python.org/3/tutorial/venv.html)
+
+```sh
+# create environment. Needed only the first time. Please use the above link if you're not using Mac.
+python -m venv ditto-env
+
+source ditto-env/bin/activate
+```
+
+
+### Install required packages
 
 Change in to root directory and run the commands below:
 
 ```sh
-# create environment with mamba
-mamba env create -n ditto-env -f environment.yml
-# or
-# create environment with conda
-conda env create -n ditto-env -f environment.yml
+# Install dependencies in the environment. Needed only the first time.
+pip3 install -r requirements.txt
 ```
 
 ### Run DITTO-UI locally
 
-To run DITTO-UI locally make sure the conda environment has been succesfully made and then run the following commands
+To run DITTO-UI locally make sure the environment has been succesfully made and then run the following commands
 
 ```sh
-# activate the DITTO-UI conda environment to deploy locally using Streamlit
-# replace `mamba` with `conda` in the following command if using conda instead of mamba
-mamba activate ditto-env
-
 # run the DITTO-UI application using Streamlit
-streamlit run src/ui_ditto.py
+streamlit run src/Home.py
 ```
 
 Once the application has started up it will open a new tab in your default browser to DITTO-UI
-
-### Running DITTO in Streamlit Cloud
-
-DITTO-UI is deployed on Streamlit Cloud using the same enviornment as used for local development, but there is only the
-option to use `conda` for the deployment there. Changes to the environment need to be tested with `conda`s build process
-to ensure that it'll be compatible with the Streamlit Cloud setup.
 
 ## Contact Info
 
