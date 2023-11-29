@@ -90,7 +90,7 @@ def main():
     repo_root = Path(__file__).parent.parent
     st.markdown("# DITTO")
     st.markdown("\n")
-    head_col1, head_col2 = st.columns(2)
+    head_col1, head_col2 = st.columns([2,1])
     head_col1.markdown(
         "### A tool for exploring genetic variants and their predicted functional impact."
     )
