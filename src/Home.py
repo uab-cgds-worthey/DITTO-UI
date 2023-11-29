@@ -23,6 +23,9 @@ st.set_page_config(
     layout="wide", initial_sidebar_state="expanded",
 )
 
+if 'clicked' not in st.session_state:
+    st.session_state.clicked = False
+
 def click_button():
     st.session_state.clicked = True
 
