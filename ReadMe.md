@@ -7,8 +7,10 @@ _!!! For research purposes only !!!_
 
 ## Description
 
-A web app where anyone can lookup variants and understand the mechanism/details of these variants such as
-function, DITTO deleterious score and Clinvar reported significance.
+A web app where one can lookup variants and understand the deleteriousness using DITTO deleterious score and Clinvar
+reported significance. DITTO uses an explainable neural network model to predict the functional impact of variants and
+utilizes SHAP to explain the model's predictions. It is trained on variants from ClinVar and uses OpenCravat for
+annotations from various data sources. The higher the score, the more likely the variant is deleterious.
 
 ## Data
 
