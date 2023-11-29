@@ -17,7 +17,7 @@ from pathlib import Path
 
 # Config the whole app
 st.set_page_config(
-    page_title="DITTO4NF",
+    page_title="DITTO",
     page_icon="🧊",
     layout="wide", initial_sidebar_state="expanded",
 )
@@ -41,11 +41,7 @@ def get_parser(data_config):
     parser = OCApiParser(data_config_dict)
     return parser
 
-# Function to convert dataframe to csv
-def convert_df(df):
-    return df.to_csv().encode("utf-8")
-
-
+# Function to load model and weights
 @st.cache_resource
 def load_model():
     # Load background data to generate SHAP explainer object
@@ -66,12 +62,18 @@ def load_model():
 
 def main():
     repo_root = Path(__file__).parent.parent
-
     st.markdown("# DITTO")
-    st.markdown("\n\n")
+    st.markdown("\n")
+
     st.markdown(
-        "### A tool for exploring likely pathogenic variants and their predicted functional impact."
+        "### A tool for exploring genetic variants and their predicted functional impact."
     )
+    st.markdown("- DITTO is a tool for exploring genetic variants and their predicted functional impact.")
+    st.markdown("- DITTO uses an explainable neural network model to predict the functional impact of variants and utilizes SHAP to explain the model's predictions.")
+    st.markdown("- DITTO provides annotations from OpenCravat, a tool for annotating variants with information from multiple data sources.")
+    st.markdown("- DITTO is currently trained on variants from ClinVar and is not intended for clinical use.")
+    st.markdown("- DITTO is a work in progress and we welcome your feedback and suggestions.")
+
     st.markdown("\n\n")
     st.markdown(
         "**Created by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/) and"
@@ -91,6 +93,8 @@ def main():
     explainer, clf = load_model()
 
     st.markdown("### Please input a variant of interest in build GRCh38:")
+    st.markdown("**Note:** Please use the correct variant info for the build. This app can hallucinate variants, but it is not intended for that purpose. You can check the correct variant info at [Ensembl](https://www.ensembl.org/index.html) or [UCSC](https://genome.ucsc.edu/index.html).")
+
 
     # Variant input
     col1, col2, col3, col4 = st.columns(4)
@@ -118,6 +122,7 @@ def main():
         df2, y_score = parse_and_predict(transcript_data, config_dict, clf)
 
         st.subheader("**DITTO prediction and explanations using SHAP**")
+        st.markdown("**Note:** DITTO score is the probability of a variant being deleterious. The higher the score (close to 1), the more likely the variant is deleterious.")
 
         pred_col1, pred_col2 = st.columns(2)
 
@@ -163,22 +168,13 @@ def main():
         st.subheader("**OpenCravat annotations**")
         st.dataframe(overall)
 
-        # Download DITTO predictions
-        st.download_button(
-            label=f"Download annotations",
-            data=convert_df(overall),
-            file_name=f"OC_annotations.csv",
-            mime="text/csv",
-        )
-
-
     st.markdown("---")
 
     left_info_col, right_info_col = st.columns(2)
     left_info_col.markdown(
         f"""
         ### Authors
-        Please feel free to contact us with any issues, comments, or questions.""",
+        Please feel free to contact us with any issues, comments, or questions on our [GitHub page](https://github.com/uab-cgds-worthey/DITTO-UI).""",
     )
     left_info_col.markdown(
         f"""
@@ -200,8 +196,7 @@ def main():
     right_info_col.markdown(
         """
             ### License
-            GNU General Public License\n
-            Version 3, 29 June 2007
+            GNU General Public License v3.0
             """
     )
 

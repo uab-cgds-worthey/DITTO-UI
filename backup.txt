@@ -1,9 +1,0 @@
-#python==3.10.11
-#streamlit
-shap==0.41.0
-pandas==2.0.1
-tensorflow==2.11
-pyaml==23.7.0
-plotly==5.18.0
-matplotlib==3.8.0
-protobuf==3.19
