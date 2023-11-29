@@ -23,6 +23,8 @@ st.set_page_config(
     layout="wide", initial_sidebar_state="expanded",
 )
 
+def click_button():
+    st.session_state.clicked = True
 
 # Function to open and load config file for filtering columns and rows
 @st.cache_data
@@ -95,12 +97,11 @@ def main():
     head_col1.markdown("- DITTO is currently trained on variants from ClinVar and is not intended for clinical use.")
     head_col1.markdown("- DITTO is a work in progress and we welcome your feedback and suggestions.")
 
-    head_col2.markdown("![Alt Text](https://media.giphy.com/media/pMFmBkBTsDMOY/giphy.gif)")
+    head_col2.markdown("![GIF Placeholder](https://media.giphy.com/media/pMFmBkBTsDMOY/giphy.gif)")
 
     head_col1.markdown("\n\n")
     head_col1.markdown(
-        "**Created by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/) and"
-        " [Liz Worthey](https://www.linkedin.com/in/lizworthey/)**"
+        "**Created by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/)**"
         )
 
     # Load the col config file as dictionary
@@ -127,18 +128,23 @@ def main():
     actual_ref = query_variant(str(chrom), int(pos), len(ref))['dna']
     alt = col4.text_input("Alternate Nucleotide:", "G")
 
+    # Check if reference nucleotide matches the reference genome
     if ref != actual_ref:
         st.warning(f"Provided reference nucleotide '{ref}' does not match the actual nucleotide '{actual_ref}' from reference genome. Please fix the variant info and try again.")
+        st.session_state.clicked = False
     else:
         st.success("Reference nucleotide matches the reference genome.")
 
-        if st.button('Submit'):
+    # Submit button to query variant annotations and predict functional impact
+    st.button('Submit', on_click=click_button)
+    if st.session_state.clicked:
 
             # Query variant annotations via opencravat API and get data as dataframe
             overall = parser.query_variant(
                     chrom=str(chrom), pos=int(pos), ref=ref, alt=alt
                 )
 
+            # Display variant annotations from opencravat
             st.subheader("**OpenCravat annotations**")
             st.dataframe(overall)
             st.write("\n\n")
@@ -168,7 +174,7 @@ def main():
                     "Clingen Classification",
                     "gnomAD AF",
                 ],
-                "Values": [
+                "Predictions": [
                     # str(round(1 - (ditto["DITTO"].values[0]), 2)),
                     str(y_score[0][0]),
                     str(transcript_data["cadd.phred"].values[0]),
