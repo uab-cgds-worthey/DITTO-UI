@@ -14,6 +14,7 @@ import shap
 from tensorflow import keras
 import numpy as np
 from pathlib import Path
+import requests
 
 # Config the whole app
 st.set_page_config(
@@ -60,6 +61,26 @@ def load_model():
     explainer = shap.KernelExplainer(clf.predict, background)
     return explainer, clf
 
+# Function to query variant reference allele based on posiiton from UCSC API
+@st.cache_data
+def query_variant(chrom: str, pos: int) -> json:
+        if not chrom.startswith("chr"):
+            chrom = "chr" + chrom
+        url = (
+            f"https://api.genome.ucsc.edu/getData/sequence?genome=hg38;chrom={chrom};start={pos};end={pos+1}"
+        )
+
+        get_fields = requests.get(url, timeout=20)
+        try:
+            get_fields.raise_for_status()
+        except requests.exceptions.RequestException as expt:
+            print(
+                f"Could not get UCSC Annotations for chrom={chrom} pos={str(pos)}"
+            )
+            raise expt
+
+        return get_fields.json()['dna']
+
 def main():
     repo_root = Path(__file__).parent.parent
     st.markdown("# DITTO")
@@ -100,73 +121,78 @@ def main():
     col1, col2, col3, col4 = st.columns(4)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "MT"])
     pos = col2.text_input("Position:", 2406483)
-    ref = col3.text_input("Reference Nucleotide:", "C")
+    ref = col3.text_input("Reference Nucleotide:", query_variant(str(chrom), int(pos)))
     alt = col4.text_input("Alternate Nucleotide:", "G")
 
-    if st.button('Submit'):
+    if ref != query_variant(str(chrom), int(pos)):
+        st.warning("Reference nucleotide does not match the reference genome. Please check the variant info.")
+    else:
+        st.success("Reference nucleotide matches the reference genome.")
 
-        # Query variant annotations via opencravat API and get data as dataframe
-        overall = parser.query_variant(
-                chrom=str(chrom), pos=int(pos), ref=ref, alt=alt
+        if st.button('Submit'):
+
+            # Query variant annotations via opencravat API and get data as dataframe
+            overall = parser.query_variant(
+                    chrom=str(chrom), pos=int(pos), ref=ref, alt=alt
+                )
+
+            st.write("\n\n")
+
+            # Select transcript
+            transcript = st.selectbox("**Choose a transcript:**", options=list(overall['transcript'].unique()))
+
+            # Filter data based on selected transcript
+            transcript_data = overall[overall['transcript'] == transcript].reset_index(drop=True)
+
+            # Parse and predict
+            df2, y_score = parse_and_predict(transcript_data, config_dict, clf)
+
+            st.subheader("**DITTO prediction and explanations using SHAP**")
+            st.markdown("**Note:** DITTO score is the probability of a variant being deleterious. The higher the score (close to 1), the more likely the variant is deleterious.")
+
+            pred_col1, pred_col2 = st.columns(2)
+
+            # initialise data of lists to print on the webpage.
+            var_scores = {
+                "Source": [
+                    "DITTO score",
+                    "CADD score",
+                    "SpliceAI score",
+                    "Consequence",
+                    "Clinvar Classification",
+                    "Clingen Classification",
+                    "gnomAD AF",
+                ],
+                "Values": [
+                    # str(round(1 - (ditto["DITTO"].values[0]), 2)),
+                    str(y_score[0][0]),
+                    str(transcript_data["cadd.phred"].values[0]),
+                    str(transcript_data[['spliceai.ds_ag','spliceai.ds_al','spliceai.ds_dg','spliceai.ds_dl']].max(axis=1).values[0]),
+                    transcript_data["consequence"].values[0],
+                    transcript_data["clinvar.sig"].values[0],
+                    transcript_data["clingen.classification"].values[0],
+                    transcript_data["gnomad3.af"].values[0],
+                ],
+            }
+            # Create DataFrame
+            pred_col1.dataframe(pd.DataFrame(var_scores))
+
+            # SHAP explanation
+            shap_value = explainer.shap_values(df2.values)[0]
+
+            # SHAP explanation plot for a variant
+            pred_col2.pyplot(
+                shap.plots._waterfall.waterfall_legacy(
+                    1 - explainer.expected_value[0],  # DITTO prediction for deleterious is (1 - y_pred)
+                    np.negative(shap_value[0]),  # SHAP value for deleterious is negative
+                    df2.values[0],
+                    df2.columns,
+                    max_display=20,
+                )
             )
 
-        st.write("\n\n")
-
-        # Select transcript
-        transcript = st.selectbox("**Choose a transcript:**", options=list(overall['transcript'].unique()))
-
-        # Filter data based on selected transcript
-        transcript_data = overall[overall['transcript'] == transcript].reset_index(drop=True)
-
-        # Parse and predict
-        df2, y_score = parse_and_predict(transcript_data, config_dict, clf)
-
-        st.subheader("**DITTO prediction and explanations using SHAP**")
-        st.markdown("**Note:** DITTO score is the probability of a variant being deleterious. The higher the score (close to 1), the more likely the variant is deleterious.")
-
-        pred_col1, pred_col2 = st.columns(2)
-
-        # initialise data of lists to print on the webpage.
-        var_scores = {
-            "Source": [
-                "DITTO score",
-                "CADD score",
-                "SpliceAI score",
-                "Consequence",
-                "Clinvar Classification",
-                "Clingen Classification",
-                "gnomAD AF",
-            ],
-            "Values": [
-                # str(round(1 - (ditto["DITTO"].values[0]), 2)),
-                str(y_score[0][0]),
-                str(transcript_data["cadd.phred"].values[0]),
-                str(transcript_data[['spliceai.ds_ag','spliceai.ds_al','spliceai.ds_dg','spliceai.ds_dl']].max(axis=1).values[0]),
-                transcript_data["consequence"].values[0],
-                transcript_data["clinvar.sig"].values[0],
-                transcript_data["clingen.classification"].values[0],
-                transcript_data["gnomad3.af"].values[0],
-            ],
-        }
-        # Create DataFrame
-        pred_col1.dataframe(pd.DataFrame(var_scores))
-
-        # SHAP explanation
-        shap_value = explainer.shap_values(df2.values)[0]
-
-        # SHAP explanation plot for a variant
-        pred_col2.pyplot(
-            shap.plots._waterfall.waterfall_legacy(
-                1 - explainer.expected_value[0],  # DITTO prediction for deleterious is (1 - y_pred)
-                np.negative(shap_value[0]),  # SHAP value for deleterious is negative
-                df2.values[0],
-                df2.columns,
-                max_display=20,
-            )
-        )
-
-        st.subheader("**OpenCravat annotations**")
-        st.dataframe(overall)
+            st.subheader("**OpenCravat annotations**")
+            st.dataframe(overall)
 
     st.markdown("---")
 
