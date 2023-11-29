@@ -79,7 +79,7 @@ def query_variant(chrom: str, pos: int) -> json:
             )
             raise expt
 
-        return get_fields.json()['dna']
+        return get_fields.json()
 
 def main():
     repo_root = Path(__file__).parent.parent
@@ -121,7 +121,7 @@ def main():
     col1, col2, col3, col4 = st.columns(4)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "MT"])
     pos = col2.text_input("Position:", 2406483)
-    actual_ref = query_variant(str(chrom), int(pos))
+    actual_ref = query_variant(str(chrom), int(pos))['dna']
     ref = col3.text_input("Reference Nucleotide:", actual_ref)
     alt = col4.text_input("Alternate Nucleotide:", "G")
 
