@@ -37,8 +37,7 @@ To fetch source code, change in to directory of your choice and run:
 
 *OS:*
 
-Currently works only in Mac OS. Docker versions may need to be explored later to make it useable in Linux (and
-potentially Windows).
+This app is developed and tested in Mac OS.
 
 *Tools:*
 
@@ -49,12 +48,20 @@ potentially Windows).
 
 - [python virtual environment](https://docs.python.org/3/tutorial/venv.html)
 
+```sh
+# create environment. Needed only the first time. Please use the above link if you're not using Mac.
+python -m venv ditto-env
+
+source ditto-env/bin/activate
+```
+
+
 ### Install required packages
 
 Change in to root directory and run the commands below:
 
 ```sh
-# create environment. Needed only the first time.
+# Install dependencies in the environment. Needed only the first time.
 pip3 install -r requirements.txt
 ```
 

@@ -63,11 +63,11 @@ def load_model():
 
 # Function to query variant reference allele based on posiiton from UCSC API
 @st.cache_data
-def query_variant(chrom: str, pos: int) -> json:
+def query_variant(chrom: str, pos: int, allele_len: int) -> json:
         if not chrom.startswith("chr"):
             chrom = "chr" + chrom
         url = (
-            f"https://api.genome.ucsc.edu/getData/sequence?genome=hg38;chrom={chrom};start={pos};end={pos+1}"
+            f"https://api.genome.ucsc.edu/getData/sequence?genome=hg38;chrom={chrom};start={pos};end={pos+allele_len}"
         )
 
         get_fields = requests.get(url, timeout=20)
@@ -85,18 +85,20 @@ def main():
     repo_root = Path(__file__).parent.parent
     st.markdown("# DITTO")
     st.markdown("\n")
-
-    st.markdown(
+    head_col1, head_col2 = st.columns(2)
+    head_col1.markdown(
         "### A tool for exploring genetic variants and their predicted functional impact."
     )
-    st.markdown("- DITTO is a tool for exploring genetic variants and their predicted functional impact.")
-    st.markdown("- DITTO uses an explainable neural network model to predict the functional impact of variants and utilizes SHAP to explain the model's predictions.")
-    st.markdown("- DITTO provides annotations from OpenCravat, a tool for annotating variants with information from multiple data sources.")
-    st.markdown("- DITTO is currently trained on variants from ClinVar and is not intended for clinical use.")
-    st.markdown("- DITTO is a work in progress and we welcome your feedback and suggestions.")
+    head_col1.markdown("- DITTO (inspired by pokemon) is a tool for exploring any type of genetic variant and their predicted functional impact on transcript(s).")
+    head_col1.markdown("- DITTO uses an explainable neural network model to predict the functional impact of variants and utilizes SHAP to explain the model's predictions.")
+    head_col1.markdown("- DITTO provides annotations from OpenCravat, a tool for annotating variants with information from multiple data sources.")
+    head_col1.markdown("- DITTO is currently trained on variants from ClinVar and is not intended for clinical use.")
+    head_col1.markdown("- DITTO is a work in progress and we welcome your feedback and suggestions.")
 
-    st.markdown("\n\n")
-    st.markdown(
+    head_col2.markdown("![Alt Text](https://media.giphy.com/media/pMFmBkBTsDMOY/giphy.gif)")
+
+    head_col1.markdown("\n\n")
+    head_col1.markdown(
         "**Created by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/) and"
         " [Liz Worthey](https://www.linkedin.com/in/lizworthey/)**"
         )
@@ -114,18 +116,18 @@ def main():
     explainer, clf = load_model()
 
     st.markdown("### Please input a variant of interest in build GRCh38:")
-    st.markdown("**Note:** Please use the correct variant info for the build. This app can hallucinate variants, but it is not intended for that purpose. You can check the correct variant info at [Ensembl](https://www.ensembl.org/index.html) or [UCSC](https://genome.ucsc.edu/index.html).")
+    st.markdown("**Note:** Please use the correct variant info for the build. You can check the correct variant info at [Ensembl](https://www.ensembl.org/index.html) or [UCSC](https://genome.ucsc.edu/index.html).")
 
 
     # Variant input
     col1, col2, col3, col4 = st.columns(4)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "MT"])
     pos = col2.text_input("Position:", 2406483)
-    actual_ref = query_variant(str(chrom), int(pos))['dna']
-    ref = col3.text_input("Reference Nucleotide:", actual_ref)
+    ref = col3.text_input("Reference Nucleotide:", "C")
+    actual_ref = query_variant(str(chrom), int(pos), len(ref))['dna']
     alt = col4.text_input("Alternate Nucleotide:", "G")
 
-    if not ref.startswith(actual_ref):
+    if ref != actual_ref:
         st.warning(f"Provided reference nucleotide '{ref}' does not match the actual nucleotide '{actual_ref}' from reference genome. Please fix the variant info and try again.")
     else:
         st.success("Reference nucleotide matches the reference genome.")
