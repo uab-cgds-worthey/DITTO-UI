@@ -139,6 +139,8 @@ def main():
                     chrom=str(chrom), pos=int(pos), ref=ref, alt=alt
                 )
 
+            st.subheader("**OpenCravat annotations**")
+            st.dataframe(overall)
             st.write("\n\n")
 
             # Select transcript
@@ -194,8 +196,6 @@ def main():
                 )
             )
 
-            st.subheader("**OpenCravat annotations**")
-            st.dataframe(overall)
 
     st.markdown("---")
 
