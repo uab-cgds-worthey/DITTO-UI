@@ -37,7 +37,7 @@ To fetch source code, change in to directory of your choice and run:
 
 *OS:*
 
-Currently works only in Mac OS. Docker versions may need to be explored later to make it useable in Mac (and
+Currently works only in Mac OS. Docker versions may need to be explored later to make it useable in Linux (and
 potentially Windows).
 
 *Tools:*

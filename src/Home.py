@@ -121,11 +121,12 @@ def main():
     col1, col2, col3, col4 = st.columns(4)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "MT"])
     pos = col2.text_input("Position:", 2406483)
-    ref = col3.text_input("Reference Nucleotide:", query_variant(str(chrom), int(pos)))
+    actual_ref = query_variant(str(chrom), int(pos))
+    ref = col3.text_input("Reference Nucleotide:", actual_ref)
     alt = col4.text_input("Alternate Nucleotide:", "G")
 
-    if ref != query_variant(str(chrom), int(pos)):
-        st.warning("Reference nucleotide does not match the reference genome. Please check the variant info.")
+    if not ref.startswith(actual_ref):
+        st.warning(f"Provided reference nucleotide '{ref}' does not match the actual nucleotide '{actual_ref}' from reference genome. Please fix the variant info and try again.")
     else:
         st.success("Reference nucleotide matches the reference genome.")
 
