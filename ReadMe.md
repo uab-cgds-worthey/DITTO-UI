@@ -41,7 +41,7 @@ potentially Windows).
 *Tools:*
 
 - Python 3.11
-- Pip3
+- Pip 23.3
 
 *Environment:*
 
