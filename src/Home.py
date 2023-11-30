@@ -95,8 +95,8 @@ def query_variant(chrom: str, pos: int, allele_len: int) -> json:
 
 def main():
     repo_root = Path(__file__).parent.parent
-    st.markdown("# DITTO")
     head_col1, head_col2 = st.columns([2,1])
+    head_col1.markdown("# DITTO")
     head_col1.markdown(
         "### A tool for exploring genetic variants and their predicted functional impact."
     )
@@ -107,9 +107,6 @@ def main():
 
     head_col2.markdown("![GIF Placeholder](https://media.giphy.com/media/pMFmBkBTsDMOY/giphy.gif)")
 
-    head_col1.markdown(
-        "**Created by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/)**"
-        )
     head_col1.markdown("\n\n")
 
 
