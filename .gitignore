@@ -27,11 +27,7 @@ dask-worker-space/
 *.out
 *.db
 *.py*.sh
-*.tsv
-*.csv
 .DS_Store
-example_runs
-file_parts
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -69,6 +65,7 @@ target/
 
 # DotEnv configuration
 .env
+ditto-env
 
 # conda
 .conda
@@ -85,20 +82,11 @@ target/
 
 # exclude data from source control by default
 /data/
-cagi*/
-work
 
 #snakemake or nextflow
 .snakemake/
 .nextflow/
 .nextflow*
-# data/
-variant_annotation/data/
-report*
-
-# exclude test data used for development
-to_be_deleted/test_data/data/ref
-to_be_deleted/test_data/data/reads
 
 #logs
 logs/
@@ -108,5 +96,3 @@ logs/
 
 # .java/fonts dir get created when creating fastqc conda env
 .java/
-
-part*/**

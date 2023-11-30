@@ -1,5 +1,5 @@
 import streamlit as st
-
+import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 st.set_option(
     "deprecation.showPyplotGlobalUse", False
@@ -93,6 +93,46 @@ def query_variant(chrom: str, pos: int, allele_len: int) -> json:
 
         return get_fields.json()
 
+# Function to generate DITTO score gauge chart using plotly
+def imc_chart(imc,pred_col1):
+
+    if imc >= 0.9:
+        color = "red"
+        pred_col1.markdown(f"#### :red[DITTO Score = {imc} (Likely Pathogenic variant)]")
+    elif imc >= 0.8 and imc < 0.9:
+        color = "orange"
+        pred_col1.markdown(f"#### :orange[DITTO Score = {imc} (Likely Deleterious variant)]")
+    elif imc >= 0.2 and imc < 0.8:
+        color = "lightgreen"
+        pred_col1.markdown(f"#### :lightgreen[DITTO Score = {imc} (Variant of Uncertain Significance)]")
+    elif imc < 0.2:
+        color = "green"
+        pred_col1.markdown(f"#### :green[DITTO Score = {imc} (Likely Benign variant)]")
+
+    # Generate DITTO score gauge chart using plotly
+    fig = go.Figure(
+        go.Indicator(
+            mode="gauge+number",
+            #domain={"x": [0, 1], "y": [0, 1]},
+            value=imc,
+            #title={"text": "DITTO Score (Probability of being deleterious)"},
+            #delta={"reference": 0.5, "increasing": {"color": color}},
+            gauge={
+                "axis": {"range": [-0.005, 1.005], "tickwidth": 1, "tickcolor": "darkblue"},
+                "bar": {"color": color},
+                "steps": [{"range": [0, 1], "color": "white"}],
+                # "threshold": {
+                #     "line": {"color": "RebeccaPurple", "width": 8},
+                #     "thickness": 0.75,
+                #     "value": 0.5,
+                # },
+            },
+        )
+    )
+
+    return fig
+
+
 def main():
     repo_root = Path(__file__).parent.parent
     head_col1, head_col2 = st.columns([2,1])
@@ -160,7 +200,7 @@ def main():
 
         # Check if variant annotations are found
         if overall.empty:
-            st.warning("No variant annotations found. Please check the variant info and try again.")
+            st.warning("No variant annotations found using OpenCravat's API. Please check the variant info and try again.")
             st.session_state.clicked = False
 
         else:
@@ -179,9 +219,9 @@ def main():
             df2, y_score = parse_and_predict(transcript_data, config_dict, clf)
 
             st.subheader("**DITTO prediction and explanations using SHAP**")
-            st.markdown("**Note:** DITTO score is the probability of a variant being deleterious. The higher the score (close to 1), the more likely the variant is deleterious.")
-
             pred_col1, pred_col2 = st.columns(2)
+
+            pred_col1.markdown("**Note:** DITTO score is the probability of a variant being deleterious. The higher the score (close to 1), the more likely the variant is deleterious.")
 
             # initialise data of lists to print on the webpage.
             var_scores = {
@@ -195,7 +235,7 @@ def main():
                     "gnomAD AF",
                 ],
                 "Predictions": [
-                    str(y_score[0][0]),
+                    str(round(y_score[0][0],2)),
                     str(transcript_data["cadd.phred"].values[0]),
                     str(transcript_data[['spliceai.ds_ag','spliceai.ds_al','spliceai.ds_dg','spliceai.ds_dl']].max(axis=1).values[0]),
                     transcript_data["consequence"].values[0],
@@ -206,6 +246,10 @@ def main():
             }
             # Create DataFrame
             pred_col1.dataframe(pd.DataFrame(var_scores))
+            pred_col1.write("\n\n\n\n\n\n")
+
+            # Display DITTO score as a gauge chart using plotly
+            pred_col1.write(imc_chart(round(y_score[0][0],2),pred_col1))
 
             # SHAP explanation
             shap_value = explainer.shap_values(df2.values)[0]
