@@ -69,18 +69,22 @@ def load_model():
 # Function to query variant reference allele based on posiiton from UCSC API
 @st.cache_data
 def query_variant(chrom: str, pos: int, allele_len: int) -> json:
+
         if not chrom.startswith("chr"):
             chrom = "chr" + chrom
+
         url = (
             f"https://api.genome.ucsc.edu/getData/sequence?genome=hg38;chrom={chrom};start={pos-1};end={pos+allele_len-1}"
         )
 
         get_fields = requests.get(url, timeout=20)
+
+        # Check if the request was successful
         try:
             get_fields.raise_for_status()
         except requests.exceptions.RequestException as expt:
-            print(
-                f"Could not get UCSC Annotations for chrom={chrom} pos={str(pos)}"
+            st.warning(
+                f"Could not get UCSC Annotations for chrom={chrom} and pos={str(pos)}. Possibly invalid/out of range position."
             )
             raise expt
 
@@ -89,7 +93,6 @@ def query_variant(chrom: str, pos: int, allele_len: int) -> json:
 def main():
     repo_root = Path(__file__).parent.parent
     st.markdown("# DITTO")
-    st.markdown("\n")
     head_col1, head_col2 = st.columns([2,1])
     head_col1.markdown(
         "### A tool for exploring genetic variants and their predicted functional impact."
@@ -102,10 +105,11 @@ def main():
 
     head_col2.markdown("![GIF Placeholder](https://media.giphy.com/media/pMFmBkBTsDMOY/giphy.gif)")
 
-    head_col1.markdown("\n\n")
     head_col1.markdown(
         "**Created by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/)**"
         )
+    head_col1.markdown("\n\n")
+
 
     # Load the col config file as dictionary
     config_f = repo_root / "configs" / "col_config.yaml"
@@ -125,35 +129,49 @@ def main():
 
     # Variant input
     col1, col2, col3, col4 = st.columns(4)
-    chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "MT"])
+    chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "M"])
     pos = col2.text_input("Position:", 2406483)
     ref = col3.text_input("Reference Nucleotide:", "C")
-    actual_ref = query_variant(str(chrom), int(pos), len(ref))['dna']
-    alt = col4.text_input("Alternate Nucleotide:", "G")
 
-    # Check if reference nucleotide matches the reference genome
-    if ref != actual_ref:
-        st.warning(f"Provided reference nucleotide '{ref}' does not match the actual nucleotide '{actual_ref}' from reference genome. Please fix the variant info and try again.")
+    # Query variant reference allele based on posiiton from UCSC API
+    try:
+        actual_ref = query_variant(str(chrom), int(pos), len(ref))['dna'].upper()
+        alt = col4.text_input("Alternate Nucleotide:", "G")
+
+        # Check if reference nucleotide matches the reference genome
+        if ref != actual_ref:
+            st.warning(f"Provided reference nucleotide '{ref}' does not match the actual nucleotide '{actual_ref}' from reference genome. Please fix the variant info and try again.")
+            st.session_state.clicked = False
+        else:
+            st.success("Reference nucleotide matches the reference genome.")
+
+    # Handle invalid variant position
+    except:
+        st.warning("Please enter a valid variant info.")
         st.session_state.clicked = False
-    else:
-        st.success("Reference nucleotide matches the reference genome.")
 
     # Submit button to query variant annotations and predict functional impact
     st.button('Submit', on_click=click_button)
     if st.session_state.clicked:
 
-            # Query variant annotations via opencravat API and get data as dataframe
-            overall = parser.query_variant(
-                    chrom=str(chrom), pos=int(pos), ref=ref, alt=alt
-                )
+        # Query variant annotations via opencravat API and get data as dataframe
+        overall = parser.query_variant(
+                chrom=str(chrom), pos=int(pos), ref=ref, alt=alt
+            )
 
+        # Check if variant annotations are found
+        if overall.empty:
+            st.warning("No variant annotations found. Please check the variant info and try again.")
+            st.session_state.clicked = False
+
+        else:
             # Display variant annotations from opencravat
             st.subheader("**OpenCravat annotations**")
             st.dataframe(overall)
             st.write("\n\n")
 
             # Select transcript
-            transcript = st.selectbox("**Choose a transcript:**", options=list(overall['transcript'].unique()))
+            transcript = st.selectbox("**Select a transcript:**", options=list(overall['transcript'].unique()))
 
             # Filter data based on selected transcript
             transcript_data = overall[overall['transcript'] == transcript].reset_index(drop=True)
@@ -240,7 +258,6 @@ def main():
     st.markdown("---")
     st.markdown("Developed and Maintained by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/)")
     st.markdown("[Center for Computational Genomics and Data Science](https://sites.uab.edu/cgds/)")
-    # st.markdown(f"Most Recently Deposited Entry 09/28/2022")
     st.markdown("Copyright (c) 2023 CGDS")
 
 
