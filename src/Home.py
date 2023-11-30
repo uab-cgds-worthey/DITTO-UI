@@ -79,12 +79,15 @@ def query_variant(chrom: str, pos: int, allele_len: int) -> json:
 
         get_fields = requests.get(url, timeout=20)
 
+        if 'statusCode' in get_fields.json().keys():
+            st.warning(f"Error {str(get_fields.json()['statusCode'])}: {get_fields.json()['statusMessage']}. Possibly invalid or out of range position.")
+
         # Check if the request was successful
         try:
             get_fields.raise_for_status()
         except requests.exceptions.RequestException as expt:
             st.warning(
-                f"Could not get UCSC Annotations for chrom={chrom} and pos={str(pos)}. Possibly invalid/out of range position."
+                f"Could not get UCSC Annotations for chrom={chrom} and pos={str(pos)}."
             )
             raise expt
 
