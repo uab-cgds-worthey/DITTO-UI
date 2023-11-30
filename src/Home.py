@@ -101,10 +101,9 @@ def main():
         "### A tool for exploring genetic variants and their predicted functional impact."
     )
     head_col1.markdown("- DITTO (inspired by pokemon) is a tool for exploring any type of genetic variant and their predicted functional impact on transcript(s).")
-    head_col1.markdown("- DITTO uses an explainable neural network model to predict the functional impact of variants and utilizes SHAP to explain the model's predictions.")
-    head_col1.markdown("- DITTO provides annotations from OpenCravat, a tool for annotating variants with information from multiple data sources.")
-    head_col1.markdown("- DITTO is currently trained on variants from ClinVar and is not intended for clinical use.")
-    head_col1.markdown("- DITTO is a work in progress and we welcome your feedback and suggestions.")
+    head_col1.markdown("- DITTO uses an explainable neural network model to predict the functional impact of variants and utilizes [SHAP](https://shap.readthedocs.io/) to explain the model's predictions.")
+    head_col1.markdown("- DITTO provides annotations from [OpenCravat](https://run.opencravat.org/), a tool for annotating variants with information from multiple data sources.")
+    head_col1.markdown("- DITTO is currently trained on variants from [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar/) and is not intended for clinical use.")
 
     head_col2.markdown("![GIF Placeholder](https://media.giphy.com/media/pMFmBkBTsDMOY/giphy.gif)")
 
@@ -232,17 +231,31 @@ def main():
     left_info_col.markdown(
         f"""
         ### Authors
-        Please feel free to contact us with any issues, comments, or questions on our [GitHub page](https://github.com/uab-cgds-worthey/DITTO-UI).""",
+        DITTO is a work in progress and we welcome your feedback and suggestions on our [GitHub page](https://github.com/uab-cgds-worthey/DITTO-UI).""",
     )
+    left_info_col.markdown("\n\n")
     left_info_col.markdown(
         f"""
         ##### Tarun Mamidi [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg?style=social&label=Follow%20%40TarunMamidi7)](https://twitter.com/TarunMamidi7)
         - Email:  <tmamidi@uab.edu> or <mtkk94@gmail.com>
         - GitHub: https://github.com/tkmamidi
+        """
+        )
+    left_info_col.markdown("\n\n")
+    left_info_col.markdown(
+        f"""
         ##### Dr. Liz Worthey [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg?style=social&label=Follow%20%40lizworthey)](https://twitter.com/lizworthey)
         - Email: <lworthey@uab.edu>
         - GitHub: https://github.com/uab-cgds-worthey
         """,
+    )
+    right_info_col.markdown(
+        """
+        ### Acknowledgements
+        - [OpenCravat - run.opencravat.org](https://run.opencravat.org/)
+        - [ClinVar - www.ncbi.nlm.nih.gov/clinvar/](https://www.ncbi.nlm.nih.gov/clinvar/)
+        - [SHAP - shap.readthedocs.io](https://shap.readthedocs.io/)
+        """
     )
     right_info_col.markdown(
         """
@@ -259,9 +272,10 @@ def main():
     )
 
     st.markdown("---")
-    st.markdown("Developed and Maintained by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/)")
-    st.markdown("[Center for Computational Genomics and Data Science](https://sites.uab.edu/cgds/)")
-    st.markdown("Copyright (c) 2023 CGDS")
+    foot_col1, foot_col2, foot_col3 = st.columns((1.5, 1, 1))
+    foot_col1.markdown("Developed and Maintained by [Tarun Mamidi](https://www.linkedin.com/in/tkmamidi/)")
+    foot_col3.markdown("[Center for Computational Genomics and Data Science](https://sites.uab.edu/cgds/)")
+    foot_col2.markdown("Copyright (c) 2023 CGDS")
 
 
 
