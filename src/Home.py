@@ -177,9 +177,12 @@ def main():
         actual_ref = query_variant(str(chrom), int(pos), len(ref))['dna'].upper()
         alt = col4.text_input("Alternate Nucleotide:", "G")
 
-        # Check if reference nucleotide matches the reference genome
+        # Check if reference nucleotide matches the reference genome nucleotide or reference nucleotide and alternate nucleotide are the same
         if ref != actual_ref:
             st.warning(f"Provided reference nucleotide '{ref}' does not match the actual nucleotide '{actual_ref}' from reference genome. Please fix the variant info and try again.")
+            st.session_state.clicked = False
+        elif ref == alt:
+            st.warning("Reference nucleotide and alternate nucleotide are the same. Please fix the variant info and try again.")
             st.session_state.clicked = False
         else:
             st.success("Reference nucleotide matches the reference genome.")
