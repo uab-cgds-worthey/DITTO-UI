@@ -9,3 +9,4 @@ scikit-learn==1.3.0
 scipy==1.11.3
 numpy==1.23.5
 pyaml==23.9
+plotly==5.18
