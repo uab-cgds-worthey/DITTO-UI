@@ -198,12 +198,12 @@ def main():
     col1, col2, col3, col4 = st.columns(4)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "M"])
     pos = col2.text_input("Position:", 2406483)
-    ref = col3.text_input("Reference Nucleotide:", "C")
+    ref = col3.text_input("Reference Nucleotide:", "C").upper()
 
     # Query variant reference allele based on posiiton from UCSC API
     try:
         actual_ref = query_variant(str(chrom), int(pos), len(ref))["dna"].upper()
-        alt = col4.text_input("Alternate Nucleotide:", "G")
+        alt = col4.text_input("Alternate Nucleotide:", "G").upper()
 
         # Check if reference nucleotide matches the reference genome nucleotide or reference nucleotide and alternate nucleotide are the same
         if ref != actual_ref:
