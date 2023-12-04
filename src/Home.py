@@ -227,14 +227,17 @@ def main():
     # Submit button to query variant annotations and predict functional impact
     st.button("Submit", on_click=click_button)
     if st.session_state.clicked:
-
-        # Query variant annotations via opencravat API and get data as dataframe
-        overall = parser.query_variant(chrom=str(chrom), pos=int(pos), ref=ref, alt=alt)
+        try:
+            # Query variant annotations via opencravat API and get data as dataframe
+            overall = parser.query_variant(chrom=str(chrom), pos=int(pos), ref=ref, alt=alt)
+        except:
+            overall = pd.DataFrame()
+            st.session_state.clicked = False
 
         # Check if variant annotations are found
         if overall.empty:
             st.warning(
-                "No variant annotations found using OpenCravat's API. Please check the variant info and try again."
+                "Could not get variant annotations from OpenCravat's API. Please check the variant info and try again."
             )
             st.session_state.clicked = False
 
