@@ -196,7 +196,7 @@ def main():
 
     # Variant input
     col1, col2, col3, col4 = st.columns(4)
-    chrom = col1.selectbox("Chromosome:", options=list(range(1, 22)) + ["X", "Y", "M"])
+    chrom = col1.selectbox("Chromosome:", options=list(range(1, 23)) + ["X", "Y", "M"])
     pos = col2.text_input("Position:", 2406483)
     ref = col3.text_input("Reference Nucleotide:", "C").upper()
 
