@@ -244,7 +244,7 @@ def main():
         else:
             # Display variant annotations from opencravat
             st.subheader("**OpenCravat annotations**")
-            st.dataframe(overall)
+            st.dataframe(overall,hide_index=True)
             st.write("\n\n")
 
             # Select transcript
@@ -300,7 +300,7 @@ def main():
                 ],
             }
             # Create DataFrame
-            pred_col1.dataframe(pd.DataFrame(var_scores))
+            pred_col1.dataframe(pd.DataFrame(var_scores),hide_index=True)
             pred_col1.write("\n\n\n\n\n\n")
 
             # Display DITTO score as a gauge chart using plotly
