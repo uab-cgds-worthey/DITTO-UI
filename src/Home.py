@@ -300,7 +300,7 @@ def main():
                 ],
             }
             # Create DataFrame
-            pred_col1.dataframe(pd.DataFrame(var_scores),hide_index=True)
+            pred_col1.dataframe(pd.DataFrame(var_scores),hide_index=True, use_container_width=True)
             pred_col1.write("\n\n\n\n\n\n")
 
             # Display DITTO score as a gauge chart using plotly
