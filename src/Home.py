@@ -326,38 +326,38 @@ def main():
                 )
             )
 
-    st.markdown("---")
-    if "messages" not in st.session_state:
-        initial_msg = "What would you like to know about this variant?"
-        st.session_state["messages"] = [{"role": "assistant", "content": initial_msg}]
+        st.markdown("---")
+        if "messages" not in st.session_state:
+            initial_msg = "What would you like to know about this variant?"
+            st.session_state["messages"] = [{"role": "assistant", "content": initial_msg}]
 
-    # Display chat messages from history on app rerun
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        # Display chat messages from history on app rerun
+        for message in st.session_state.messages:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
-    # React to user input
-    if user_input := st.chat_input("Is this variant known to be pathogenic?"):
-        # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": user_input})
-        # Display user message in chat message container
-        with st.chat_message("user"):
-            st.markdown(user_input)
-        # Display assistant response in chat message container
-        with st.chat_message("assistant"):
-            message_placeholder = st.empty()
-            full_response = ""
+        # React to user input
+        if user_input := st.chat_input("Is this variant known to be pathogenic?"):
+            # Add user message to chat history
+            st.session_state.messages.append({"role": "user", "content": user_input})
+            # Display user message in chat message container
+            with st.chat_message("user"):
+                st.markdown(user_input)
+            # Display assistant response in chat message container
+            with st.chat_message("assistant"):
+                message_placeholder = st.empty()
+                full_response = ""
 
-            with st.spinner("Riddler riddling riddle ..."):
-                assistant_response = query_llm(user_input, pd.DataFrame(var_scores))
-            # Simulate stream of response with milliseconds delay
-            for chunk in assistant_response:
-                full_response += chunk + ""
-                time.sleep(0.05)
-                # Add a blinking cursor to simulate typing
-                message_placeholder.markdown(full_response + "▌")
-            message_placeholder.markdown(full_response)
-        st.session_state.messages.append({"role": "assistant", "content": full_response})
+                with st.spinner("Processing ..."):
+                    assistant_response = query_llm(user_input, transcript_data)#pd.DataFrame(var_scores).T)
+                # Simulate stream of response with milliseconds delay
+                for chunk in assistant_response:
+                    full_response += chunk + ""
+                    time.sleep(0.05)
+                    # Add a blinking cursor to simulate typing
+                    message_placeholder.markdown(full_response + "▌")
+                message_placeholder.markdown(full_response)
+            st.session_state.messages.append({"role": "assistant", "content": full_response})
 
     st.markdown("---")
     left_info_col, right_info_col = st.columns(2)
