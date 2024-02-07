@@ -73,6 +73,21 @@ def load_model():
     explainer = shap.KernelExplainer(clf.predict, background)
     return explainer, clf
 
+@st.cache_data
+def shap_plot(_explainer,shap_value,df2):
+    figure =  shap.plots._waterfall.waterfall_legacy(
+                    1
+                    - _explainer.expected_value[
+                        0
+                    ],  # DITTO prediction for deleterious is (1 - y_pred)
+                    np.negative(
+                        shap_value[0]
+                    ),  # SHAP value for deleterious is negative
+                    df2.values[0],
+                    df2.columns,
+                    max_display=20,
+                )
+    return figure
 
 # Function to query variant reference allele based on posiiton from UCSC API
 @st.cache_data
@@ -312,18 +327,7 @@ def main():
 
             # SHAP explanation plot for a variant
             pred_col2.pyplot(
-                shap.plots._waterfall.waterfall_legacy(
-                    1
-                    - explainer.expected_value[
-                        0
-                    ],  # DITTO prediction for deleterious is (1 - y_pred)
-                    np.negative(
-                        shap_value[0]
-                    ),  # SHAP value for deleterious is negative
-                    df2.values[0],
-                    df2.columns,
-                    max_display=20,
-                )
+                shap_plot(explainer,shap_value,df2)
             )
 
         st.markdown("---")
@@ -349,7 +353,7 @@ def main():
                 full_response = ""
 
                 with st.spinner("Processing ..."):
-                    assistant_response = query_llm(user_input, transcript_data)#pd.DataFrame(var_scores).T)
+                    assistant_response = query_llm(user_input, overall)#pd.DataFrame(var_scores).T)
                 # Simulate stream of response with milliseconds delay
                 for chunk in assistant_response:
                     full_response += chunk + ""

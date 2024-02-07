@@ -1,6 +1,6 @@
 # DITTO-UI
 
-Easy to use web interface for biologists to look for genetic variants and understand their deleteriousness
+Easy to use web interface for biologists to look for any type of small genetic variant and understand their deleteriousness
 using DITTO scores.
 
 _!!! For research purposes only !!!_
