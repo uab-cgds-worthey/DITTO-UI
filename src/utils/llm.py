@@ -3,7 +3,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.agents.agent_types import AgentType
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 
-#os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
+#os.environ["HUGGINGFACEHUB_API_TOKEN"] = ""
 def query_llm(query, df):
     #repo_id = "google/flan-t5-xxl"  # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
 
