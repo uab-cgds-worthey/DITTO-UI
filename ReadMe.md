@@ -1,13 +1,13 @@
 # DITTO-UI
 
-Easy to use web interface for biologists to look for genetic variants and understand their deleteriousness
+Easy to use web interface for biologists to look for any type of small genetic variant and understand their deleteriousness
 using DITTO scores.
 
 _!!! For research purposes only !!!_
 
 ## Description
 
-A web app where one can lookup variants and understand the deleteriousness using DITTO deleterious score and Clinvar
+A web app where one can lookup small variants and understand the deleteriousness using DITTO deleterious score and Clinvar
 reported significance. DITTO uses an explainable neural network model to predict the functional impact of variants and
 utilizes SHAP to explain the model's predictions. It is trained on variants from ClinVar and uses OpenCravat for
 annotations from various data sources. The higher the score, the more likely the variant is deleterious.
@@ -19,7 +19,10 @@ for making predictions. Annotations are extracted from openCravat API query on p
 
 ## Usage
 
-DITTO-UI is deployed on the Streamlit Cloud: [DITTO-UI site](https://cgds-ditto.streamlit.app).
+DITTO-UI is deployed on the Streamlit Cloud: [DITTO-UI site](https://cgds-ditto.streamlit.app). Here's an example on how it looks
+like
+
+![Screenshot](./webapp.png)
 
 ### Installation
 
@@ -55,7 +58,6 @@ python -m venv ditto-env
 source ditto-env/bin/activate
 ```
 
-
 ### Install required packages
 
 Change in to root directory and run the commands below:
@@ -78,4 +80,4 @@ Once the application has started up it will open a new tab in your default brows
 
 ## Contact Info
 
-Tarun Mamidi | tmamidi@uab.edu
+Tarun Mamidi | <tmamidi@uab.edu>

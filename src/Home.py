@@ -156,10 +156,10 @@ def main():
     head_col1, head_col2 = st.columns([2, 1])
     head_col1.markdown("# DITTO")
     head_col1.markdown(
-        "### A tool for exploring genetic variants and their predicted functional impact."
+        "### A tool for exploring small genetic variants and their predicted functional impact."
     )
     head_col1.markdown(
-        "- DITTO (inspired by pokemon) is a tool for exploring any type of genetic variant and their predicted functional impact on transcript(s)."
+        "- DITTO (inspired by pokemon) is a tool for exploring any type of small genetic variant and their predicted functional impact on transcript(s)."
     )
     head_col1.markdown(
         "- DITTO uses an explainable neural network model to predict the functional impact of variants and utilizes [SHAP](https://shap.readthedocs.io/) to explain the model's predictions."
