@@ -193,9 +193,7 @@ def main():
     st.markdown(
         "**Note:** Please use the correct variant info for the build. You can check the correct variant info at [Ensembl](https://www.ensembl.org/index.html) or [UCSC](https://genome.ucsc.edu/index.html)."
     )
-    st.warning("Example: chr2, 32250098, CCT, C")
-    st.warning("Example: chr16, 56870693, TGCTGCTGGCCA, GCATGGTCACTGGCGTGGTCTCGGTCACTCGG")
-    st.warning("Example: chr17, 4956111, C, CCCAGAT")
+    st.warning(f"Examples: \n\nchr2, 32250098, CCT, C\n\nchr16, 56870693, TGCTGCTGGCCA, GCATGGTCACTGGCGTGGTCTCGGTCACTCGG\n\nchr17, 4956111, C, CCCAGAT")
 
     # Variant input
     col1, col2, col3, col4 = st.columns(4)
