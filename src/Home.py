@@ -193,6 +193,11 @@ def main():
     st.markdown(
         "**Note:** Please use the correct variant info for the build. You can check the correct variant info at [Ensembl](https://www.ensembl.org/index.html) or [UCSC](https://genome.ucsc.edu/index.html)."
     )
+    st.markdown(
+                "#### Example: chr2, 32250098, CCT, C",
+                "#### Example: chr16, 56870693, TGCTGCTGGCCA, GCATGGTCACTGGCGTGGTCTCGGTCACTCGG",
+                "#### Example: chr17, 4956111, C, CCCAGAT",
+            )
 
     # Variant input
     col1, col2, col3, col4 = st.columns(4)
@@ -208,12 +213,12 @@ def main():
         # Check if reference nucleotide matches the reference genome nucleotide or reference nucleotide and alternate nucleotide are the same
         if ref != actual_ref:
             st.warning(
-                f"Provided reference nucleotide '{ref}' does not match the actual nucleotide '{actual_ref}' from reference genome. Please fix the variant info and try again."
+                f"Provided reference nucleotide '{ref}' does not match the actual nucleotide '{actual_ref}' from reference genome. Please fix the variant info and try again.", icon="⚠️"
             )
             st.session_state.clicked = False
         elif ref == alt:
             st.warning(
-                "Reference nucleotide and alternate nucleotide are the same. Please fix the variant info and try again."
+                "Reference nucleotide and alternate nucleotide are the same. Please fix the variant info and try again.", icon="⚠️"
             )
             st.session_state.clicked = False
         else:
@@ -221,7 +226,7 @@ def main():
 
     # Handle invalid variant position
     except:
-        st.warning("Please enter a valid variant info.")
+        st.warning("Please enter a valid variant info.", icon="⚠️")
         st.session_state.clicked = False
 
     # Submit button to query variant annotations and predict functional impact
@@ -237,7 +242,7 @@ def main():
         # Check if variant annotations are found
         if overall.empty:
             st.warning(
-                "Could not get variant annotations from OpenCravat's API. Please check the variant info and try again."
+                "Could not get variant annotations from OpenCravat's API. Please check the variant info and try again.", icon="⚠️"
             )
             st.session_state.clicked = False
 

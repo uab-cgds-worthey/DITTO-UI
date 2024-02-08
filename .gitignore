@@ -66,6 +66,7 @@ target/
 # DotEnv configuration
 .env
 ditto-env
+.streamlit
 
 # conda
 .conda
