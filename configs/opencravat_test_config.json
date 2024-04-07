@@ -438,7 +438,7 @@
     }
   },
   {
-    "col_id": "phastcons.phastcons30_mamm",
+    "col_id": "phastcons.phastcons470_mamm",
     "parse_type": {
       "none": "none"
     }
@@ -456,7 +456,7 @@
     }
   },
   {
-    "col_id": "phylop.phylop30_mamm",
+    "col_id": "phylop.phylop470_mamm",
     "parse_type": {
       "none": "none"
     }
