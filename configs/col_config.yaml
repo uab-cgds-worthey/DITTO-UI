@@ -82,10 +82,10 @@ raw_cols:
  - pangalodb.specificity
  - phdsnpg.score
  - phastcons.phastcons100_vert
- - phastcons.phastcons30_mamm
+ - phastcons.phastcons470_mamm
  - phastcons.phastcons17way_primate
  - phylop.phylop100_vert
- - phylop.phylop30_mamm
+ - phylop.phylop470_mamm
  - phylop.phylop17_primate
  - polyphen2.hdiv_rank
  - polyphen2.hvar_rank
@@ -270,10 +270,10 @@ median_scores:
  pangalodb.specificity: 0.0112782
  phdsnpg.score: 0.93
  phastcons.phastcons100_vert: 1.0
- phastcons.phastcons30_mamm: 0.987
+ phastcons.phastcons470_mamm: 0.987
  phastcons.phastcons17way_primate: 0.961
  phylop.phylop100_vert: 4.239
- phylop.phylop30_mamm: 1.026
+ phylop.phylop470_mamm: 1.026
  phylop.phylop17_primate: 0.599
  polyphen2.hdiv_rank: 0.55554
  polyphen2.hvar_rank: 0.53365
@@ -409,10 +409,10 @@ filtered_cols:
  - pangalodb.specificity
  - phdsnpg.score
  - phastcons.phastcons100_vert
- - phastcons.phastcons30_mamm
+ - phastcons.phastcons470_mamm
  - phastcons.phastcons17way_primate
  - phylop.phylop100_vert
- - phylop.phylop30_mamm
+ - phylop.phylop470_mamm
  - phylop.phylop17_primate
  - polyphen2.hdiv_rank
  - polyphen2.hvar_rank
