@@ -1,0 +1,10 @@
+name: ditto-ui
+
+channels:
+  - conda-forge
+  - anaconda
+  - bioconda
+
+dependencies:
+  - pandas=2.0.1
+  - bcftools=1.21
