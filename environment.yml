@@ -4,5 +4,4 @@ channels:
 
 dependencies:
   - pandas=2.2.3
-  - htslib
-  - tensorflow
+  - htslib=1.18

@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 from subprocess import Popen, PIPE
-import tensorflow as tf
 
 # Config the whole app
 st.set_page_config(
