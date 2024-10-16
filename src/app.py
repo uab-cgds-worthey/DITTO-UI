@@ -76,20 +76,6 @@ def main():
         )
     )
 
-    process = Popen(
-        ["bcftools", "-h"],
-        stdout=PIPE,
-    )
-    st.write(process.stdout.read().decode("utf-8"))
-    process = Popen(
-        [
-            "tabix",
-            "-h"
-        ],
-        stdout=PIPE,
-    )
-    st.write(process.stdout.read().decode("utf-8"))
-    st.write(process.stdout.read().decode("utf-8"))
     # Submit button to query variant annotations and predict functional impact
     st.button("Submit", on_click=click_button)
     if st.session_state.clicked:
