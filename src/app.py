@@ -57,27 +57,41 @@ def main():
     if st.session_state.clicked:
 
         try:
-            tbx = pysam.TabixFile(f"https://s3.lts.rc.uab.edu/cgds-public/dittodb/DITTO_chr{chrom}.tsv.gz")
-            vars = list(tbx.fetch(chrom, pos, pos+1))
-            lol = [i.split('\t') for i in vars]
-        except:
-            vars = []
-            st.session_state.clicked = False
+            tbx = pysam.TabixFile(f"https://s3.lts.rc.uab.edu/cgds-public/dittodb/DITTO_{chrom}.tsv.gz")
+            try:
+                vars = list(tbx.fetch(chrom, pos, pos+1))
+                if not vars:
+                    st.warning(
+                        "Fetch completed but no variants found at this position! Please check or try a different position!", icon="⚠️"
+                    )
+                    st.session_state.clicked = False
+                else:
+                    lol = [i.split('\t') for i in vars]
+                            # Check if variant annotations are found
+                    if not lol:
+                        st.warning(
+                            "No variants found at this position. Please check or try a different position!", icon="⚠️"
+                        )
+                        st.session_state.clicked = False
 
-        # Check if variant annotations are found
-        if not lol:
+                    else:
+                        # Display variant annotations from opencravat
+                        st.subheader("**Variants with DITTO predictions**")
+                        overall = pd.DataFrame(lol, columns = ['Chromosome', 'Position','Reference Allele','Alternate Allele','Transcript','Gene','Consequence','DITTO'])
+                        st.warning(f"Showing {len(overall)} variants")
+                        st.dataframe(overall,hide_index=True, use_container_width=True)
+                        st.write("\n\n")
+            except:
+                st.warning(
+                    "Could not fetch variants at this position. Please check or try a different position!", icon="⚠️"
+                )
+        except:
             st.warning(
-                "Could not extract variants at this position. Please check or try a different position!", icon="⚠️"
+                "Could not load the tabix file!", icon="⚠️"
             )
             st.session_state.clicked = False
 
-        else:
-            # Display variant annotations from opencravat
-            st.subheader("**Variants with DITTO predictions**")
-            overall = pd.DataFrame(lol, columns = ['Chromosome', 'Position','Reference Allele','Alternate Allele','Transcript','Gene','Consequence','DITTO'])
-            st.warning(f"Showing {len(overall)} variants")
-            st.dataframe(overall,hide_index=True, use_container_width=True)
-            st.write("\n\n")
+
 
     st.markdown("---")
 
