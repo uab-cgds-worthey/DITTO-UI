@@ -5,5 +5,4 @@ channels:
 
 dependencies:
   - pandas=2.2.3
-  - bcftools=1.21
   - htslib
