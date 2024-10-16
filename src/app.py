@@ -77,7 +77,7 @@ def main():
     )
     process = Popen(
         [
-            "bcftools",
+            "tabix",
             "-h"
         ],
         stdout=PIPE,
