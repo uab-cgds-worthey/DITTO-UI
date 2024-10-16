@@ -55,7 +55,6 @@ def main():
 
     head_col1.markdown("\n\n")
 
-
     st.markdown("### Please input a variant of interest in build GRCh38:")
     st.markdown(
         "**Note:** Please use the correct variant info for the build. You can check the correct variant info at [Ensembl](https://www.ensembl.org/index.html) or [UCSC](https://genome.ucsc.edu/index.html)."
@@ -66,6 +65,16 @@ def main():
     col1, col2 = st.columns(2)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 23)) + ["X", "Y", "M"])
     pos = col2.text_input("Position:", 2406483)
+    st.dataframe(
+        pd.DataFrame(
+            {
+                "num_legs": [2, 4, 8, 0],
+                "num_wings": [2, 0, 0, 0],
+                "num_specimen_seen": [10, 2, 1, 8],
+            },
+            index=["falcon", "dog", "spider", "fish"],
+        )
+    )
 
     # Submit button to query variant annotations and predict functional impact
     st.button("Submit", on_click=click_button)
