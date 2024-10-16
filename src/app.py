@@ -77,7 +77,7 @@ def main():
     )
 
     process = Popen(
-        ["htslib", "-h"],
+        ["bcftools", "-h"],
         stdout=PIPE,
     )
     st.write(process.stdout.read().decode("utf-8"))
