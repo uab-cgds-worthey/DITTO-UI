@@ -75,6 +75,14 @@ def main():
             index=["falcon", "dog", "spider", "fish"],
         )
     )
+    process = Popen(
+        [
+            "echo",
+            "Mana is great!!"
+        ],
+        stdout=PIPE,
+    )
+    st.write(process.stdout.read().decode("utf-8"))
 
     # Submit button to query variant annotations and predict functional impact
     st.button("Submit", on_click=click_button)
