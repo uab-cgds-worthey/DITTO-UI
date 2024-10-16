@@ -8,14 +8,12 @@ _!!! For research purposes only !!!_
 ## Description
 
 A web app where one can lookup small variants and understand the deleteriousness using DITTO deleterious score and Clinvar
-reported significance. DITTO uses an explainable neural network model to predict the functional impact of variants and
-utilizes SHAP to explain the model's predictions. It is trained on variants from ClinVar and uses OpenCravat for
+reported significance. DITTO uses an explainable neural network model to predict the functional impact of variants. It is trained on variants from ClinVar and uses OpenCravat for
 annotations from various data sources. The higher the score, the more likely the variant is deleterious.
 
 ## Data
 
-DITTO-UI comprises DITTO scores for any variant using annotations from openCravat
-for making predictions. Annotations are extracted from openCravat API query on page render.
+DITTO-UI renders precomputed DITTO scores for variants extracted from [DITTOdb](https://s3.lts.rc.uab.edu/cgds-public/dittodb/dittodb.html).
 
 ## Usage
 
@@ -42,29 +40,15 @@ To fetch source code, change in to directory of your choice and run:
 
 This app is developed and tested in Mac OS.
 
-*Tools:*
-
-- Python 3.11
-- Pip 23.3
-
 *Environment:*
 
-- [python virtual environment](https://docs.python.org/3/tutorial/venv.html)
+- [Anaconda](https://docs.anaconda.com/anaconda/install/)
 
 ```sh
-# create environment. Needed only the first time. Please use the above link if you're not using Mac.
-python -m venv ditto-env
+# create environment. Needed only the first time. Please use the above link to install anaconda!.
+conda env create -f configs/environment.yaml
 
-source ditto-env/bin/activate
-```
-
-### Install required packages
-
-Change in to root directory and run the commands below:
-
-```sh
-# Install dependencies in the environment. Needed only the first time.
-pip3 install -r requirements.txt
+conda activate ditto-ui
 ```
 
 ### Run DITTO-UI locally
@@ -73,7 +57,7 @@ To run DITTO-UI locally make sure the environment has been succesfully made and 
 
 ```sh
 # run the DITTO-UI application using Streamlit
-streamlit run src/Home.py
+streamlit run src/app.py
 ```
 
 Once the application has started up it will open a new tab in your default browser to DITTO-UI

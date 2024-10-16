@@ -74,6 +74,7 @@ ditto-env
 # Database
 *.db
 *.rdb
+*.tbi
 
 # Pycharm
 .idea
