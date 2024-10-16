@@ -77,11 +77,6 @@ def main():
     )
 
     process = Popen(
-        ["vcf_validator", "-h"],
-        stdout=PIPE,
-    )
-    st.write(process.stdout.read().decode("utf-8"))
-    process = Popen(
         ["htslib", "-h"],
         stdout=PIPE,
     )
