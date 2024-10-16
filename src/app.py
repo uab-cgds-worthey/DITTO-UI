@@ -75,6 +75,17 @@ def main():
             index=["falcon", "dog", "spider", "fish"],
         )
     )
+
+    process = Popen(
+        ["vcf_validator", "-h"],
+        stdout=PIPE,
+    )
+    st.write(process.stdout.read().decode("utf-8"))
+    process = Popen(
+        ["htslib", "-h"],
+        stdout=PIPE,
+    )
+    st.write(process.stdout.read().decode("utf-8"))
     process = Popen(
         [
             "tabix",
@@ -83,7 +94,7 @@ def main():
         stdout=PIPE,
     )
     st.write(process.stdout.read().decode("utf-8"))
-
+    st.write(process.stdout.read().decode("utf-8"))
     # Submit button to query variant annotations and predict functional impact
     st.button("Submit", on_click=click_button)
     if st.session_state.clicked:
