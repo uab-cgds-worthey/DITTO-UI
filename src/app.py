@@ -77,8 +77,8 @@ def main():
     )
     process = Popen(
         [
-            "echo",
-            "Mana is great!!"
+            "bcftools",
+            "-h"
         ],
         stdout=PIPE,
     )
