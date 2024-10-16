@@ -23,9 +23,13 @@ def tabix_query(chrom , start):
     chrom = 'chr'+str(chrom)
     query = '{}:{}-{}'.format(chrom, start, start)
     # st.warning(f"Querying DITTO for {query}")
-    process = Popen(['tabix', '-f', f'https://s3.lts.rc.uab.edu/cgds-public/dittodb/DITTO_{chrom}.tsv.gz', query], stdout=PIPE)
-    for line in process.stdout:
-        yield line.strip().decode("utf-8").split('\t')
+    try:
+        process = Popen(['tabix', '-f', f'https://s3.lts.rc.uab.edu/cgds-public/dittodb/DITTO_{chrom}.tsv.gz', query], stdout=PIPE)
+        for line in process.stdout:
+            yield line.strip().decode("utf-8").split('\t')
+    except:
+        st.warning(f"Could not query using BCFtools!")
+        st.session_state.clicked = False
 
 def main():
 
