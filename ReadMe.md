@@ -46,7 +46,7 @@ This app is developed and tested in Mac OS.
 
 ```sh
 # create environment. Needed only the first time. Please use the above link to install anaconda!.
-conda env create -f environment.yml
+conda env create -f configs/environment.yaml
 
 conda activate ditto-ui
 ```
