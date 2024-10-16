@@ -27,7 +27,8 @@ def tabix_query(chrom , start):
         process = Popen(['tabix', '-f', f'https://s3.lts.rc.uab.edu/cgds-public/dittodb/DITTO_{chrom}.tsv.gz', query], stdout=PIPE)
         for line in process.stdout:
             yield line.strip().decode("utf-8").split('\t')
-    except:
+    except Exception as e:
+        st.warning(e)
         st.warning(f"Could not query using BCFtools!")
         st.session_state.clicked = False
 
