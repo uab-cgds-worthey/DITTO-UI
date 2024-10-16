@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from subprocess import Popen, PIPE
+import pysam
 
 # Config the whole app
 st.set_page_config(
@@ -16,21 +16,6 @@ if "clicked" not in st.session_state:
 
 def click_button():
     st.session_state.clicked = True
-
-# @st.cache_data
-def tabix_query(chrom , start):
-    """Call tabix and generate an array of strings for each line it returns."""
-    chrom = 'chr'+str(chrom)
-    query = '{}:{}-{}'.format(chrom, start, start)
-    # st.warning(f"Querying DITTO for {query}")
-    try:
-        process = Popen(['tabix', '-f', f'https://s3.lts.rc.uab.edu/cgds-public/dittodb/DITTO_{chrom}.tsv.gz', query], stdout=PIPE)
-        for line in process.stdout:
-            yield line.strip().decode("utf-8").split('\t')
-    except Exception as e:
-        st.warning(e)
-        st.warning(f"Could not query using BCFtools!")
-        st.session_state.clicked = False
 
 def main():
 
@@ -64,30 +49,23 @@ def main():
     # Variant input
     col1, col2 = st.columns(2)
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 23)) + ["X", "Y", "M"])
+    chrom = 'chr'+str(chrom)
     pos = col2.text_input("Position:", 2406483)
-    st.dataframe(
-        pd.DataFrame(
-            {
-                "num_legs": [2, 4, 8, 0],
-                "num_wings": [2, 0, 0, 0],
-                "num_specimen_seen": [10, 2, 1, 8],
-            },
-            index=["falcon", "dog", "spider", "fish"],
-        )
-    )
 
     # Submit button to query variant annotations and predict functional impact
     st.button("Submit", on_click=click_button)
     if st.session_state.clicked:
 
         try:
-            vars = list(tabix_query(chrom,pos))
+            tbx = pysam.TabixFile(f"https://s3.lts.rc.uab.edu/cgds-public/dittodb/DITTO_chr{chrom}.tsv.gz")
+            vars = list(tbx.fetch(chrom, pos, pos+1))
+            lol = [i.split('\t') for i in vars]
         except:
             vars = []
             st.session_state.clicked = False
 
         # Check if variant annotations are found
-        if not vars:
+        if not lol:
             st.warning(
                 "Could not extract variants at this position. Please check or try a different position!", icon="⚠️"
             )
@@ -96,7 +74,7 @@ def main():
         else:
             # Display variant annotations from opencravat
             st.subheader("**Variants with DITTO predictions**")
-            overall = pd.DataFrame(vars, columns = ['Chromosome', 'Position','Reference Allele','Alternate Allele','Transcript','Gene','Consequence','DITTO'])
+            overall = pd.DataFrame(lol, columns = ['Chromosome', 'Position','Reference Allele','Alternate Allele','Transcript','Gene','Consequence','DITTO'])
             st.warning(f"Showing {len(overall)} variants")
             st.dataframe(overall,hide_index=True, use_container_width=True)
             st.write("\n\n")
