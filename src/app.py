@@ -62,6 +62,15 @@ def main():
     )
     st.write(process.stdout.read().decode("utf-8"))
 
+
+    process = Popen(
+        [
+            "ls", "-l"
+            "/usr/lib/ssl/"
+        ],
+        stdout=PIPE,
+    )
+    st.write(process.stdout.read().decode("utf-8"))
     # Submit button to query variant annotations and predict functional impact
     st.button("Submit", on_click=click_button)
     if st.session_state.clicked:
