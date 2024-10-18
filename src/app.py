@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pysam
+from subprocess import Popen, PIPE
 
 # Config the whole app
 st.set_page_config(
@@ -51,6 +52,15 @@ def main():
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 23)) + ["X", "Y", "M"])
     chrom = 'chr'+str(chrom)
     pos = col2.text_input("Position:", 2406483)
+
+    process = Popen(
+        [
+            "openssl",
+            "version", "-d"
+        ],
+        stdout=PIPE,
+    )
+    st.write(process.stdout.read().decode("utf-8"))
 
     # Submit button to query variant annotations and predict functional impact
     st.button("Submit", on_click=click_button)
