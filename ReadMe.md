@@ -36,19 +36,33 @@ To fetch source code, change in to directory of your choice and run:
 
 ### Requirements
 
-*OS:*
+_OS:_
 
 This app is developed and tested in Mac OS.
 
-*Environment:*
+_Tools:_
 
-- [Anaconda](https://docs.anaconda.com/anaconda/install/)
+- Python 3.11
+- Pip 23.3
+
+_Environment:_
+
+- [python virtual environment](https://docs.python.org/3/tutorial/venv.html)
 
 ```sh
-# create environment. Needed only the first time. Please use the above link to install anaconda!.
-conda env create -f configs/environment.yaml
+# create environment. Needed only the first time. Please use the above link if you're not using Mac.
+python -m venv ditto-env
 
-conda activate ditto-ui
+source ditto-env/bin/activate
+```
+
+### Install required packages
+
+Change in to root directory and run the commands below:
+
+```sh
+# Install dependencies in the environment. Needed only the first time.
+pip3 install -r requirements.txt
 ```
 
 ### Run DITTO-UI locally
