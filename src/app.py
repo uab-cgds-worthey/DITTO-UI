@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import pysam
 from subprocess import Popen, PIPE
+import os
+
 
 # Config the whole app
 st.set_page_config(
@@ -19,6 +21,7 @@ def click_button():
     st.session_state.clicked = True
 
 def main():
+    os.environ['CURL_CA_BUNDLE']='/etc/ssl/certs/ca-certificates.crt'
 
     head_col1, head_col2 = st.columns([2, 1])
     head_col1.markdown("# DITTO")
@@ -52,25 +55,8 @@ def main():
     chrom = col1.selectbox("Chromosome:", options=list(range(1, 23)) + ["X", "Y", "M"])
     chrom = 'chr'+str(chrom)
     pos = col2.text_input("Position:", 2406483)
+    pos = int(pos)
 
-    process = Popen(
-        [
-            "openssl",
-            "version", "-d"
-        ],
-        stdout=PIPE,
-    )
-    st.write(process.stdout.read().decode("utf-8"))
-
-
-    process = Popen(
-        [
-            "ls", "-l",
-            "/usr/lib/ssl/certs/"
-        ],
-        stdout=PIPE,
-    )
-    st.write(process.stdout.read().decode("utf-8"))
     # Submit button to query variant annotations and predict functional impact
     st.button("Submit", on_click=click_button)
     if st.session_state.clicked:
@@ -100,7 +86,8 @@ def main():
                         st.warning(f"Showing {len(overall)} variants")
                         st.dataframe(overall,hide_index=True, use_container_width=True)
                         st.write("\n\n")
-            except:
+            except Exception as e:
+                st.warning(e)
                 st.warning(
                     "Could not fetch variants at this position. Please check or try a different position!", icon="⚠️"
                 )
