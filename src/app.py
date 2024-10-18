@@ -69,7 +69,6 @@ def main():
                     st.warning(
                         "Fetch completed but no variants found at this position! Please check or try a different position!", icon="⚠️"
                     )
-                    st.session_state.clicked = False
                 else:
                     lol = [i.split('\t') for i in vars]
                             # Check if variant annotations are found
@@ -77,7 +76,6 @@ def main():
                         st.warning(
                             "No variants found at this position. Please check or try a different position!", icon="⚠️"
                         )
-                        st.session_state.clicked = False
 
                     else:
                         # Display variant annotations from opencravat
@@ -95,9 +93,8 @@ def main():
             st.warning(
                 "Could not load the tabix file!", icon="⚠️"
             )
-            st.session_state.clicked = False
 
-
+    st.session_state.clicked = False
 
     st.markdown("---")
 
