@@ -65,7 +65,7 @@ def main():
 
     process = Popen(
         [
-            "ls", "-l"
+            "ls", "-l",
             "/usr/lib/ssl/"
         ],
         stdout=PIPE,
