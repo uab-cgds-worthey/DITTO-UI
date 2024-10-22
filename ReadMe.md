@@ -50,8 +50,6 @@ Change in to root directory and run the command below:
 docker compose up -d
 ```
 
-
-
 The above setup will build the Docker image, install the necessary dependencies, and run the DITTO-UI application using
 Streamlit. The application will be accessible at <http://localhost:8501>.
 
