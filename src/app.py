@@ -64,7 +64,7 @@ def main():
         try:
             tbx = pysam.TabixFile(f"https://s3.lts.rc.uab.edu/cgds-public/dittodb/DITTO_{chrom}.tsv.gz")
             try:
-                vars = list(tbx.fetch(chrom, pos, pos+1))
+                vars = list(tbx.fetch(chrom, pos-1, pos))
                 if not vars:
                     st.warning(
                         "Fetch completed but no variants found at this position! Please check or try a different position!", icon="⚠️"
