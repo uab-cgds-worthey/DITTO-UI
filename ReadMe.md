@@ -22,6 +22,8 @@ like
 
 ![Screenshot](./webapp.png)
 
+## Run DITTO-UI locally
+
 ### Installation
 
 Installation simply requires fetching the source code. Following are required:
@@ -36,45 +38,22 @@ To fetch source code, change in to directory of your choice and run:
 
 ### Requirements
 
-_OS:_
-
-This app is developed and tested in Mac OS.
-
 _Tools:_
 
-- Python 3.11
-- Pip 23.3
+- [Docker](https://www.docker.com/)
 
-_Environment:_
+### Build the Docker image and run the container
 
-- [python virtual environment](https://docs.python.org/3/tutorial/venv.html)
-
-```sh
-# create environment. Needed only the first time. Please use the above link if you're not using Mac.
-python -m venv ditto-env
-
-source ditto-env/bin/activate
-```
-
-### Install required packages
-
-Change in to root directory and run the commands below:
+Change in to root directory and run the command below:
 
 ```sh
-# Install dependencies in the environment. Needed only the first time.
-pip3 install -r requirements.txt
+docker compose up -d
 ```
 
-### Run DITTO-UI locally
 
-To run DITTO-UI locally make sure the environment has been succesfully made and then run the following commands
 
-```sh
-# run the DITTO-UI application using Streamlit
-streamlit run src/app.py
-```
-
-Once the application has started up it will open a new tab in your default browser to DITTO-UI
+The above setup will build the Docker image, install the necessary dependencies, and run the DITTO-UI application using
+Streamlit. The application will be accessible at <http://localhost:8501>.
 
 ## Contact Info
 
