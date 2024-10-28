@@ -1,0 +1,9 @@
+services:
+  ditto-ui:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
